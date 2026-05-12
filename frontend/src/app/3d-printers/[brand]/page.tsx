@@ -7,93 +7,9 @@ import Link from "next/link";
 import Image from "next/image";
 
 // Simulated mock data inspired by the user's screenshots
-const mockModels = [
-  {
-    id: 1,
-    name: "Bambu Lab P1S 3D Printer",
-    slug: "bambu-lab-p1s-3d-printer",
-    price: 45500,
-    originalPrice: 53000,
-    badge: "",
-    image: "/Bamboo_lab_ps1.png",
-    inStock: true,
-  },
-  {
-    id: 2,
-    name: "Anycubic Kobra 2 Pro 3D Printer",
-    slug: "anycubic-kobra-2-pro-3d-printer",
-    price: 24500,
-    badge: "",
-    image: "/anycubic_kobra.png",
-    inStock: true,
-  },
-  {
-    id: 3,
-    name: "Elegoo Centauri Carbon 3D Printer",
-    slug: "elegoo-centauri-carbon-3d-printer",
-    price: 45500,
-    badge: "New",
-    image: "/elegoo_centauri_carbon.png",
-    inStock: true,
-  },
-  {
-    id: 4,
-    name: "FLASH FORGE AD5X HIGH SPEED MULTI COLOUR 3D PRINTER",
-    slug: "flash-forge-ad5x-high-speed-multi-colour-3d-printer",
-    price: 36500,
-    badge: "",
-    image: "/flash_forge.png",
-    inStock: true,
-  },
-  {
-    id: 5,
-    name: "Creality CR 10 S5 3D Printer",
-    slug: "creality-cr-10-s5-3d-printer",
-    price: 70500,
-    originalPrice: 72000,
-    badge: "With Premium Tech Support",
-    image: "/creality_cr_10s5.png",
-    inStock: false,
-  },
-  {
-    id: 6,
-    name: "Creality CR-10 V2 3D Printer",
-    slug: "creality-cr-10-v2-3d-printer",
-    price: 58500,
-    originalPrice: 60000,
-    badge: "With Premium Tech Support",
-    image: "/creality_cr10v2.png",
-    inStock: true,
-  },
-  {
-    id: 7,
-    name: "Original Creality CR-10S Pro V2 3D Printer with BL Touch",
-    slug: "original-creality-cr-10s-pro-v2-3d-printer-with-bl-touch",
-    price: 66800,
-    originalPrice: 68000,
-    badge: "With Premium Tech Support",
-    image: "/og_creality.png",
-    inStock: true,
-  },
-  {
-    id: 8,
-    name: "Ender-3 V2 3D Printer with silent board high performance",
-    slug: "ender-3-v2-3d-printer-with-silent-board-high-performance",
-    price: 24500,
-    originalPrice: 26000,
-    badge: "With Premium Tech Support",
-    image: "/ender_3v2.png",
-    inStock: true,
-  },
-];
+import { mockModels, formatPrice } from "@/data/printerData";
 
-const formatPrice = (price: number) => {
-  return new Intl.NumberFormat("en-IN", {
-    style: "currency",
-    currency: "INR",
-    maximumFractionDigits: 2,
-  }).format(price);
-};
+
 
 export default function BrandModelsPage({ params }: { params: { brand: string } }) {
   const [selectedModel, setSelectedModel] = useState<any | null>(null);
