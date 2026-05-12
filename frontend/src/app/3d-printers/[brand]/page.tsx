@@ -7,7 +7,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 // Simulated mock data inspired by the user's screenshots
-export const mockModels = [
+const mockModels = [
   {
     id: 1,
     name: "Bambu Lab P1S 3D Printer",
@@ -87,7 +87,7 @@ export const mockModels = [
   },
 ];
 
-export const formatPrice = (price: number) => {
+const formatPrice = (price: number) => {
   return new Intl.NumberFormat("en-IN", {
     style: "currency",
     currency: "INR",
@@ -193,7 +193,7 @@ export default function BrandModelsPage({ params }: { params: { brand: string } 
                     {model.badge}
                   </div>
                 )}
-                
+
                 {/* Quick View Overlay (Visible on Hover) */}
                 <div className="absolute inset-0 z-20 flex flex-col items-center justify-end bg-black/60 p-8 opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100">
                   <button
@@ -216,7 +216,7 @@ export default function BrandModelsPage({ params }: { params: { brand: string } 
                   <h3 className="mb-4 text-xl font-bold leading-tight text-foreground md:text-2xl">
                     {model.name}
                   </h3>
-                  
+
                   <div className="mb-6 flex flex-wrap items-baseline gap-3">
                     <span className="text-2xl font-bold tracking-tight text-primary">
                       {formatPrice(model.price)}
@@ -261,7 +261,7 @@ export default function BrandModelsPage({ params }: { params: { brand: string } 
               onClick={closeModal}
               className="absolute inset-0 bg-black/80 backdrop-blur-sm"
             />
-            
+
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -279,7 +279,7 @@ export default function BrandModelsPage({ params }: { params: { brand: string } 
               {/* Modal Image Area */}
               <div className="relative flex aspect-square w-full flex-col items-center justify-center bg-white/5 p-8 md:w-1/2 md:p-12 md:aspect-auto">
                 <div className="relative h-full w-full rounded-xl bg-white/5">
-                   <Image src={selectedModel.image} alt={selectedModel.name} fill className="object-contain p-8 drop-shadow-2xl" />
+                  <Image src={selectedModel.image} alt={selectedModel.name} fill className="object-contain p-8 drop-shadow-2xl" />
                 </div>
                 {/* Carousel Dots */}
                 <div className="mt-6 flex justify-center gap-2">
@@ -297,7 +297,7 @@ export default function BrandModelsPage({ params }: { params: { brand: string } 
                 <h2 className="mb-2 text-2xl font-bold leading-tight text-foreground md:text-3xl">
                   {selectedModel.name}
                 </h2>
-                
+
                 <div className="mb-6 flex flex-wrap items-baseline gap-3">
                   <span className="text-3xl font-bold tracking-tight text-primary">
                     {formatPrice(selectedModel.price)}
@@ -319,8 +319,8 @@ export default function BrandModelsPage({ params }: { params: { brand: string } 
                     <h4 className="mb-3 text-sm font-semibold text-foreground">Color: <span className="font-normal text-muted-foreground">Black</span>*</h4>
                     <div className="flex gap-3">
                       <button className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-primary bg-black ring-2 ring-primary/20 transition-all hover:scale-110">
-                         {/* inner border to separate black background from black circle */}
-                         <div className="h-full w-full rounded-full border-2 border-background" />
+                        {/* inner border to separate black background from black circle */}
+                        <div className="h-full w-full rounded-full border-2 border-background" />
                       </button>
                       <button className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-transparent bg-neutral-600 transition-all hover:scale-110 hover:border-white/50" />
                     </div>
@@ -347,26 +347,26 @@ export default function BrandModelsPage({ params }: { params: { brand: string } 
                 </div>
 
                 <div className="mt-auto flex flex-col gap-4">
-                   {selectedModel.inStock ? (
-                      <button className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-primary to-secondary px-6 py-4 text-sm font-bold tracking-wide text-primary-foreground shadow-lg transition-all hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(0,229,255,0.4)] active:scale-[0.98]">
-                        Add to Cart
-                      </button>
-                   ) : (
-                      <button
-                        disabled
-                        className="flex w-full cursor-not-allowed items-center justify-center gap-2 rounded-xl bg-muted/30 px-6 py-4 text-sm font-bold tracking-wide text-muted-foreground border border-white/5"
-                      >
-                        Out of Stock
-                      </button>
-                   )}
-                   
-                   <Link
-                      href={`/product-page/${selectedModel.slug}`}
-                      onClick={() => document.body.style.overflow = ""} // make sure to restore scrolling
-                      className="mt-2 inline-block self-start text-sm font-medium text-muted-foreground underline decoration-muted-foreground/30 underline-offset-4 transition-colors hover:text-primary hover:decoration-primary/50"
-                   >
-                     View More Details
-                   </Link>
+                  {selectedModel.inStock ? (
+                    <button className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-primary to-secondary px-6 py-4 text-sm font-bold tracking-wide text-primary-foreground shadow-lg transition-all hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(0,229,255,0.4)] active:scale-[0.98]">
+                      Add to Cart
+                    </button>
+                  ) : (
+                    <button
+                      disabled
+                      className="flex w-full cursor-not-allowed items-center justify-center gap-2 rounded-xl bg-muted/30 px-6 py-4 text-sm font-bold tracking-wide text-muted-foreground border border-white/5"
+                    >
+                      Out of Stock
+                    </button>
+                  )}
+
+                  <Link
+                    href={`/product-page/${selectedModel.slug}`}
+                    onClick={() => document.body.style.overflow = ""} // make sure to restore scrolling
+                    className="mt-2 inline-block self-start text-sm font-medium text-muted-foreground underline decoration-muted-foreground/30 underline-offset-4 transition-colors hover:text-primary hover:decoration-primary/50"
+                  >
+                    View More Details
+                  </Link>
                 </div>
               </div>
             </motion.div>
