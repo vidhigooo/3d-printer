@@ -1,0 +1,7 @@
+{
+  "/page": "app/page.js",
+  "/3d-printers/page": "app/3d-printers/page.js",
+  "/product-page/[slug]/page": "app/product-page/[slug]/page.js",
+  "/contact-us/page": "app/contact-us/page.js",
+  "/3d-printers/[brand]/page": "app/3d-printers/[brand]/page.js"
+}

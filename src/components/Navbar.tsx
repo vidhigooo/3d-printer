@@ -3,13 +3,24 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import { Menu, X, Hexagon } from "lucide-react";
+import { Menu, X, Search } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const navItems = [
+    { name: "Home", href: "/" },
+    { name: "3D Printers", href: "/3d-printers" },
+    { name: "Products", href: "/products" },
+    { name: "3D Services", href: "/3d-services" },
+    { name: "Shilp studio", href: "/shilp-studio" },
+    { name: "Industries", href: "/industries" },
+    { name: "Contact Us", href: "/contact-us" },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,35 +39,49 @@ export default function Navbar() {
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 group">
-          <Hexagon className="w-8 h-8 text-primary group-hover:text-secondary transition-colors duration-300" />
-          <span className="text-xl font-bold tracking-tight text-foreground group-hover:text-primary transition-colors duration-300">
-            Vektor3d
-          </span>
+        <Link href="/" className="flex items-center group translate-y-1">
+          <Image
+            src="/logo.png"
+            alt="Vektor3d"
+            width={200}
+            height={200}
+            className="h-20 w-auto object-contain"
+            priority
+          />
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex flex-1 justify-center space-x-12">
-          {["Services", "How It Works", "Portfolio", "Contact"].map((item) => (
+        <nav className="hidden lg:flex flex-1 justify-center space-x-4 xl:space-x-8">
+          {navItems.map((item) => (
             <Link
-              key={item}
-              href={`#${item.toLowerCase().replace(/\s+/g, "-")}`}
-              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+              key={item.name}
+              href={item.href}
+              className="text-[13px] xl:text-sm font-medium text-muted-foreground hover:text-primary transition-colors whitespace-nowrap"
             >
-              {item}
+              {item.name}
             </Link>
           ))}
         </nav>
 
-        {/* Action Button & Theme */}
-        <div className="hidden md:flex items-center gap-4">
+        {/* Contact Info & Search */}
+        <div className="hidden lg:flex items-center gap-4 xl:gap-6 flex-shrink-0 ml-4">
+          <div className="flex flex-col items-end text-[13px] xl:text-sm font-medium text-muted-foreground space-y-0.5 whitespace-nowrap border-r border-border/50 pr-4 translate-y-[2px]">
+            <span>3D Printing : +91-9082020416 | +91-8655211644</span>
+            <span>|3D Printer: +91-8369305601</span>
+          </div>
+
+          <div className="flex items-center gap-2 border-b border-border/50 pb-1">
+            <input
+              type="text"
+              placeholder="Search..."
+              className="w-24 xl:w-36 bg-transparent text-sm outline-none placeholder:text-muted-foreground"
+            />
+            <button className="p-1 hover:opacity-80 rounded text-foreground transition-colors bg-[#f0ece1] dark:bg-primary/20">
+              <Search className="w-4 h-4" />
+            </button>
+          </div>
+
           <ThemeToggle />
-          <Link
-            href="#contact"
-            className="px-6 py-2.5 rounded-full bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 font-medium text-sm inline-block shadow-[0_0_15px_rgba(0,229,255,0.15)] hover:shadow-[0_0_25px_rgba(0,229,255,0.4)]"
-          >
-            Get Instant Quote
-          </Link>
         </div>
 
         {/* Mobile menu button */}
@@ -75,25 +100,33 @@ export default function Navbar() {
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="md:hidden absolute top-full left-0 w-full glass border-b border-border/50 py-4 flex flex-col items-center space-y-4 bg-background/95 backdrop-blur-xl"
+          className="md:hidden absolute top-full left-0 w-full border-b border-border/50 py-4 pb-8 flex flex-col items-center space-y-4 bg-background shadow-2xl"
         >
-          {["Services", "How It Works", "Portfolio", "Contact"].map((item) => (
+          {navItems.map((item) => (
             <Link
-              key={item}
-              href={`#${item.toLowerCase().replace(/\s+/g, "-")}`}
+              key={item.name}
+              href={item.href}
               className="text-base font-medium text-foreground hover:text-primary"
               onClick={() => setMobileMenuOpen(false)}
             >
-              {item}
+              {item.name}
             </Link>
           ))}
-          <Link
-            href="#contact"
-            className="mt-4 px-6 py-2.5 rounded-full bg-primary text-primary-foreground font-medium text-sm shadow-[0_0_15px_rgba(0,229,255,0.3)]"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            Get Instant Quote
-          </Link>
+          <div className="flex flex-col items-center mt-4 w-full p-4 border-t border-border/50 text-xs text-center space-y-1">
+            <span className="text-foreground">3D Printing: +91-9082020416 | +91-8655211644</span>
+            <span className="text-muted-foreground">3D Printer: +91-8369305601</span>
+          </div>
+
+          <div className="flex items-center border border-border/50 rounded-md overflow-hidden bg-background/50 mt-4 w-11/12 max-w-sm">
+            <input
+              type="text"
+              placeholder="Search..."
+              className="flex-1 px-3 py-2 text-sm bg-transparent outline-none"
+            />
+            <button className="px-4 py-2 bg-[#f0ece1] dark:bg-secondary/30 hover:opacity-80 text-foreground transition-colors">
+              <Search className="w-4 h-4" />
+            </button>
+          </div>
         </motion.div>
       )}
     </header>
