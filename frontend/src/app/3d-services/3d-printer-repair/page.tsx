@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Wrench, Settings, Droplets, CheckCircle2, Clock, Hammer, MapPin, Star, UserCircle2, ShieldCheck, ChevronRight } from "lucide-react";
+import { Wrench, Settings, Droplets, CheckCircle2, ShieldCheck, Activity, Zap, Search, PhoneCall, ArrowRight, HardDrive, Cpu, ChevronRight } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "3D Printer Repair & Maintenance | VEKTOR3D SYSTEMS",
-  description: "Fast, reliable, and expert repair solutions for FDM, SLA, DLP, LCD, and industrial 3D printers.",
+  description: "Reliable repair, calibration, and performance optimization for FDM, SLA, DLP & industrial 3D printers.",
 };
 
 export default function ThreeDPrinterRepairPage() {
@@ -15,19 +15,6 @@ export default function ThreeDPrinterRepairPage() {
           100% { transform: translateX(200%) skewX(-12deg); }
         }
         .animate-shimmer { animation: shimmer 2.5s infinite; }
-        
-        .timeline-line {
-          position: absolute;
-          top: 24px;
-          left: 50%;
-          width: 100%;
-          height: 2px;
-          background: linear-gradient(90deg, rgba(6,182,212,0.1) 0%, rgba(6,182,212,0.5) 50%, rgba(168,85,247,0.1) 100%);
-          z-index: 0;
-        }
-        @media (max-width: 1024px) {
-          .timeline-line { display: none; }
-        }
       `}} />
 
       {/* Global Background Effects */}
@@ -45,38 +32,23 @@ export default function ThreeDPrinterRepairPage() {
           {/* Hero Content */}
           <div className="space-y-8 relative z-10">
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]">
-              3D Printer Repair & Maintenance
+              3D Printer Repair & Maintenance Services
             </h1>
             
             <p className="text-lg md:text-xl text-slate-400 leading-relaxed max-w-xl">
-              Fast, reliable, and expert repair solutions for FDM, SLA, DLP, LCD, and industrial 3D printers.
+              Reliable repair, calibration, and performance optimization for FDM, SLA, DLP & industrial 3D printers.
             </p>
-            
-            <div className="grid grid-cols-2 gap-4 max-w-md pt-2">
-              <div className="flex items-center gap-2 text-sm font-medium text-slate-300">
-                <MapPin className="w-4 h-4 text-cyan-400" /> On-site Support
-              </div>
-              <div className="flex items-center gap-2 text-sm font-medium text-slate-300">
-                <Clock className="w-4 h-4 text-purple-400" /> 48hr Turnaround
-              </div>
-              <div className="flex items-center gap-2 text-sm font-medium text-slate-300">
-                <Settings className="w-4 h-4 text-cyan-400" /> Industrial Expertise
-              </div>
-              <div className="flex items-center gap-2 text-sm font-medium text-slate-300">
-                <ShieldCheck className="w-4 h-4 text-purple-400" /> Certified Techs
-              </div>
-            </div>
 
             <div className="flex flex-wrap gap-4 pt-6">
               <button className="relative inline-flex h-14 overflow-hidden rounded-xl p-[1px] focus:outline-none group">
                 <span className="absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#06b6d4_0%,#a855f7_50%,#06b6d4_100%)]" />
                 <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-xl bg-slate-950 px-8 py-1 text-base font-bold text-white backdrop-blur-3xl transition-all group-hover:bg-slate-900 shadow-[0_0_25px_rgba(0,229,255,0.2)]">
-                  Book Repair
+                  Book Service
                 </span>
               </button>
               
               <button className="inline-flex h-14 items-center justify-center rounded-xl border border-white/10 bg-white/5 px-8 py-1 text-base font-bold text-white transition-all hover:bg-white/10 hover:border-white/20">
-                Get Free Diagnosis
+                Get Diagnosis
               </button>
             </div>
           </div>
@@ -91,7 +63,7 @@ export default function ThreeDPrinterRepairPage() {
 
             <img 
               src="/hero_repair.png" 
-              alt="Industrial 3D Printer Repair" 
+              alt="Technician working on 3D printer" 
               className="w-full h-full object-cover rounded-[20px] relative z-10 brightness-110 contrast-125 saturate-110 shadow-inner"
             />
             
@@ -103,111 +75,257 @@ export default function ThreeDPrinterRepairPage() {
         </div>
       </section>
 
-      {/* Services Grid Section */}
-      <section className="relative py-24 z-10">
+      {/* Trust Strip */}
+      <section className="relative py-8 z-10 border-b border-white/5 bg-white/[0.02]">
         <div className="container mx-auto max-w-7xl px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight drop-shadow-md">
-              Our Premium Services
-            </h2>
-            <p className="text-slate-400 max-w-2xl mx-auto">
-              Specialized hardware and software solutions tailored to keep your industrial manufacturing running flawlessly.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            
-            {/* Card 1 */}
-            <div className="group relative rounded-3xl bg-slate-900/60 backdrop-blur-md border border-white/5 p-0 hover:-translate-y-2 transition-all duration-500 overflow-hidden cursor-pointer flex flex-col shadow-xl">
-              <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-30" />
-
-              <div className="relative w-full aspect-video overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-900/40 to-slate-900/95 z-10 pointer-events-none" />
-                <img src="/printermanufacturing.png" alt="FDM & LCD Manufacturing" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                <div className="absolute bottom-4 left-6 z-20 w-12 h-12 rounded-xl bg-black/60 border border-white/10 flex items-center justify-center group-hover:border-cyan-500/50 group-hover:shadow-[0_0_20px_rgba(0,229,255,0.3)] transition-all duration-300">
-                  <Settings className="w-6 h-6 text-cyan-400" strokeWidth={1.5} />
-                </div>
+          <div className="flex flex-wrap justify-center gap-x-12 gap-y-6">
+            {['Fast Diagnosis', 'On-site / Off-site Support', 'Precision Calibration', 'All Major Printer Types Supported'].map((item, i) => (
+              <div key={i} className="flex items-center gap-2 text-sm md:text-base font-semibold text-slate-300">
+                <CheckCircle2 className="w-5 h-5 text-cyan-400" />
+                {item}
               </div>
-
-              <div className="relative z-20 p-8 pt-4 flex-1 flex flex-col">
-                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-cyan-50 transition-colors">FDM & LCD Printer Manufacturing</h3>
-                <p className="text-sm text-slate-400 leading-relaxed mb-6 flex-1">
-                  Custom-built high-performance FDM and LCD 3D printing systems engineered for industrial and commercial applications.
-                </p>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  <span className="text-[11px] font-semibold tracking-wider uppercase text-cyan-300 bg-cyan-500/10 border border-cyan-500/20 px-2.5 py-1 rounded-md">Industrial Grade</span>
-                  <span className="text-[11px] font-semibold tracking-wider uppercase text-cyan-300 bg-cyan-500/10 border border-cyan-500/20 px-2.5 py-1 rounded-md">High Precision</span>
-                </div>
-                <div className="flex items-center gap-2 text-sm font-bold text-cyan-400 group-hover:text-cyan-300 transition-colors mt-auto">
-                  Request Build <ChevronRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-300" />
-                </div>
-              </div>
-            </div>
-
-            {/* Card 2 */}
-            <div className="group relative rounded-3xl bg-slate-900/60 backdrop-blur-md border border-white/5 p-0 hover:-translate-y-2 transition-all duration-500 overflow-hidden cursor-pointer flex flex-col shadow-xl">
-              <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-30" />
-
-              <div className="relative w-full aspect-video overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-900/40 to-slate-900/95 z-10 pointer-events-none" />
-                <img src="/printer repair.png" alt="3D Printer Repair" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                <div className="absolute bottom-4 left-6 z-20 w-12 h-12 rounded-xl bg-black/60 border border-white/10 flex items-center justify-center group-hover:border-purple-500/50 group-hover:shadow-[0_0_20px_rgba(168,85,247,0.3)] transition-all duration-300">
-                  <Wrench className="w-6 h-6 text-purple-400" strokeWidth={1.5} />
-                </div>
-              </div>
-
-              <div className="relative z-20 p-8 pt-4 flex-1 flex flex-col">
-                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-cyan-50 transition-colors">3D Printer Repair & Maintenance</h3>
-                <p className="text-sm text-slate-400 leading-relaxed mb-6 flex-1">
-                  Professional diagnostics, calibration, hardware replacement, firmware troubleshooting, and complete maintenance solutions.
-                </p>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  <span className="text-[11px] font-semibold tracking-wider uppercase text-purple-300 bg-purple-500/10 border border-purple-500/20 px-2.5 py-1 rounded-md">Fast Diagnosis</span>
-                  <span className="text-[11px] font-semibold tracking-wider uppercase text-purple-300 bg-purple-500/10 border border-purple-500/20 px-2.5 py-1 rounded-md">Expert Techs</span>
-                </div>
-                <div className="flex items-center gap-2 text-sm font-bold text-purple-400 group-hover:text-purple-300 transition-colors mt-auto">
-                  Schedule Repair <ChevronRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-300" />
-                </div>
-              </div>
-            </div>
-
-            {/* Card 3 */}
-            <div className="group relative rounded-3xl bg-slate-900/60 backdrop-blur-md border border-white/5 p-0 hover:-translate-y-2 transition-all duration-500 overflow-hidden cursor-pointer flex flex-col shadow-xl">
-              <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-30" />
-
-              <div className="relative w-full aspect-video overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-900/40 to-slate-900/95 z-10 pointer-events-none" />
-                <img src="/tankrepair.png" alt="Resin Tank Repair" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                <div className="absolute bottom-4 left-6 z-20 w-12 h-12 rounded-xl bg-black/60 border border-white/10 flex items-center justify-center group-hover:border-cyan-500/50 group-hover:shadow-[0_0_20px_rgba(0,229,255,0.3)] transition-all duration-300">
-                  <Droplets className="w-6 h-6 text-cyan-400" strokeWidth={1.5} />
-                </div>
-              </div>
-
-              <div className="relative z-20 p-8 pt-4 flex-1 flex flex-col">
-                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-cyan-50 transition-colors">SLA/DLP/LCD Resin Tank Repair</h3>
-                <p className="text-sm text-slate-400 leading-relaxed mb-6 flex-1">
-                  Precision resin tank servicing, FEP replacement, leak prevention, and optical calibration for flawless resin printing.
-                </p>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  <span className="text-[11px] font-semibold tracking-wider uppercase text-cyan-300 bg-cyan-500/10 border border-cyan-500/20 px-2.5 py-1 rounded-md">Resin Expertise</span>
-                  <span className="text-[11px] font-semibold tracking-wider uppercase text-cyan-300 bg-cyan-500/10 border border-cyan-500/20 px-2.5 py-1 rounded-md">Optical Calibration</span>
-                </div>
-                <div className="flex items-center gap-2 text-sm font-bold text-cyan-400 group-hover:text-cyan-300 transition-colors mt-auto">
-                  View Details <ChevronRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-300" />
-                </div>
-              </div>
-            </div>
-
+            ))}
           </div>
         </div>
       </section>
 
+      {/* Service Overview */}
+      <section className="relative py-24 z-10 border-b border-white/5">
+        <div className="container mx-auto max-w-7xl px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="space-y-10">
+              <div className="space-y-4">
+                <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+                  Service Overview
+                </h2>
+                <div className="w-16 h-1 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full" />
+              </div>
+              <div className="space-y-6">
+                {[
+                  { title: "Hardware Repair", desc: "Nozzle, bed, motor, wiring issues", icon: Wrench },
+                  { title: "Calibration & Tuning", desc: "Print accuracy & alignment", icon: Settings },
+                  { title: "Maintenance Service", desc: "Cleaning, lubrication, upkeep", icon: Droplets },
+                  { title: "Print Quality Fix", desc: "Layer issues, adhesion, errors", icon: Activity },
+                ].map((s, i) => (
+                  <div key={i} className="flex gap-4 p-5 rounded-2xl bg-white/[0.03] border border-white/5 hover:bg-white/[0.05] transition-colors group">
+                    <div className="w-14 h-14 rounded-xl bg-cyan-500/10 flex items-center justify-center shrink-0 border border-cyan-500/20 group-hover:border-cyan-500/50 transition-colors">
+                      <s.icon className="w-6 h-6 text-cyan-400" />
+                    </div>
+                    <div className="flex flex-col justify-center">
+                      <h3 className="text-lg font-bold text-white mb-1 group-hover:text-cyan-300 transition-colors">{s.title}</h3>
+                      <p className="text-slate-400 text-sm">{s.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            <div className="relative aspect-[4/3] rounded-3xl bg-slate-900/50 backdrop-blur-xl border border-white/10 shadow-[0_0_30px_rgba(0,229,255,0.1)] flex items-center justify-center p-2 group hover:border-purple-500/40 transition-all duration-700 hover:-translate-y-2">
+              <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500/10 to-purple-500/10 blur-[40px] rounded-full scale-75 group-hover:scale-100 transition-all duration-700 opacity-50" />
+              <div className="absolute inset-0 overflow-hidden rounded-3xl z-20 pointer-events-none">
+                <div className="absolute -inset-full top-0 z-20 block h-full w-1/2 -skew-x-12 transform bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:animate-shimmer" />
+              </div>
+              <img src="/printer repair.png" alt="Service Overview" className="w-full h-full object-cover rounded-[20px] relative z-10 brightness-110 contrast-125 saturate-110 shadow-inner" />
+              <div className="absolute -top-[1px] -left-[1px] w-8 h-8 border-t-2 border-l-2 border-cyan-400 rounded-tl-[24px] z-30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 shadow-[0_0_15px_rgba(0,229,255,0.5)]" />
+              <div className="absolute -bottom-[1px] -right-[1px] w-8 h-8 border-b-2 border-r-2 border-purple-400 rounded-br-[24px] z-30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 shadow-[0_0_15px_rgba(168,85,247,0.5)]" />
+            </div>
+          </div>
+        </div>
+      </section>
 
+      {/* Printer Types Supported */}
+      <section className="relative py-24 z-10 border-b border-white/5 bg-white/[0.01]">
+        <div className="container mx-auto max-w-7xl px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            
+            <div className="order-2 lg:order-1 relative aspect-[4/3] rounded-3xl bg-slate-900/50 backdrop-blur-xl border border-white/10 shadow-[0_0_30px_rgba(0,229,255,0.1)] flex items-center justify-center p-2 group hover:border-cyan-500/40 transition-all duration-700 hover:-translate-y-2">
+              <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500/10 to-purple-500/10 blur-[40px] rounded-full scale-75 group-hover:scale-100 transition-all duration-700 opacity-50" />
+              <div className="absolute inset-0 overflow-hidden rounded-3xl z-20 pointer-events-none">
+                <div className="absolute -inset-full top-0 z-20 block h-full w-1/2 -skew-x-12 transform bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:animate-shimmer" />
+              </div>
+              <img src="/printermanufacturing.png" alt="Printer Types" className="w-full h-full object-cover rounded-[20px] relative z-10 brightness-110 contrast-125 saturate-110 shadow-inner" />
+              <div className="absolute -top-[1px] -left-[1px] w-8 h-8 border-t-2 border-l-2 border-cyan-400 rounded-tl-[24px] z-30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 shadow-[0_0_15px_rgba(0,229,255,0.5)]" />
+              <div className="absolute -bottom-[1px] -right-[1px] w-8 h-8 border-b-2 border-r-2 border-purple-400 rounded-br-[24px] z-30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 shadow-[0_0_15px_rgba(168,85,247,0.5)]" />
+            </div>
 
+            <div className="order-1 lg:order-2 space-y-10">
+              <div className="space-y-4">
+                <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+                  Printer Types Supported
+                </h2>
+                <div className="w-16 h-1 bg-gradient-to-r from-purple-500 to-cyan-400 rounded-full" />
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {[
+                  { title: "FDM 3D Printers", icon: HardDrive },
+                  { title: "SLA Resin Printers", icon: Droplets },
+                  { title: "DLP Printers", icon: Zap },
+                  { title: "Industrial 3D Printers", icon: Cpu },
+                ].map((type, i) => (
+                  <div key={i} className="flex items-center gap-4 p-5 rounded-2xl bg-white/[0.03] border border-white/5 hover:border-purple-500/30 hover:bg-white/[0.05] transition-all group">
+                    <type.icon className="w-8 h-8 text-purple-400 group-hover:scale-110 transition-transform" />
+                    <span className="font-bold text-slate-200 group-hover:text-purple-300 transition-colors">{type.title}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
+      {/* Process */}
+      <section className="relative py-24 z-10 border-b border-white/5">
+        <div className="container mx-auto max-w-7xl px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">
+              Repair Process
+            </h2>
+            <div className="w-16 h-1 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full mx-auto" />
+          </div>
+          
+          <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-4 relative max-w-5xl mx-auto">
+            {/* Connecting Line */}
+            <div className="hidden md:block absolute top-8 left-[10%] w-[80%] h-[2px] bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent" />
+            
+            {[
+              "Diagnosis",
+              "Issue Identification",
+              "Repair / Calibration",
+              "Testing",
+              "Final Print Check"
+            ].map((step, i) => (
+              <div key={i} className="relative z-10 flex flex-col items-center gap-4 w-full md:w-auto group">
+                <div className="w-16 h-16 rounded-full bg-slate-900 border border-white/10 flex items-center justify-center text-xl font-bold text-cyan-400 shadow-[0_0_20px_rgba(0,229,255,0.05)] group-hover:border-cyan-500/50 group-hover:shadow-[0_0_20px_rgba(0,229,255,0.3)] group-hover:-translate-y-1 transition-all duration-300">
+                  {i + 1}
+                </div>
+                <span className="font-bold text-slate-300 text-center whitespace-nowrap group-hover:text-cyan-300 transition-colors">{step}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us */}
+      <section className="relative py-24 z-10 border-b border-white/5 bg-white/[0.01]">
+        <div className="container mx-auto max-w-7xl px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">
+              Why Choose Us
+            </h2>
+            <div className="w-16 h-1 bg-gradient-to-r from-purple-500 to-cyan-400 rounded-full mx-auto" />
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              { title: "Experienced", desc: "Experienced technical handling", icon: ShieldCheck },
+              { title: "Precision", desc: "Precision-focused repair approach", icon: Search },
+              { title: "Speed", desc: "Minimal downtime", icon: Zap },
+              { title: "Quality", desc: "Quality testing before delivery", icon: CheckCircle2 },
+            ].map((item, i) => (
+              <div key={i} className="p-8 rounded-3xl bg-slate-900/50 border border-white/5 text-center flex flex-col items-center gap-5 hover:-translate-y-2 transition-transform duration-500 hover:border-white/10 group shadow-xl">
+                <div className="w-16 h-16 rounded-2xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-500 group-hover:shadow-[0_0_20px_rgba(168,85,247,0.3)]">
+                  <item.icon className="w-8 h-8 text-purple-400" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
+                  <p className="text-slate-400 text-sm leading-relaxed">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* After Sales Support */}
+      <section className="relative py-24 z-10 border-b border-white/5">
+        <div className="container mx-auto max-w-7xl px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="space-y-8">
+              <div className="space-y-4">
+                <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+                  After Sales Support
+                </h2>
+                <div className="w-16 h-1 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full" />
+              </div>
+              <p className="text-slate-400 text-lg leading-relaxed">
+                We provide dedicated post-repair support to ensure your 3D printer continues to perform reliably after service.
+              </p>
+              
+              <div className="space-y-8">
+                <div>
+                  <h3 className="text-cyan-400 font-bold mb-4 uppercase tracking-wider text-sm flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4" /> What's Included
+                  </h3>
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    {['Post-repair technical guidance', 'Basic troubleshooting assistance', 'Usage & maintenance tips', 'Performance check guidance (if needed)'].map((item, i) => (
+                      <li key={i} className="flex items-start gap-3 text-slate-300 text-sm bg-white/[0.02] p-3 rounded-lg border border-white/5">
+                        <ArrowRight className="w-4 h-4 text-purple-400 shrink-0 mt-0.5" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                
+                <div>
+                  <h3 className="text-cyan-400 font-bold mb-3 uppercase tracking-wider text-sm flex items-center gap-2">
+                    <ShieldCheck className="w-4 h-4" /> Why It Matters
+                  </h3>
+                  <p className="text-slate-300 text-sm leading-relaxed bg-white/[0.02] p-4 rounded-xl border border-white/5">
+                    Ensures stable performance after repair and reduces future issues through proper care.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-cyan-400 font-bold mb-4 uppercase tracking-wider text-sm flex items-center gap-2">
+                    <PhoneCall className="w-4 h-4" /> Support Options
+                  </h3>
+                  <ul className="flex flex-wrap gap-3">
+                    {['Remote support (call/message)', 'On-site support (if required)', 'Maintenance consultations'].map((item, i) => (
+                      <li key={i} className="flex items-center gap-2 text-slate-300 text-sm font-semibold bg-cyan-500/10 border border-cyan-500/20 px-3 py-1.5 rounded-full">
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              <button className="mt-4 inline-flex h-12 items-center justify-center rounded-xl bg-cyan-600 px-8 font-bold text-white transition-all hover:bg-cyan-500 hover:shadow-[0_0_20px_rgba(6,182,212,0.4)]">
+                Contact Support <ChevronRight className="w-5 h-5 ml-2" />
+              </button>
+            </div>
+            
+            <div className="relative aspect-[4/3] rounded-3xl bg-slate-900/50 backdrop-blur-xl border border-white/10 shadow-[0_0_30px_rgba(0,229,255,0.1)] flex items-center justify-center p-2 group hover:border-cyan-500/40 transition-all duration-700 hover:-translate-y-2">
+              <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500/10 to-purple-500/10 blur-[40px] rounded-full scale-75 group-hover:scale-100 transition-all duration-700 opacity-50" />
+              <div className="absolute inset-0 overflow-hidden rounded-3xl z-20 pointer-events-none">
+                <div className="absolute -inset-full top-0 z-20 block h-full w-1/2 -skew-x-12 transform bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:animate-shimmer" />
+              </div>
+              <img src="/tankrepair.png" alt="After Sales Support" className="w-full h-full object-cover rounded-[20px] relative z-10 brightness-110 contrast-125 saturate-110 shadow-inner" />
+              <div className="absolute -top-[1px] -left-[1px] w-8 h-8 border-t-2 border-l-2 border-cyan-400 rounded-tl-[24px] z-30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 shadow-[0_0_15px_rgba(0,229,255,0.5)]" />
+              <div className="absolute -bottom-[1px] -right-[1px] w-8 h-8 border-b-2 border-r-2 border-purple-400 rounded-br-[24px] z-30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 shadow-[0_0_15px_rgba(168,85,247,0.5)]" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="relative py-32 z-10 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-cyan-900/20" />
+        <div className="container mx-auto max-w-4xl px-6 text-center relative z-10">
+          <h2 className="text-4xl md:text-5xl font-black text-white mb-8 tracking-tight drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]">
+            GET YOUR 3D PRINTER BACK TO PEAK PERFORMANCE
+          </h2>
+          <div className="flex flex-wrap justify-center gap-6">
+            <button className="relative inline-flex h-14 overflow-hidden rounded-xl p-[1px] focus:outline-none group">
+              <span className="absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#06b6d4_0%,#a855f7_50%,#06b6d4_100%)]" />
+              <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-xl bg-slate-950 px-10 py-1 text-lg font-bold text-white backdrop-blur-3xl transition-all group-hover:bg-slate-900 shadow-[0_0_25px_rgba(0,229,255,0.2)]">
+                Book Repair Service
+              </span>
+            </button>
+            <button className="inline-flex h-14 items-center justify-center rounded-xl border border-white/20 bg-white/5 px-10 py-1 text-lg font-bold text-white transition-all hover:bg-white/10 hover:border-white/30 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)]">
+              Request Quote
+            </button>
+          </div>
+        </div>
+      </section>
 
     </div>
   );

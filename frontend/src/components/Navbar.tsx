@@ -17,7 +17,7 @@ export default function Navbar() {
     { name: "3D Printers", href: "/3d-printers" },
     { name: "Products", href: "/products" },
     { name: "3D Services", href: "/3d-services" },
-    { name: "Shilp studio", href: "/shilp studio" },
+    { name: "Shilp Studio", href: "/shilp-studio" },
     { name: "Industries", href: "/industries" },
     { name: "Contact Us", href: "/contact-us" },
   ];
