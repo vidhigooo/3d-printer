@@ -1,5 +1,6 @@
 import React from 'react';
 import ServiceCard from '@/components/ServiceCard';
+import { Sparkles } from 'lucide-react';
 
 export const metadata = {
   title: '3D Services | VEKTOR3D SYSTEMS',
@@ -57,9 +58,41 @@ export default function ThreeDServices() {
           />
           
           <ServiceCard
+            title="3D Sculpting / Modelling"
+            href="/3d-services/3d-modelling-service"
+            delay={0.3}
+            customVisual={
+              <video 
+                src="/modelling.mp4" 
+                autoPlay 
+                loop 
+                muted 
+                playsInline 
+                className="w-full h-full object-cover pointer-events-none"
+              />
+            }
+          />
+
+          <ServiceCard
+            title="Vacuum Casting"
+            href="/3d-services/vacuum-casting"
+            delay={0.4}
+            customVisual={
+              <video 
+                src="/vaccum.mp4" 
+                autoPlay 
+                loop 
+                muted 
+                playsInline 
+                className="w-full h-full object-cover pointer-events-none"
+              />
+            }
+          />
+
+          <ServiceCard
             title="3D Printer Repair"
             href="/3d-services/3d-printer-repair"
-            delay={0.3}
+            delay={0.5}
             customVisual={
               <video 
                 src="/repair.mp4" 
@@ -71,14 +104,13 @@ export default function ThreeDServices() {
               />
             }
           />
-          
+
           <ServiceCard
-            title="3D Sculpting / Modelling"
-            href="/3d-services/3d-modelling-service"
-            delay={0.4}
+            title="Scale Modelling"
+            delay={0.6}
             customVisual={
               <video 
-                src="/modelling.mp4" 
+                src="/scale.mp4" 
                 autoPlay 
                 loop 
                 muted 
@@ -86,6 +118,26 @@ export default function ThreeDServices() {
                 className="w-full h-full object-cover pointer-events-none"
               />
             }
+          />
+
+          <ServiceCard
+            title="Shilp Studio"
+            href="/shilp-studio"
+            delay={0.7}
+            customVisual={
+              <img 
+                src="/shilp1.png" 
+                alt="Shilp Studio"
+                className="w-full h-full object-cover pointer-events-none"
+              />
+            }
+          />
+
+          <ServiceCard
+            title="Electroplating"
+            href="/electroplating"
+            delay={0.8}
+            icon={<Sparkles className="w-24 h-24 text-blue-500" />}
           />
 
         </div>
