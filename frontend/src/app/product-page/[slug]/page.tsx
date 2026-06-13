@@ -7,14 +7,16 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 import Image from "next/image";
-import { mockModels, formatPrice } from "@/data/printerData";
+import { mockModels, anycubicFolderModels, formatPrice } from "@/data/printerData";
 export default function ProductDetailsPage({ params }: { params: { slug: string } }) {
   const router = useRouter();
   const [quantity, setQuantity] = useState(1);
   const [activeImage, setActiveImage] = useState(0);
 
+  const allModels = [...mockModels, ...anycubicFolderModels];
+
   // Fallback to first model if exact slug not found
-  const product = mockModels.find((m) => m.slug === params.slug) || mockModels[0];
+  const product = allModels.find((m) => m.slug === params.slug) || allModels[0];
 
   return (
     <div className="relative min-h-screen overflow-hidden pt-36 pb-24 selection:bg-primary/30">

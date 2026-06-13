@@ -45,15 +45,15 @@ export default function Footer() {
             <ul className="space-y-4 text-sm text-muted-foreground">
               <li className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-primary" />
-                <a href="mailto:quotes@vektor3d.com" className="hover:text-foreground transition-colors">quotes@vektor3d.com</a>
+                <a href="mailto:sales@vektor3ds.com" className="hover:text-foreground transition-colors">sales@vektor3d.com</a>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-primary" />
-                <a href="tel:+15551234567" className="hover:text-foreground transition-colors">+1 (555) 123-4567</a>
+                <a href="tel:919082020416" className="hover:text-foreground transition-colors">919082020416</a>
               </li>
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-                <span>100 Innovation Way<br />Tech Park, CA 94043</span>
+                <span>Shop No. MG15, Gala, Samrat, & 4, Shell Colony Rd, near Kamraj Hall, Sai Baba Nagar, Chembur, Mumbai, Maharashtra 400071</span>
               </li>
             </ul>
           </div>
@@ -63,7 +63,7 @@ export default function Footer() {
             <h3 className="text-foreground font-semibold mb-6">Need it fast?</h3>
             <p className="text-muted-foreground text-sm mb-4">Chat with our engineers instantly via WhatsApp.</p>
             <a 
-              href="https://wa.me/15551234567" 
+              href="https://wa.me/919082020416" 
               target="_blank" 
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#25D366]/10 text-[#25D366] rounded-full border border-[#25D366]/20 hover:bg-[#25D366] hover:text-black transition-colors font-medium text-sm"

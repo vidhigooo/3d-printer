@@ -7,13 +7,14 @@ import Link from "next/link";
 import Image from "next/image";
 
 // Simulated mock data inspired by the user's screenshots
-import { mockModels, formatPrice } from "@/data/printerData";
+import { mockModels, anycubicFolderModels, formatPrice } from "@/data/printerData";
 
 
 
 export default function BrandModelsPage({ params }: { params: { brand: string } }) {
   const [selectedModel, setSelectedModel] = useState<any | null>(null);
   const [quantity, setQuantity] = useState(1);
+  const normalizedBrand = params.brand.toLowerCase();
 
   // Decode the brand name for display
   const brandName = useMemo(() => {
@@ -22,6 +23,8 @@ export default function BrandModelsPage({ params }: { params: { brand: string } 
       .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
       .join(" ");
   }, [params.brand]);
+
+  const visibleModels = normalizedBrand === "anycubic" ? anycubicFolderModels : mockModels;
 
   const handleQuickView = (model: any) => {
     setSelectedModel(model);
@@ -93,7 +96,7 @@ export default function BrandModelsPage({ params }: { params: { brand: string } 
 
         {/* Product Grid */}
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
-          {mockModels.map((model, index) => (
+          {visibleModels.map((model, index) => (
             <motion.div
               key={model.id}
               initial={{ opacity: 0, y: 30 }}
@@ -121,8 +124,13 @@ export default function BrandModelsPage({ params }: { params: { brand: string } 
                 </div>
 
                 {/* Product Image */}
-                <div className="relative h-full w-full rounded-xl bg-white/5 transition-colors duration-500 group-hover:bg-white/10">
-                  <Image src={model.image} alt={model.name} fill className="object-contain p-6 transition-transform duration-700 group-hover:scale-110 drop-shadow-2xl" />
+                <div className="relative h-full w-full overflow-hidden rounded-xl bg-white/5 transition-colors duration-500 group-hover:bg-white/10">
+                  <Image
+                    src={model.image}
+                    alt={model.name}
+                    fill
+                    className="object-cover object-top p-0 transition-transform duration-700 group-hover:scale-105 drop-shadow-2xl"
+                  />
                 </div>
               </div>
 
@@ -194,8 +202,13 @@ export default function BrandModelsPage({ params }: { params: { brand: string } 
 
               {/* Modal Image Area */}
               <div className="relative flex aspect-square w-full flex-col items-center justify-center bg-white/5 p-8 md:w-1/2 md:p-12 md:aspect-auto">
-                <div className="relative h-full w-full rounded-xl bg-white/5">
-                  <Image src={selectedModel.image} alt={selectedModel.name} fill className="object-contain p-8 drop-shadow-2xl" />
+                <div className="relative h-full w-full overflow-hidden rounded-xl bg-white/5">
+                  <Image
+                    src={selectedModel.image}
+                    alt={selectedModel.name}
+                    fill
+                    className="object-cover object-top p-0 drop-shadow-2xl"
+                  />
                 </div>
                 {/* Carousel Dots */}
                 <div className="mt-6 flex justify-center gap-2">
