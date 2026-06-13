@@ -1,4 +1,15 @@
-export const mockModels = [
+export type PrinterModel = {
+    id: number;
+    name: string;
+    slug: string;
+    price: number;
+    originalPrice?: number;
+    badge?: string;
+    image: string;
+    inStock: boolean;
+};
+
+export const mockModels: PrinterModel[] = [
     {
         id: 1,
         name: "Bambu Lab P1S 3D Printer",
@@ -78,7 +89,7 @@ export const mockModels = [
     },
 ];
 
-export const anycubicFolderModels = [
+export const anycubicFolderModels: PrinterModel[] = [
     {
         id: 101,
         name: "Elegoo Saturn 3 Ultra 12K MSLA",
