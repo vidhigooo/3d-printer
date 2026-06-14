@@ -1,6 +1,42 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { UploadCloud, MessageSquare, Printer, Droplet, Flame, Layers3, Sparkles, CheckCircle2, ChevronRight, Settings, Hammer, Box, Gem, Cpu, Clock, ArrowRight } from "lucide-react";
+import FAQ from "@/components/FAQ";
+
+const faqItems = [
+  {
+    question: "How do I get a quote for 3D printing?",
+    answer: "Simply share your 3D file, dimensions, material requirements, and quantity details for a customized quotation."
+  },
+  {
+    question: "What file formats do you accept?",
+    answer: "We commonly accept STL, STEP, OBJ, IGES, and other standard 3D file formats."
+  },
+  {
+    question: "Can you print large-size parts?",
+    answer: "Yes, we offer both standard and large-format 3D printing solutions depending on project requirements."
+  },
+  {
+    question: "Do you offer bulk production services?",
+    answer: "Yes, we support both prototyping and low-volume production requirements."
+  },
+  {
+    question: "What materials are available for 3D printing?",
+    answer: "We offer a wide range of materials including PLA, PETG, ABS, TPU, engineering filaments, and industrial resins."
+  },
+  {
+    question: "How long does a 3D printing project take?",
+    answer: "Project timelines vary based on size, complexity, material, and quantity requirements."
+  },
+  {
+    question: "Do you provide finishing and painting services?",
+    answer: "Yes, we offer sanding, painting, polishing, and other post-processing options."
+  },
+  {
+    question: "Do you ship across India?",
+    answer: "Yes, we deliver completed projects across India."
+  }
+];
 
 export const metadata: Metadata = {
   title: "3D Printing Service | VEKTOR3D SYSTEMS",
@@ -536,6 +572,7 @@ export default function ThreeDPrintingServicePage() {
         </div>
       </section>
 
+      <FAQ title="Frequently Asked Questions 3D Printing Service" items={faqItems} />
     </div>
   );
 }

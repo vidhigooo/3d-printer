@@ -1,6 +1,42 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, Sparkles } from "lucide-react";
+import FAQ from "@/components/FAQ";
+
+const faqItems = [
+  {
+    question: "What is electroplating?",
+    answer: "Electroplating is a surface finishing process that deposits a thin metal coating onto an object to enhance its appearance, durability, and performance."
+  },
+  {
+    question: "Which metal finishes do you offer?",
+    answer: "We offer a variety of finishes, including chrome, gold, and silver decorative or functional metal coatings based on project requirements."
+  },
+  {
+    question: "Can 3D printed parts be electroplated?",
+    answer: "Yes, properly prepared 3D printed parts can be electroplated to achieve a premium metallic appearance and improved surface properties."
+  },
+  {
+    question: "What are the benefits of electroplating?",
+    answer: "Electroplating improves surface finish, corrosion resistance, wear resistance, conductivity, and overall product aesthetics."
+  },
+  {
+    question: "Which industries use electroplating services?",
+    answer: "Electroplating is widely used in automotive, electronics, aerospace, consumer products, jewelry, and industrial manufacturing applications."
+  },
+  {
+    question: "Can electroplating be used for decorative and functional applications?",
+    answer: "Yes, electroplating is suitable for both decorative finishes and performance-enhancing industrial applications."
+  },
+  {
+    question: "Do you provide custom finishing solutions?",
+    answer: "Yes, we offer customized electroplating and finishing solutions tailored to specific project requirements."
+  },
+  {
+    question: "How can I get a quote for electroplating services?",
+    answer: "Simply share your part details, dimensions, quantity, and finishing requirements, and our team will provide a customized quotation."
+  }
+];
 
 export const metadata: Metadata = {
   title: "Electroplating | VEKTOR3D SYSTEMS",
@@ -213,6 +249,8 @@ export default function ElectroplatingPage() {
           </div>
         </div>
       </section>
+
+      <FAQ title="Frequently Asked Questions Electroplating" items={faqItems} />
     </div>
   );
 }

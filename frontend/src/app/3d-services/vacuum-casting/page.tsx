@@ -14,6 +14,42 @@ import {
   Settings,
   Car
 } from "lucide-react";
+import FAQ from "@/components/FAQ";
+
+const faqItems = [
+  {
+    question: "What is Vacuum Casting?",
+    answer: "Vacuum casting is a manufacturing process used to produce high-quality plastic parts using silicone molds, making it ideal for prototypes and low-volume production."
+  },
+  {
+    question: "What materials can be used in vacuum casting?",
+    answer: "Vacuum casting supports a variety of polyurethane materials that can simulate ABS, PP, rubber, and other engineering plastics."
+  },
+  {
+    question: "How many parts can be produced from a single mold?",
+    answer: "A silicone mold can typically produce multiple high-quality parts, depending on the design complexity and material used."
+  },
+  {
+    question: "Is vacuum casting suitable for functional prototypes?",
+    answer: "Yes, vacuum casting is widely used for functional testing, design validation, market samples, and pre-production parts."
+  },
+  {
+    question: "What are the advantages of vacuum casting over injection molding?",
+    answer: "Vacuum casting offers lower tooling costs, faster lead times, and greater flexibility for low-volume production runs."
+  },
+  {
+    question: "What industries use vacuum casting services?",
+    answer: "Vacuum casting is commonly used in automotive, consumer products, medical devices, electronics, and product development industries."
+  },
+  {
+    question: "Do you provide finishing and painting services?",
+    answer: "Yes, we offer sanding, painting, texture matching, color matching, and other post-processing services."
+  },
+  {
+    question: "How can I get a quote for vacuum casting services?",
+    answer: "Simply share your 3D model, quantity requirements, material preferences, and project details, and our team will provide a customized quotation."
+  }
+];
 
 export const metadata: Metadata = {
   title: "Vacuum Casting Service | VEKTOR3D SYSTEMS",
@@ -344,6 +380,7 @@ export default function VacuumCastingPage() {
         </div>
       </section>
 
+      <FAQ title="Frequently Asked Questions Vacuum Casting" items={faqItems} />
     </div>
   );
 }

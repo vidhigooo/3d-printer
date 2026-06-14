@@ -1,4 +1,40 @@
 import type { Metadata } from "next";
+import FAQ from "@/components/FAQ";
+
+const faqItems = [
+  {
+    question: "What is 3D sculpting and modeling?",
+    answer: "3D sculpting and modeling is the process of creating detailed digital 3D designs for prototypes, products, characters, sculptures, and manufacturing applications."
+  },
+  {
+    question: "Can you create a 3D model from images or sketches?",
+    answer: "Yes, we can develop accurate 3D models from reference images, concept sketches, drawings, and design specifications."
+  },
+  {
+    question: "Which industries use 3D modeling services?",
+    answer: "3D modeling is widely used in product design, manufacturing, architecture, entertainment, education, healthcare, and art industries."
+  },
+  {
+    question: "Can existing designs be modified or improved?",
+    answer: "Yes, we can edit, optimize, repair, and enhance existing 3D models based on project requirements."
+  },
+  {
+    question: "What file formats do you provide?",
+    answer: "We deliver industry-standard formats including STL, OBJ, STEP, IGES, FBX, and other formats as required."
+  },
+  {
+    question: "Can the models be used for 3D printing?",
+    answer: "Yes, all models can be optimized and prepared for successful 3D printing and manufacturing processes."
+  },
+  {
+    question: "How long does a 3D modeling project take?",
+    answer: "Project timelines depend on the complexity, level of detail, and scope of work required."
+  },
+  {
+    question: "How can I get a quote for 3D sculpting or modeling services?",
+    answer: "Simply share your concept, sketches, reference images, or project requirements, and our team will provide a customized quotation."
+  }
+];
 
 export const metadata: Metadata = {
   title: "3D Modelling Service | VEKTOR3D SYSTEMS",
@@ -145,6 +181,8 @@ export default function ThreeDModellingServicePage() {
 
         </div>
       </section>
+      
+      <FAQ title="Frequently Asked Questions 3D Sculpting/ Modelling" items={faqItems} />
 
     </div>
   );

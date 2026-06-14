@@ -1,5 +1,41 @@
 import type { Metadata } from "next";
 import { Wrench, Settings, Droplets, CheckCircle2, ShieldCheck, Activity, Zap, Search, PhoneCall, ArrowRight, HardDrive, Cpu, ChevronRight } from "lucide-react";
+import FAQ from "@/components/FAQ";
+
+const faqItems = [
+  {
+    question: "What types of 3D printers do you repair?",
+    answer: "We provide repair and maintenance services for FDM, SLA, DLP, and LCD 3D printers across various brands and models."
+  },
+  {
+    question: "What common 3D printer issues can you fix?",
+    answer: "We can resolve issues related to print quality, bed leveling, extrusion problems, nozzle clogging, resin printing errors, electronics, and machine calibration."
+  },
+  {
+    question: "Do you offer on-site repair services?",
+    answer: "Yes, on-site service can be arranged depending on the printer type, location, and nature of the issue."
+  },
+  {
+    question: "Can you provide replacement parts for 3D printers?",
+    answer: "Yes, we supply and install genuine spare parts, including nozzles, hotends, belts, motors, screens, and other components."
+  },
+  {
+    question: "Do you provide preventive maintenance services?",
+    answer: "Yes, we offer routine maintenance and system inspections to ensure optimal printer performance and reliability."
+  },
+  {
+    question: "How long does a typical repair take?",
+    answer: "Repair timelines vary depending on the issue and parts availability, but our team aims to minimize downtime and restore operations quickly."
+  },
+  {
+    question: "Do you support industrial as well as desktop 3D printers?",
+    answer: "Yes, we service both desktop and industrial-grade 3D printing systems used for professional and manufacturing applications."
+  },
+  {
+    question: "How can I request a printer repair service?",
+    answer: "Simply share your printer model, issue details, and location, and our team will provide the appropriate support and service recommendations."
+  }
+];
 
 export const metadata: Metadata = {
   title: "3D Printer Repair & Maintenance | VEKTOR3D SYSTEMS",
@@ -327,6 +363,7 @@ export default function ThreeDPrinterRepairPage() {
         </div>
       </section>
 
+      <FAQ title="Frequently Asked Questions 3d Printer Repair" items={faqItems} />
     </div>
   );
 }

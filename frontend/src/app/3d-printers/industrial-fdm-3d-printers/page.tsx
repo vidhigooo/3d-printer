@@ -2,6 +2,42 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, CheckCircle2, Cpu, Factory, Gauge, Layers3, Ruler, ShieldCheck, TimerReset, Truck, Box } from "lucide-react";
+import FAQ from "@/components/FAQ";
+
+const faqItems = [
+	{
+		question: "Which industrial 3D printer is right for my application?",
+		answer: "The ideal printer depends on your build volume, material requirements, production goals, and application needs. Our experts can help you select the most suitable solution."
+	},
+	{
+		question: "What materials can these industrial FDM printers print?",
+		answer: "These printers support a wide range of materials including PLA, PETG, ABS, ASA, TPU, Nylon, Carbon Fiber, and other engineering-grade filaments."
+	},
+	{
+		question: "What industries use industrial FDM 3D printers?",
+		answer: "Industrial FDM printers are widely used in manufacturing, automotive, aerospace, product development, architecture, education, and research applications."
+	},
+	{
+		question: "Are these printers suitable for large-scale production?",
+		answer: "Yes, their large build volumes and reliable performance make them ideal for prototypes, tooling, functional parts, and low-volume production."
+	},
+	{
+		question: "Do you provide installation and operator training?",
+		answer: "Yes, we provide complete installation, machine setup, operator training, and technical support to ensure smooth operation."
+	},
+	{
+		question: "What after-sales support do you offer?",
+		answer: "We provide technical assistance, maintenance support, spare parts, and troubleshooting support whenever required."
+	},
+	{
+		question: "Can I schedule a live demonstration before purchasing?",
+		answer: "Yes, demonstrations can be arranged to help you evaluate print quality, speed, and machine capabilities."
+	},
+	{
+		question: "Do you deliver and support customers across India?",
+		answer: "Yes, we supply industrial 3D printers and provide support services for customers throughout India."
+	}
+];
 
 export const metadata: Metadata = {
 	title: "Industrial FDM 3D Printer Series | VEKTOR3D SYSTEMS",
@@ -418,6 +454,8 @@ export default function IndustrialFdmPrinterPage() {
 						</div>
 					</div>
 				</section>
+				
+				<FAQ title="Frequently Asked Questions Industrial FDM Printers" items={faqItems} />
 			</main>
 		</div>
 	);

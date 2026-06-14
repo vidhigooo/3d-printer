@@ -2,6 +2,42 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, CheckCircle2, Cpu, Layers3, Settings2, ShieldCheck, Sparkles, Zap } from "lucide-react";
+import FAQ from "@/components/FAQ";
+
+const faqItems = [
+  {
+    question: "Which Mars Pro printer is right for my application?",
+    answer: "The ideal model depends on your required build volume, production capacity, and application requirements. Our team can help you select the most suitable system."
+  },
+  {
+    question: "What materials can Mars Pro SLA printers use?",
+    answer: "Mars Pro printers support a wide range of SLA resins, including standard, engineering, high-strength, and industrial-grade materials."
+  },
+  {
+    question: "What industries use Mars Pro SLA printers?",
+    answer: "These printers are widely used in automotive, aerospace, product development, manufacturing, education, and design industries."
+  },
+  {
+    question: "What are the advantages of SLA printing?",
+    answer: "SLA technology delivers excellent surface finish, high dimensional accuracy, and fine feature detail for professional applications."
+  },
+  {
+    question: "Are Mars Pro printers suitable for large-scale prototyping?",
+    answer: "Yes, their large build volumes make them ideal for full-size prototypes, master patterns, tooling, and functional models."
+  },
+  {
+    question: "Do you provide installation and training?",
+    answer: "Yes, we provide complete installation, machine setup, operator training, and technical support."
+  },
+  {
+    question: "Do you offer after-sales support and maintenance?",
+    answer: "Yes, we provide technical assistance, maintenance support, and genuine spare parts whenever required."
+  },
+  {
+    question: "Can I schedule a live demonstration before purchasing?",
+    answer: "Yes, demonstrations can be arranged to help you evaluate print quality, speed, and overall machine capabilities."
+  }
+];
 
 export const metadata: Metadata = {
   title: "Industrial SLA Printer Series | VEKTOR3D SYSTEMS",
@@ -291,6 +327,8 @@ export default function Sla3dPrinterPage() {
             </div>
           </div>
         </section>
+
+        <FAQ title="Frequently Asked Questions SLA Printers" items={faqItems} />
       </main>
     </div>
   );
