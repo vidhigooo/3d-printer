@@ -23,9 +23,10 @@ export default function Navbar() {
   const navItems = [
     { name: "Home", href: "/" },
     { name: "3D Printers", href: "/3d-printers/diy-3d-printers" },
-    { name: "Products", href: "/products" },
+   // { name: "Products", href: "/products" },
     { name: "3D Services", href: "/3d-services" },
     { name: "Shilp Studio", href: "/shilp-studio" },
+    { name: "Velvet Coating", href: "/velvet-coating" },
     { name: "Contact Us", href: "/contact-us" },
   ];
 

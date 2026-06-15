@@ -1,19 +1,13 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
-import { ArrowRight, CheckCircle2, Sparkles, Droplets, ShieldCheck, Gauge } from "lucide-react";
+import { Sparkles, Droplets, ShieldCheck, Gauge } from "lucide-react";
 
-import { mockModels, anycubicFolderModels, type PrinterModel } from "@/data/printerData";
+import DlpGallery from "@/components/DlpGallery";
 
 export const metadata: Metadata = {
 	title: "LCD / DLP 3D Printers | VEKTOR3D SYSTEMS",
 	description: "Explore our LCD and DLP 3D printer lineup, including the full Elegoo-focused model gallery.",
 };
-
-const elegooModels: PrinterModel[] = [
-	mockModels.find((model) => model.name.startsWith("Elegoo"))!,
-	...anycubicFolderModels.filter((model) => model.name.startsWith("Elegoo")),
-];
 
 const highlights = [
 	{
@@ -77,22 +71,6 @@ export default function LCDDlpPrintersPage() {
 									Precision resin printing for miniature detail, dental workflows, product design, and short-run production. This page brings together the full Elegoo-focused gallery already used across the 3D printer catalog.
 								</p>
 							</div>
-
-							<div className="flex flex-wrap gap-4">
-								<Link
-									href="/contact-us"
-									className="inline-flex h-14 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-cyan-500 via-blue-500 to-sky-500 px-8 text-base font-bold text-white shadow-[0_0_25px_rgba(0,229,255,0.2)] transition-all hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(0,229,255,0.3)]"
-								>
-									Get Quote
-									<ArrowRight className="h-5 w-5" />
-								</Link>
-								<Link
-									href="#models"
-									className="inline-flex h-14 items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/5 px-8 text-base font-bold text-white transition-all hover:border-cyan-500/30 hover:bg-white/10"
-								>
-									Explore Models
-								</Link>
-							</div>
 						</div>
 
 						<div className="relative flex items-center justify-center">
@@ -147,80 +125,8 @@ export default function LCDDlpPrintersPage() {
 							text="These are the Elegoo-focused printer visuals already used in the 3D printer catalog, now collected into a dedicated LCD / DLP page."
 						/>
 
-						<div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
-							{elegooModels.map((printer) => (
-								<article
-									key={printer.slug}
-									className="group overflow-hidden rounded-[28px] border border-white/10 bg-white/[0.04] shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:border-cyan-500/30 hover:shadow-[0_0_40px_-10px_rgba(0,229,255,0.22)]"
-								>
-									<div className="relative aspect-[4/3] overflow-hidden bg-slate-900/70">
-										<Image
-											src={printer.image}
-											alt={printer.name}
-											width={900}
-											height={675}
-											className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-										/>
-										<div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
-										<div className="absolute left-4 top-4 rounded-full border border-cyan-500/20 bg-cyan-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-cyan-300 backdrop-blur-md">
-											LCD / DLP
-										</div>
-									</div>
-
-									<div className="space-y-5 p-7">
-										<div>
-											<h3 className="text-2xl font-bold tracking-tight text-white">{printer.name}</h3>
-											<p className="mt-2 text-sm font-semibold uppercase tracking-[0.22em] text-cyan-300/90">
-												Resin printer showcase
-											</p>
-										</div>
-
-										<div className="flex items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-slate-300">
-											<span>{printer.inStock ? "In stock" : "Out of stock"}</span>
-											<span className="font-semibold text-white">{printer.badge || "Featured model"}</span>
-										</div>
-
-										<Link
-											href="/contact-us"
-											className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/5 px-5 py-3 text-sm font-bold text-white transition-all hover:border-cyan-500/30 hover:bg-cyan-500/10 hover:text-cyan-200"
-										>
-											Get Quote
-											<ArrowRight className="h-4 w-4" />
-										</Link>
-									</div>
-								</article>
-							))}
-						</div>
-					</div>
-				</section>
-
-				<section className="px-6 py-24">
-					<div className="container mx-auto max-w-7xl">
-						<div className="grid grid-cols-1 gap-10 rounded-[32px] border border-white/10 bg-gradient-to-br from-cyan-500/10 via-white/[0.03] to-blue-500/10 p-8 md:p-12 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
-							<div className="space-y-6">
-								<div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/20 bg-cyan-500/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-cyan-300">
-									Ready to specify a machine?
-								</div>
-								<h2 className="text-3xl font-extrabold tracking-tight text-white md:text-4xl">
-									Need help choosing the right resin printer for your workflow?
-								</h2>
-								<p className="max-w-2xl text-base leading-relaxed text-slate-400 md:text-lg">
-									We can help match LCD and DLP systems to your application, whether you need dental models, miniatures, precision prototypes, or production runs.
-								</p>
-							</div>
-
-							<div className="flex flex-col gap-3">
-								{[
-									"Dental and jewelry applications",
-									"Miniature and detail-rich models",
-									"Rapid prototyping with smooth finishes",
-								].map((item) => (
-									<div key={item} className="flex items-start gap-3 rounded-2xl border border-white/10 bg-slate-900/60 px-4 py-4 text-sm text-slate-300">
-										<CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-cyan-400" />
-										<span>{item}</span>
-									</div>
-								))}
-							</div>
+						<div className="mt-16">
+							<DlpGallery />
 						</div>
 					</div>
 				</section>
