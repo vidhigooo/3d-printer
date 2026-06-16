@@ -12,6 +12,12 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [printersMenuOpen, setPrintersMenuOpen] = useState(false);
+  const [resinMenuOpen, setResinMenuOpen] = useState(false);
+
+  const resinDropdownItems = [
+    { name: "3D Printing Resin", href: "/resin-and-filament/3d-printing-resin" },
+    { name: "Techno Polymers & Filaments", href: "/resin-and-filament/techno-polymers-filaments" },
+  ];
 
   const printerDropdownItems = [
     { name: "DIY 3D Printers", href: "/3d-printers/diy-3d-printers" },
@@ -22,9 +28,10 @@ export default function Navbar() {
 
   const navItems = [
     { name: "Home", href: "/" },
-    { name: "3D Printers", href: "/3d-printers/diy-3d-printers" },
-   // { name: "Products", href: "/products" },
+    { name: "3D Printers", href: "/3d-printers" },
+  
     { name: "3D Services", href: "/3d-services" },
+    { name: "Resin & Filament", href: "/resin-and-filament" },
     { name: "Shilp Studio", href: "/shilp-studio" },
     { name: "Velvet Coating", href: "/velvet-coating" },
     { name: "Contact Us", href: "/contact-us" },
@@ -60,45 +67,79 @@ export default function Navbar() {
 
         {/* Desktop Nav */}
         <nav className="hidden lg:flex flex-1 justify-center space-x-4 xl:space-x-8 translate-y-3">
-          {navItems.map((item) =>
-            item.name === "3D Printers" ? (
-              <div
-                key={item.name}
-                className="relative pb-5"
-                onMouseEnter={() => setPrintersMenuOpen(true)}
-                onMouseLeave={() => setPrintersMenuOpen(false)}
-              >
+          {navItems.map((item) => {
+            if (item.name === "3D Printers") {
+              return (
+                <div
+                  key={item.name}
+                  className="relative pb-5"
+                  onMouseEnter={() => setPrintersMenuOpen(true)}
+                  onMouseLeave={() => setPrintersMenuOpen(false)}
+                >
+                  <Link
+                    href={item.href}
+                    className="inline-flex items-center gap-1 text-[13px] xl:text-sm font-medium text-muted-foreground hover:text-primary transition-colors whitespace-nowrap"
+                  >
+                    {item.name}
+                    <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${printersMenuOpen ? "translate-y-0.5" : ""}`} />
+                  </Link>
+
+                  <div className={`absolute left-1/2 top-full z-50 mt-0 w-[340px] -translate-x-1/2 rounded-md border border-border/70 bg-background p-2 shadow-[0_16px_40px_rgba(0,0,0,0.18)] transition-all duration-200 ${printersMenuOpen ? "visible opacity-100" : "invisible opacity-0"}`}>
+                    {printerDropdownItems.map((dropdownItem) => (
+                      <Link
+                        key={dropdownItem.name}
+                        href={dropdownItem.href}
+                        onClick={() => setPrintersMenuOpen(false)}
+                        className="block rounded-md px-4 py-3 text-center text-[15px] font-semibold uppercase tracking-wide text-muted-foreground transition-colors hover:bg-primary/10 hover:text-primary"
+                      >
+                        {dropdownItem.name}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              );
+            } else if (item.name === "Resin & Filament") {
+              return (
+                <div
+                  key={item.name}
+                  className="relative pb-5"
+                  onMouseEnter={() => setResinMenuOpen(true)}
+                  onMouseLeave={() => setResinMenuOpen(false)}
+                >
+                  <Link
+                    href={item.href}
+                    className="inline-flex items-center gap-1 text-[13px] xl:text-sm font-medium text-muted-foreground hover:text-primary transition-colors whitespace-nowrap"
+                  >
+                    {item.name}
+                    <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${resinMenuOpen ? "translate-y-0.5" : ""}`} />
+                  </Link>
+
+                  <div className={`absolute left-1/2 top-full z-50 mt-0 w-[340px] -translate-x-1/2 rounded-md border border-border/70 bg-background p-2 shadow-[0_16px_40px_rgba(0,0,0,0.18)] transition-all duration-200 ${resinMenuOpen ? "visible opacity-100" : "invisible opacity-0"}`}>
+                    {resinDropdownItems.map((dropdownItem) => (
+                      <Link
+                        key={dropdownItem.name}
+                        href={dropdownItem.href}
+                        onClick={() => setResinMenuOpen(false)}
+                        className="block rounded-md px-4 py-3 text-center text-[15px] font-semibold uppercase tracking-wide text-muted-foreground transition-colors hover:bg-primary/10 hover:text-primary"
+                      >
+                        {dropdownItem.name}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              );
+            } else {
+              return (
                 <Link
+                  key={item.name}
                   href={item.href}
-                  className="inline-flex items-center gap-1 text-[13px] xl:text-sm font-medium text-muted-foreground hover:text-primary transition-colors whitespace-nowrap"
+                  className="text-[13px] xl:text-sm font-medium text-muted-foreground hover:text-primary transition-colors whitespace-nowrap"
                 >
                   {item.name}
-                  <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${printersMenuOpen ? "translate-y-0.5" : ""}`} />
                 </Link>
-
-                <div className={`absolute left-1/2 top-full z-50 mt-0 w-[340px] -translate-x-1/2 rounded-md border border-border/70 bg-background p-2 shadow-[0_16px_40px_rgba(0,0,0,0.18)] transition-all duration-200 ${printersMenuOpen ? "visible opacity-100" : "invisible opacity-0"}`}>
-                  {printerDropdownItems.map((dropdownItem) => (
-                    <Link
-                      key={dropdownItem.name}
-                      href={dropdownItem.href}
-                      onClick={() => setPrintersMenuOpen(false)}
-                      className="block rounded-md px-4 py-3 text-center text-[15px] font-semibold uppercase tracking-wide text-muted-foreground transition-colors hover:bg-primary/10 hover:text-primary"
-                    >
-                      {dropdownItem.name}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            ) : (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="text-[13px] xl:text-sm font-medium text-muted-foreground hover:text-primary transition-colors whitespace-nowrap"
-              >
-                {item.name}
-              </Link>
-            )
-          )}
+              );
+            }
+          })}
         </nav>
 
         {/* Contact Info & Search */}
