@@ -1,76 +1,67 @@
 import Link from "next/link";
-import { Hexagon, Mail, Phone, MapPin, Globe, MessageCircle, Share2, ArrowUpRight } from "lucide-react";
+import { Hexagon, Mail, Phone, MapPin } from "lucide-react";
 
 export default function Footer() {
   return (
     <footer className="bg-background border-t border-border/50 pt-20 pb-10">
       <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-          {/* Brand */}
-          <div className="col-span-1 md:col-span-1">
-            <Link href="/" className="flex items-center gap-2 mb-6">
-              <Hexagon className="w-8 h-8 text-primary" />
-              <span className="text-2xl font-bold tracking-tight text-foreground">Vektor3d</span>
-            </Link>
-            <p className="text-muted-foreground text-sm mb-6 leading-relaxed text-balance">
-              Precision 3D printing and manufacturing solutions for demanding industrial and creative applications.
-            </p>
-            <div className="flex gap-4">
-              <Link href="#" className="p-2 rounded-full bg-muted hover:bg-primary/20 hover:text-primary transition-colors text-foreground">
-                <Globe className="w-5 h-5" />
-              </Link>
-              <Link href="#" className="p-2 rounded-full bg-muted hover:bg-primary/20 hover:text-primary transition-colors text-foreground">
-                <Share2 className="w-5 h-5" />
-              </Link>
-              <Link href="#" className="p-2 rounded-full bg-muted hover:bg-primary/20 hover:text-primary transition-colors text-foreground">
-                <MessageCircle className="w-5 h-5" />
-              </Link>
-            </div>
-          </div>
-
-          {/* Links */}
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-6 mb-16">
+          {/* Quick Links */}
           <div>
-            <h3 className="text-foreground font-semibold mb-6">Services</h3>
+            <h3 className="text-foreground font-semibold text-lg mb-6">Quick Links</h3>
             <ul className="space-y-4 text-sm text-muted-foreground">
-              <li><Link href="#" className="hover:text-primary transition-colors">Industrial Prototyping</Link></li>
-              <li><Link href="#" className="hover:text-primary transition-colors">Dental Models</Link></li>
-              <li><Link href="#" className="hover:text-primary transition-colors">Reverse Engineering</Link></li>
-              <li><Link href="#" className="hover:text-primary transition-colors">CAD Design</Link></li>
+              <li><Link href="/" className="hover:text-primary transition-colors">Home</Link></li>
+              <li><Link href="/about-us" className="hover:text-primary transition-colors">About Us</Link></li>
+              <li><Link href="/blogs" className="hover:text-primary transition-colors">Blogs</Link></li>
+              <li><Link href="/contact-us" className="hover:text-primary transition-colors">Contact Us</Link></li>
             </ul>
           </div>
 
-          {/* Contact */}
+          {/* Products */}
           <div>
-            <h3 className="text-foreground font-semibold mb-6">Contact</h3>
+            <h3 className="text-foreground font-semibold text-lg mb-6">Products</h3>
             <ul className="space-y-4 text-sm text-muted-foreground">
-              <li className="flex items-center gap-3">
-                <Mail className="w-4 h-4 text-primary" />
-                <a href="mailto:sales@vektor3ds.com" className="hover:text-foreground transition-colors">sales@vektor3d.com</a>
-              </li>
-              <li className="flex items-center gap-3">
-                <Phone className="w-4 h-4 text-primary" />
-                <a href="tel:919082020416" className="hover:text-foreground transition-colors">919082020416</a>
-              </li>
-              <li className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-                <span>Shop No. MG15, Gala, Samrat, & 4, Shell Colony Rd, near Kamraj Hall, Sai Baba Nagar, Chembur, Mumbai, Maharashtra 400071</span>
-              </li>
+              <li><Link href="/3d-printers" className="hover:text-primary transition-colors">3D Printers</Link></li>
+              <li><Link href="/product/techno-polymers-filaments" className="hover:text-primary transition-colors">Techno Polymers & Filaments</Link></li>
+              <li><Link href="/spare-parts" className="hover:text-primary transition-colors">Spare Parts</Link></li>
+              <li><Link href="/product/3d-printing-resin" className="hover:text-primary transition-colors">3D Printing Resin</Link></li>
             </ul>
           </div>
 
-          {/* CTA */}
+          {/* Services */}
           <div>
-            <h3 className="text-foreground font-semibold mb-6">Need it fast?</h3>
-            <p className="text-muted-foreground text-sm mb-4">Chat with our engineers instantly via WhatsApp.</p>
-            <a 
-              href="https://wa.me/919082020416" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#25D366]/10 text-[#25D366] rounded-full border border-[#25D366]/20 hover:bg-[#25D366] hover:text-black transition-colors font-medium text-sm"
-            >
-              Message on WhatsApp
-              <ArrowUpRight className="w-4 h-4" />
-            </a>
+            <h3 className="text-foreground font-semibold text-lg mb-6">Services</h3>
+            <ul className="space-y-4 text-sm text-muted-foreground">
+              <li><Link href="/3d-services" className="hover:text-primary transition-colors">3D Services</Link></li>
+              <li><Link href="/shilp-studio" className="hover:text-primary transition-colors">Shilp Studio</Link></li>
+              <li><Link href="/velvet-coating" className="hover:text-primary transition-colors">Velvet Coating</Link></li>
+              <li><Link href="/3d-printer-repair" className="hover:text-primary transition-colors">3D Printer Repair</Link></li>
+              <li><Link href="/3d-scanning" className="hover:text-primary transition-colors">3D Scanning</Link></li>
+            </ul>
+          </div>
+
+          {/* Resources */}
+          <div>
+            <h3 className="text-foreground font-semibold text-lg mb-6">Resources</h3>
+            <ul className="space-y-4 text-sm text-muted-foreground">
+              <li><Link href="/site-terms" className="hover:text-primary transition-colors">Site Terms</Link></li>
+              <li><Link href="/privacy-policies" className="hover:text-primary transition-colors">Privacy Policies</Link></li>
+              <li><Link href="/return-refund" className="hover:text-primary transition-colors">Return/Refund</Link></li>
+              <li><Link href="/shipping-policy" className="hover:text-primary transition-colors">Shipping Policy</Link></li>
+              <li><Link href="/faq" className="hover:text-primary transition-colors">FAQ's</Link></li>
+            </ul>
+          </div>
+
+          {/* Contact Info */}
+          <div className="col-span-2 md:col-span-1">
+            <h3 className="text-foreground font-semibold text-base mb-2 uppercase tracking-wide">CHEMBUR , MUMBAI-400071</h3>
+            <p className="text-primary font-semibold text-lg mb-4">+91-9082944592</p>
+            <ul className="space-y-3 text-sm text-muted-foreground">
+              <li><a href="mailto:sales@vektor3ds.com" className="hover:text-foreground transition-colors">sales@vektor3ds.com</a></li>
+              <li><a href="mailto:sales1@vektor3ds.com" className="hover:text-foreground transition-colors">sales1@vektor3ds.com</a></li>
+              <li><a href="mailto:sales2@vektor3ds.com" className="hover:text-foreground transition-colors">sales2@vektor3ds.com</a></li>
+              <li><a href="mailto:sales3@vektor3ds.com" className="hover:text-foreground transition-colors">sales3@vektor3ds.com</a></li>
+            </ul>
           </div>
         </div>
 

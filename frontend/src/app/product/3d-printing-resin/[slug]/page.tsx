@@ -2,19 +2,19 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowLeft, Zap, Minus, Plus, ShoppingCart } from "lucide-react";
+import { ArrowLeft, Minus, Plus, ShoppingCart } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { diyProducts } from "@/data/diyPrintersData";
+import { resinProducts } from "@/data/resinData";
 
-export default function DIYProductDetailsPage({ params }: { params: { slug: string } }) {
+export default function ResinProductDetailsPage({ params }: { params: { slug: string } }) {
   const router = useRouter();
   const [quantity, setQuantity] = useState(1);
   const [activeImage, setActiveImage] = useState(0);
   const [activeTab, setActiveTab] = useState('description');
 
   // Fallback to first model if exact slug not found
-  const product = diyProducts.find((m) => m.slug === params.slug) || diyProducts[0];
+  const product = resinProducts.find((m) => m.slug === params.slug) || resinProducts[0];
 
   // Prepare images array
   const images = [product.image, ...(product.extraImages || [])];
@@ -39,7 +39,7 @@ export default function DIYProductDetailsPage({ params }: { params: { slug: stri
             Go Back
           </button>
           <div className="text-sm text-muted-foreground hidden md:block">
-            Home / 3D Printers / DIY 3D Printers / <span className="text-foreground">{product.name}</span>
+            Home / Products / 3D Printing Resin / <span className="text-foreground">{product.name}</span>
           </div>
         </div>
 
@@ -162,7 +162,7 @@ export default function DIYProductDetailsPage({ params }: { params: { slug: stri
         >
           {/* Tab Headers */}
           <div className="flex border-b border-white/10 overflow-x-auto custom-scrollbar">
-            {["DESCRIPTION", "TECHNICAL SPECIFICATION", "WHAT'S IN THE BOX"].map((tab) => {
+            {["DESCRIPTION"].map((tab) => {
               const tabId = tab.toLowerCase().replace(/ /g, '-').replace(/'/g, '');
               return (
                 <button
@@ -189,69 +189,13 @@ export default function DIYProductDetailsPage({ params }: { params: { slug: stri
                 className="prose prose-invert max-w-none text-muted-foreground"
               >
                 <h2 className="text-2xl font-bold text-foreground mb-6">
-                  Meet the {product.name}: Ready to Print, Ready to Impress
+                  {product.name} Details
                 </h2>
                 <div className="space-y-6 text-base leading-relaxed">
                   {overviewPoints.map((point, i) => (
                     <p key={i}>{point}</p>
                   ))}
                 </div>
-              </motion.div>
-            )}
-
-            {activeTab === 'technical-specification' && (
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="prose prose-invert max-w-none text-muted-foreground"
-              >
-                <h2 className="text-2xl font-bold text-foreground mb-6">Technical Specifications</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
-                  <div className="border-b border-white/5 pb-4">
-                    <span className="font-semibold text-foreground block mb-1">Build Volume</span>
-                    <span>Standard build size optimized for {product.name}</span>
-                  </div>
-                  <div className="border-b border-white/5 pb-4">
-                    <span className="font-semibold text-foreground block mb-1">Print Speed</span>
-                    <span>High speed printing capabilities</span>
-                  </div>
-                  <div className="border-b border-white/5 pb-4">
-                    <span className="font-semibold text-foreground block mb-1">Supported Materials</span>
-                    <span>PLA, ABS, PETG, TPU, and more</span>
-                  </div>
-                  <div className="border-b border-white/5 pb-4">
-                    <span className="font-semibold text-foreground block mb-1">Extruder</span>
-                    <span>High-performance extrusion system</span>
-                  </div>
-                  <div className="border-b border-white/5 pb-4">
-                    <span className="font-semibold text-foreground block mb-1">Bed Leveling</span>
-                    <span>Automatic / Manual (model dependent)</span>
-                  </div>
-                  <div className="border-b border-white/5 pb-4">
-                    <span className="font-semibold text-foreground block mb-1">Connectivity</span>
-                    <span>USB, Wi-Fi, SD Card</span>
-                  </div>
-                </div>
-              </motion.div>
-            )}
-
-            {activeTab === 'whats-in-the-box' && (
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="prose prose-invert max-w-none text-muted-foreground"
-              >
-                <h2 className="text-2xl font-bold text-foreground mb-6">What's in the Box</h2>
-                <ul className="space-y-4 text-base leading-relaxed list-disc pl-5">
-                  <li>1x {product.name} Base Unit</li>
-                  <li>1x Toolhead / Extruder Assembly</li>
-                  <li>1x Print Bed / Build Plate</li>
-                  <li>1x Power Cable & Adapter</li>
-                  <li>1x USB Drive / SD Card with Sample Prints</li>
-                  <li>1x User Manual & Quick Start Guide</li>
-                  <li>Basic Tool Kit (Allen keys, scraper, pliers)</li>
-                  <li>Sample Filament Spool</li>
-                </ul>
               </motion.div>
             )}
           </div>

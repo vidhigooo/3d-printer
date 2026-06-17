@@ -15,8 +15,8 @@ export default function Navbar() {
   const [resinMenuOpen, setResinMenuOpen] = useState(false);
 
   const resinDropdownItems = [
-    { name: "3D Printing Resin", href: "/resin-and-filament/3d-printing-resin" },
-    { name: "Techno Polymers & Filaments", href: "/resin-and-filament/techno-polymers-filaments" },
+    { name: "3D Printing Resin", href: "/product/3d-printing-resin" },
+    { name: "Techno Polymers & Filaments", href: "/product/techno-polymers-filaments" },
   ];
 
   const printerDropdownItems = [
@@ -31,7 +31,7 @@ export default function Navbar() {
     { name: "3D Printers", href: "/3d-printers" },
   
     { name: "3D Services", href: "/3d-services" },
-    { name: "Resin & Filament", href: "/resin-and-filament" },
+    { name: "Product", href: "/product" },
     { name: "Shilp Studio", href: "/shilp-studio" },
     { name: "Velvet Coating", href: "/velvet-coating" },
     { name: "Contact Us", href: "/contact-us" },
@@ -98,7 +98,7 @@ export default function Navbar() {
                   </div>
                 </div>
               );
-            } else if (item.name === "Resin & Filament") {
+            } else if (item.name === "Product") {
               return (
                 <div
                   key={item.name}

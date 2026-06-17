@@ -5,6 +5,7 @@ import OurPrinters from "@/components/OurPrinters";
 import ClientLogos from "@/components/ClientLogos";
 import OurExpertise from "@/components/OurExpertise";
 import WhyChooseUs from "@/components/WhyChooseUs";
+import BlogsAndUpdates from "@/components/BlogsAndUpdates";
 import LocationMap from "@/components/LocationMap";
 import CallToAction from "@/components/CallToAction";
 
@@ -16,6 +17,7 @@ export default function Home() {
       <ClientLogos />
       <OurExpertise />
       <WhyChooseUs />
+      <BlogsAndUpdates />
       <HowItWorks />
       <CallToAction />
       <Trust />
