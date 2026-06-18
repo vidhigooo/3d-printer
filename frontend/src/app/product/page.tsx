@@ -99,7 +99,7 @@ export default function ProductCategories() {
     },
     {
       name: "Techno Polymers & Filaments",
-      image: "/elgoo_orange.png",
+      image: "/resin/polymer.png",
       description: "High-quality filaments for strong and durable parts.",
       href: "/product/techno-polymers-filaments",
     },
