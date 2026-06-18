@@ -23,7 +23,7 @@ export default function DLPLCDProductDetailsPage({ params }: { params: { slug: s
   const overviewPoints = product.description.split('\n').filter(p => p.trim().length > 0);
   
   const outOfStock = false;
-  const price = "Contact for Price";
+  const price = product.price || "Contact for Price";
 
   return (
     <div className="relative min-h-screen overflow-hidden pt-36 pb-24 selection:bg-cyan-500/30 text-slate-200 bg-slate-950">

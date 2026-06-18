@@ -57,7 +57,7 @@ export default function LCDDLPPrinters() {
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {dlpProducts.map((product, idx) => {
             const outOfStock = false;
-            const price = "Contact for Price";
+            const price = product.price || "Contact for Price";
             
             return (
               <motion.div
