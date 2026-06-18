@@ -1,136 +1,122 @@
-import type { Metadata } from "next";
+"use client";
+
+import React from "react";
 import Image from "next/image";
-import { Sparkles, Droplets, ShieldCheck, Gauge } from "lucide-react";
+import { motion } from "framer-motion";
+import { ShoppingCart, Info, Zap } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { dlpProducts } from "@/data/dlpProducts";
 
-import DlpGallery from "@/components/DlpGallery";
+export default function LCDDLPPrinters() {
+  const router = useRouter();
 
-export const metadata: Metadata = {
-	title: "LCD / DLP 3D Printers | VEKTOR3D SYSTEMS",
-	description: "Explore our LCD and DLP 3D printer lineup, including the full Elegoo-focused model gallery.",
-};
+  return (
+    <div className="relative min-h-screen overflow-hidden pt-36 pb-24 selection:bg-cyan-500/30">
+      {/* Background Ambience */}
+      <div className="pointer-events-none absolute -top-[30%] -left-[10%] h-[70%] w-[50%] rounded-full bg-cyan-500/15 blur-[120px]" />
+      <div className="pointer-events-none absolute top-[30%] -right-[10%] h-[60%] w-[40%] rounded-full bg-blue-500/15 blur-[150px]" />
 
-const highlights = [
-	{
-		title: "Ultra-fine detail",
-		description: "LCD / DLP curing captures sharp edges, smooth surfaces, and precise miniature features.",
-		icon: Sparkles,
-	},
-	{
-		title: "Fast layer exposure",
-		description: "Resin workflow optimized for rapid turnaround on dental, jewelry, and design models.",
-		icon: Droplets,
-	},
-	{
-		title: "Stable repeatability",
-		description: "Consistent vat curing and platform control help maintain dependable production output.",
-		icon: ShieldCheck,
-	},
-	{
-		title: "Production-friendly",
-		description: "Built for short-run manufacturing, prototyping, and high-resolution fit checks.",
-		icon: Gauge,
-	},
-];
+      <div className="container relative mx-auto px-6">
+        {/* Header Section */}
+        <div className="mx-auto mb-16 max-w-3xl text-center">
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="mb-6 flex items-center justify-center gap-2"
+          >
+            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-cyan-500/10 text-cyan-500 ring-1 ring-cyan-500/30">
+              <Zap className="h-4 w-4" />
+            </span>
+            <span className="text-sm font-semibold uppercase tracking-widest text-cyan-500">Our Collection</span>
+          </motion.div>
 
-function SectionHeading({ eyebrow, title, text }: { eyebrow: string; title: string; text?: string }) {
-	return (
-		<div className="mx-auto max-w-3xl text-center">
-			<div className="mb-4 inline-flex items-center gap-2 rounded-full border border-cyan-500/20 bg-cyan-500/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-cyan-300">
-				<span className="h-2 w-2 rounded-full bg-cyan-400" />
-				{eyebrow}
-			</div>
-			<h2 className="text-3xl font-extrabold tracking-tight text-white md:text-4xl lg:text-5xl">{title}</h2>
-			{text ? <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-slate-400 md:text-lg">{text}</p> : null}
-		</div>
-	);
-}
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="mb-6 text-4xl font-extrabold tracking-tight text-foreground md:text-5xl lg:text-6xl"
+          >
+            LCD / DLP{" "}
+            <span className="bg-gradient-to-br from-cyan-400 via-cyan-500 to-blue-500 bg-clip-text text-transparent">
+              3D Printers
+            </span>
+          </motion.h1>
 
-export default function LCDDlpPrintersPage() {
-	return (
-		<div className="min-h-screen overflow-hidden bg-slate-950 text-slate-200 selection:bg-cyan-500/30">
-			<div className="fixed inset-0 pointer-events-none z-0">
-				<div className="absolute left-[-10%] top-[-8%] h-[540px] w-[540px] rounded-full bg-cyan-600/10 blur-[160px]" />
-				<div className="absolute right-[-12%] top-[12%] h-[520px] w-[520px] rounded-full bg-blue-600/10 blur-[170px]" />
-				<div className="absolute bottom-[-12%] left-[18%] h-[420px] w-[420px] rounded-full bg-purple-600/10 blur-[160px]" />
-				<div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:radial-gradient(ellipse_75%_65%_at_50%_45%,#000_70%,transparent_100%)]" />
-			</div>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mx-auto max-w-2xl text-lg text-muted-foreground"
+          >
+            Discover our extensive range of high-quality LCD and DLP 3D printers. Perfect for miniatures, dental workflows, and high-resolution prototyping.
+          </motion.p>
+        </div>
 
-			<main className="relative z-10">
-				<section className="relative border-b border-white/5 px-6 pb-20 pt-36 md:pb-28 md:pt-44">
-					<div className="container mx-auto grid max-w-7xl grid-cols-1 items-center gap-16 lg:grid-cols-2">
-						<div className="space-y-8">
-							<div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/20 bg-cyan-500/10 px-4 py-2 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-300">
-								LCD / DLP Series
-							</div>
+        {/* Product Grid */}
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {dlpProducts.map((product, idx) => {
+            const outOfStock = false;
+            const price = "Contact for Price";
+            
+            return (
+              <motion.div
+                key={product.id}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                className="group glass relative flex h-full flex-col overflow-hidden rounded-2xl bg-gradient-to-b from-white/[0.08] to-transparent shadow-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_30px_-5px_rgba(0,229,255,0.2)]"
+              >
+                {/* Image Container - Clickable to open page */}
+                <div 
+                  className="relative flex h-56 w-full cursor-pointer items-center justify-center bg-white p-6 transition-colors"
+                  onClick={() => router.push(`/3d-printers/lcd-dlp-3d-printers/${product.id}`)}
+                >
+                  <div className="absolute top-4 right-4 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-black/10 text-black opacity-0 backdrop-blur-md transition-opacity group-hover:opacity-100">
+                    <Info className="h-4 w-4" />
+                  </div>
+                  <div className="relative h-full w-full">
+                    <Image
+                      src={product.image}
+                      alt={product.name}
+                      fill
+                      className="object-contain transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                </div>
 
-							<div className="space-y-6">
-								<h1 className="max-w-3xl text-5xl font-extrabold tracking-tight text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.18)] md:text-6xl lg:text-7xl">
-									LCD / DLP 3D Printer Lineup
-								</h1>
-								<p className="max-w-2xl text-lg leading-relaxed text-slate-400 md:text-xl">
-									Precision resin printing for miniature detail, dental workflows, product design, and short-run production. This page brings together the full Elegoo-focused gallery already used across the 3D printer catalog.
-								</p>
-							</div>
-						</div>
-
-						<div className="relative flex items-center justify-center">
-							<div className="absolute inset-0 rounded-[32px] bg-gradient-to-tr from-cyan-500/20 via-transparent to-blue-500/20 blur-[70px]" />
-							<div className="relative w-full max-w-2xl overflow-hidden rounded-[32px] border border-white/10 bg-white/5 shadow-[0_0_60px_rgba(0,229,255,0.14)]">
-								<Image
-									src="/lcd.png"
-									alt="Elegoo printer lineup"
-									width={1200}
-									height={900}
-									className="h-full w-full object-cover"
-									priority
-								/>
-							</div>
-						</div>
-					</div>
-				</section>
-
-				<section className="border-b border-white/5 bg-white/[0.02] px-6 py-24">
-					<div className="container mx-auto max-w-7xl">
-						<SectionHeading
-							eyebrow="Why LCD / DLP"
-							title="Built for high-detail resin printing"
-							text="LCD and DLP systems are the right fit when surface finish, accuracy, and compact feature fidelity matter more than raw part size."
-						/>
-
-						<div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
-							{highlights.map((item) => {
-								const Icon = item.icon;
-								return (
-									<article
-										key={item.title}
-										className="rounded-[24px] border border-white/10 bg-slate-900/60 p-6 shadow-xl transition-all duration-500 hover:-translate-y-1 hover:border-cyan-500/30 hover:bg-slate-900"
-									>
-										<div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-500/10 text-cyan-300 ring-1 ring-cyan-500/20">
-											<Icon className="h-5 w-5" />
-										</div>
-										<h3 className="text-xl font-bold tracking-tight text-white">{item.title}</h3>
-										<p className="mt-3 text-sm leading-relaxed text-slate-400">{item.description}</p>
-									</article>
-								);
-							})}
-						</div>
-					</div>
-				</section>
-
-				<section id="models" className="border-b border-white/5 px-6 py-24">
-					<div className="container mx-auto max-w-7xl">
-						<SectionHeading
-							eyebrow="Elegoo Gallery"
-							title="All LCD / DLP printer images in one place"
-							text="These are the Elegoo-focused printer visuals already used in the 3D printer catalog, now collected into a dedicated LCD / DLP page."
-						/>
-
-						<div className="mt-16">
-							<DlpGallery />
-						</div>
-					</div>
-				</section>
-			</main>
-		</div>
-	);
+                {/* Content Container */}
+                <div className="flex flex-1 flex-col justify-between p-6">
+                  <div 
+                    className="cursor-pointer"
+                    onClick={() => router.push(`/3d-printers/lcd-dlp-3d-printers/${product.id}`)}
+                  >
+                    <h3 className="line-clamp-2 text-lg font-bold text-foreground group-hover:text-cyan-400 transition-colors">{product.name}</h3>
+                    <p className="mt-2 text-xl font-semibold text-cyan-400">{price}</p>
+                  </div>
+                  
+                  <button
+                    onClick={() => {
+                      if (!outOfStock) {
+                        router.push(`/3d-printers/lcd-dlp-3d-printers/${product.id}`);
+                      }
+                    }}
+                    className={`mt-6 flex w-full items-center justify-center gap-2 rounded-xl py-3 text-sm font-semibold transition-all duration-300 ${
+                      outOfStock
+                        ? "cursor-not-allowed bg-muted text-muted-foreground"
+                        : "bg-gradient-to-r from-primary to-secondary text-primary-foreground hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(0,229,255,0.4)]"
+                    }`}
+                    disabled={outOfStock}
+                  >
+                    <ShoppingCart className="h-4 w-4" />
+                    {outOfStock ? "Out of Stock" : "Add to Cart"}
+                  </button>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
 }

@@ -17,7 +17,7 @@ export default function DLPLCDProductDetailsPage({ params }: { params: { slug: s
   const product = dlpProducts.find((m) => m.id === params.slug) || dlpProducts[0];
 
   // Prepare images array
-  const images = [product.image];
+  const images = [product.image, ...(product.extraImages || [])];
 
   // Prepare product overview bullet points
   const overviewPoints = product.description.split('\n').filter(p => p.trim().length > 0);
@@ -144,7 +144,7 @@ export default function DLPLCDProductDetailsPage({ params }: { params: { slug: s
                   className={`flex h-14 flex-1 items-center justify-center gap-3 rounded-2xl px-8 text-base font-bold tracking-wide shadow-lg transition-all ${
                     outOfStock 
                     ? "bg-slate-800 text-slate-500 cursor-not-allowed" 
-                    : "bg-gradient-to-r from-cyan-500 to-blue-500 text-white hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(0,229,255,0.4)] active:scale-[0.98]"
+                    : "bg-gradient-to-r from-primary to-secondary text-primary-foreground hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(0,229,255,0.4)] active:scale-[0.98]"
                   }`}
                   disabled={outOfStock}
                 >
