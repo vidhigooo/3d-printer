@@ -49,7 +49,7 @@ export default function Hero() {
               transition={{ duration: 0.7, delay: 0.4 }}
               className="text-base sm:text-lg md:text-xl text-muted-foreground mb-8 md:mb-10 text-balance font-light max-w-lg"
             >
-              From rapid prototypes to end-use production — delivering fast, accurate, and reliable additive manufacturing.
+             From prototype to production with fast turnaround and precision-built parts.
             </motion.p>
 
             <motion.div
@@ -69,7 +69,7 @@ export default function Hero() {
                 href="#portfolio"
                 className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-muted border border-border text-foreground font-medium hover:bg-accent transition-all duration-300 flex items-center justify-center backdrop-blur-md"
               >
-                View Portfolio
+                View Projects
               </Link>
             </motion.div>
           </motion.div>
