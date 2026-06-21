@@ -68,6 +68,10 @@ export default function QuoteForm() {
       return;
     }
 
+    // Capture form data BEFORE any async operations
+    const formElement = e.currentTarget;
+    const formData = new FormData(formElement);
+
     setLoading(true);
     setError(null);
     setFileError(null);
@@ -79,7 +83,8 @@ export default function QuoteForm() {
 
       // Step 2: Send form data + Cloudinary URL to our API
       setLoadingStep("Submitting quote request...");
-      const formData = new FormData(e.currentTarget);
+      formData.append("uploadedFileUrl", cloudinaryUrl);
+      formData.append("uploadedFileName", file.name);
       formData.append("uploadedFileUrl", cloudinaryUrl);
       formData.append("uploadedFileName", file.name);
 

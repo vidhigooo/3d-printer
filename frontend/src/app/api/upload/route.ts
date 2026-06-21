@@ -5,10 +5,15 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
+const getSupabase = () => {
+  if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) {
+    throw new Error("Missing Supabase credentials in environment variables.");
+  }
+  return createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL,
+    process.env.SUPABASE_SERVICE_ROLE_KEY
+  );
+};
 
 export async function POST(request: NextRequest) {
   try {
@@ -33,14 +38,11 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ success: false, message: "Missing required fields" }, { status: 400 });
     }
 
-    if (!uploadedFileUrl) {
-      return NextResponse.json({ success: false, message: "No file URL received" }, { status: 400 });
-    }
-
     const dateStr = new Date().toISOString().split("T")[0].replace(/-/g, "");
     const randomSuffix = Math.floor(Math.random() * 1000).toString().padStart(3, "0");
     const quoteId = `QT-${dateStr}-${randomSuffix}`;
 
+    const supabase = getSupabase();
     const { error: dbError } = await supabase.from("quotes").insert({
       id: quoteId,
       full_name: fullName,
