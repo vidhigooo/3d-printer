@@ -82,7 +82,8 @@ export async function POST(request: NextRequest) {
         {
           folder: "vektor3d-quotes",           // folder name in your Cloudinary account
           public_id: `${quoteId}-${file.name.replace(/[^a-zA-Z0-9.-]/g, "_")}`,
-          resource_type: "raw",                // required for non-image files like STL/STEP
+          resource_type: "raw",         
+          upload_preset: "vektor3d_uploads",        // required for non-image files like STL/STEP
         },
         (error, result) => {
           if (error) reject(error);
