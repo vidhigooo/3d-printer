@@ -63,12 +63,8 @@ export default function QuoteForm() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!file) {
-      setFileError("Please upload a CAD file to proceed.");
-      return;
-    }
 
-    // Capture form data BEFORE any async operations
+    // Capture form data synchronously BEFORE any async operations
     const formElement = e.currentTarget;
     const formData = new FormData(formElement);
 
@@ -77,16 +73,20 @@ export default function QuoteForm() {
     setFileError(null);
 
     try {
-      // Step 1: Upload file directly to Cloudinary (unsigned)
-      setLoadingStep("Uploading CAD file...");
-      const cloudinaryUrl = await uploadToCloudinary(file);
+      let cloudinaryUrl = "";
+      
+      // Step 1: Upload file directly to Cloudinary (unsigned) IF a file is provided
+      if (file) {
+        setLoadingStep("Uploading CAD file...");
+        cloudinaryUrl = await uploadToCloudinary(file);
+      }
 
       // Step 2: Send form data + Cloudinary URL to our API
       setLoadingStep("Submitting quote request...");
-      formData.append("uploadedFileUrl", cloudinaryUrl);
-      formData.append("uploadedFileName", file.name);
-      formData.append("uploadedFileUrl", cloudinaryUrl);
-      formData.append("uploadedFileName", file.name);
+      if (cloudinaryUrl) {
+        formData.append("uploadedFileUrl", cloudinaryUrl);
+        formData.append("uploadedFileName", file!.name);
+      }
 
       const res = await fetch("/api/upload", {
         method: "POST",
@@ -214,7 +214,7 @@ export default function QuoteForm() {
         <div>
           <h3 className="text-xl font-bold text-white mb-6 border-b border-white/10 pb-3 flex items-center gap-3">
             <span className="w-8 h-8 rounded-full bg-cyan-500/20 text-cyan-400 flex items-center justify-center text-sm">3</span>
-            Upload CAD File *
+            Upload CAD File <span className="text-sm font-normal text-slate-400 ml-2">(Optional)</span>
           </h3>
           <FileUpload onFileSelect={(f) => { setFile(f); setFileError(null); }} error={fileError} />
         </div>

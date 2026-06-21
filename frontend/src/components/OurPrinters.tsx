@@ -28,13 +28,6 @@ const printers: Printer[] = [
     details: "Efficient, High Performance, Reliable and Durable",
     image: "/smart_pro_sla.png",
   },
-  {
-    name: "ProtoMake",
-    series: "LCD Printer Series",
-    highlight: "Precision Resin Printing at Affordable Cost",
-    details: "Fast, Accurate, Cost-Effective and User-Friendly",
-    image: "/protomake.png",
-  },
 ];
 
 export default function OurPrinters() {
