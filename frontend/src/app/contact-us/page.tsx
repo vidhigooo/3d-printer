@@ -1,5 +1,7 @@
-import React from 'react';
-import { Phone, Mail, MapPin, Upload, Send, MessageCircle } from 'lucide-react';
+"use client";
+
+import React, { useState, useRef } from 'react';
+import { Phone, Mail, MapPin, Upload, Send, MessageCircle, Loader2, CheckCircle, AlertCircle } from 'lucide-react';
 
 const FacebookIcon = ({ size = 24 }: { size?: number | string }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" stroke="none">
@@ -8,6 +10,65 @@ const FacebookIcon = ({ size = 24 }: { size?: number | string }) => (
 );
 
 export default function ContactUs() {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    phone: "",
+    email: "",
+    location: "",
+    service: "",
+    message: "",
+  });
+  const [file, setFile] = useState<File | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [responseMsg, setResponseMsg] = useState("");
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      setFile(e.target.files[0]);
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("submitting");
+    setResponseMsg("");
+
+    const data = new FormData();
+    Object.entries(formData).forEach(([key, value]) => {
+      data.append(key, value);
+    });
+    if (file) {
+      data.append("file", file);
+    }
+
+    try {
+      const response = await fetch("/api/inquiry", {
+        method: "POST",
+        body: data,
+      });
+      const result = await response.json();
+      if (!response.ok) {
+        throw new Error(result.message || "Submission failed");
+      }
+      setStatus("success");
+      setResponseMsg("Your inquiry has been submitted successfully!");
+      setFormData({
+        firstName: "", lastName: "", phone: "", email: "", location: "", service: "", message: ""
+      });
+      setFile(null);
+      if (fileInputRef.current) fileInputRef.current.value = "";
+    } catch (err: any) {
+      setStatus("error");
+      setResponseMsg(err.message || "An error occurred during submission.");
+    }
+  };
+
   return (
     <div className="min-h-screen pt-32 pb-16 px-6 relative overflow-hidden">
       {/* Background elements */}
@@ -104,37 +165,37 @@ export default function ContactUs() {
               <p className="text-muted-foreground">Tell us about your project & requirement.</p>
             </div>
 
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={handleSubmit}>
               <div className="grid grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="text-sm font-medium">First Name *</label>
-                  <input type="text" className="w-full bg-background/50 border border-border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all" required />
+                  <input type="text" name="firstName" value={formData.firstName} onChange={handleInputChange} className="w-full bg-background/50 border border-border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all" required />
                 </div>
                 <div className="space-y-2">
                   <label className="text-sm font-medium">Last Name *</label>
-                  <input type="text" className="w-full bg-background/50 border border-border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all" required />
+                  <input type="text" name="lastName" value={formData.lastName} onChange={handleInputChange} className="w-full bg-background/50 border border-border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all" required />
                 </div>
               </div>
               
               <div className="grid grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="text-sm font-medium">Phone Number *</label>
-                  <input type="tel" className="w-full bg-background/50 border border-border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all" required />
+                  <input type="tel" name="phone" value={formData.phone} onChange={handleInputChange} className="w-full bg-background/50 border border-border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all" required />
                 </div>
                 <div className="space-y-2">
                   <label className="text-sm font-medium">Email *</label>
-                  <input type="email" className="w-full bg-background/50 border border-border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all" required />
+                  <input type="email" name="email" value={formData.email} onChange={handleInputChange} className="w-full bg-background/50 border border-border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all" required />
                 </div>
               </div>
 
               <div className="grid grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="text-sm font-medium">Location</label>
-                  <input type="text" className="w-full bg-background/50 border border-border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all" />
+                  <input type="text" name="location" value={formData.location} onChange={handleInputChange} className="w-full bg-background/50 border border-border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all" />
                 </div>
                 <div className="space-y-2">
                   <label className="text-sm font-medium flex-1">Services Required</label>
-                  <select defaultValue="" className="w-full bg-background/50 border border-border text-foreground rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all appearance-none">
+                  <select name="service" value={formData.service} onChange={handleInputChange} className="w-full bg-background/50 border border-border text-foreground rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all appearance-none">
                     <option value="" disabled>Select a service</option>
                     <option value="3d-printing">3D Printing</option>
                     <option value="3d-designing">3D Designing</option>
@@ -147,19 +208,29 @@ export default function ContactUs() {
 
               <div className="space-y-2">
                 <label className="text-sm font-medium">Message</label>
-                <textarea rows={4} className="w-full bg-background/50 border border-border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all resize-none"></textarea>
+                <textarea name="message" value={formData.message} onChange={handleInputChange} rows={4} className="w-full bg-background/50 border border-border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all resize-none"></textarea>
               </div>
 
-              <div className="flex justify-center">
-                <button type="button" className="flex items-center gap-2 px-6 py-3 rounded-lg border border-border bg-white/5 hover:bg-white/10 transition-colors font-medium">
+              <div className="flex flex-col items-center justify-center gap-2">
+                <input type="file" ref={fileInputRef} onChange={handleFileChange} className="hidden" />
+                <button type="button" onClick={() => fileInputRef.current?.click()} className="flex items-center gap-2 px-6 py-3 rounded-lg border border-border bg-white/5 hover:bg-white/10 transition-colors font-medium">
                   <Upload size={18} />
-                  Upload File
+                  {file ? file.name : "Upload File"}
                 </button>
               </div>
 
-              <button type="submit" className="w-full bg-primary text-primary-foreground font-bold text-lg py-4 rounded-xl flex items-center justify-center gap-2 hover:bg-primary/90 transition-colors shadow-[0_0_20px_rgba(0,229,255,0.3)]">
-                <Send size={20} />
-                Submit Inquiry
+              {responseMsg && (
+                <div className={`p-4 rounded-xl text-sm font-medium flex items-center ${
+                  status === "error" ? "bg-red-500/10 text-red-500" : "bg-green-500/10 text-green-500"
+                }`}>
+                  {status === "error" ? <AlertCircle className="w-5 h-5 mr-2" /> : <CheckCircle className="w-5 h-5 mr-2" />}
+                  {responseMsg}
+                </div>
+              )}
+
+              <button type="submit" disabled={status === "submitting"} className="w-full bg-primary text-primary-foreground font-bold text-lg py-4 rounded-xl flex items-center justify-center gap-2 hover:bg-primary/90 transition-colors shadow-[0_0_20px_rgba(0,229,255,0.3)] disabled:opacity-70 disabled:cursor-not-allowed">
+                {status === "submitting" ? <Loader2 size={20} className="animate-spin" /> : <Send size={20} />}
+                {status === "submitting" ? "Submitting..." : "Submit Inquiry"}
               </button>
             </form>
           </div>

@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Chatbot from "@/components/Chatbot";
+import { Analytics } from '@vercel/analytics/react';
 
 import { ThemeProvider } from "@/components/ThemeProvider";
 
@@ -32,6 +33,7 @@ export default function RootLayout({
           <main>{children}</main>
           <Footer />
           <Chatbot />
+             <Analytics /> 
         </ThemeProvider>
       </body>
     </html>
