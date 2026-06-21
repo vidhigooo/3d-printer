@@ -29,10 +29,35 @@ const MATERIALS = [
   "Polyurethane (Vacuum Casting)",
 ];
 
+// ── Upload file directly to Cloudinary (unsigned) ──────────────────────────
+async function uploadToCloudinary(file: File): Promise<string> {
+  const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME!;
+  const uploadPreset = process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET!;
+
+  const formData = new FormData();
+  formData.append("file", file);
+  formData.append("upload_preset", uploadPreset);
+  formData.append("resource_type", "raw"); // required for STL/STEP files
+
+  const res = await fetch(
+    `https://api.cloudinary.com/v1_1/${cloudName}/raw/upload`,
+    { method: "POST", body: formData }
+  );
+
+  if (!res.ok) {
+    const err = await res.json();
+    throw new Error(err.error?.message || "Cloudinary upload failed");
+  }
+
+  const data = await res.json();
+  return data.secure_url; // the permanent Cloudinary URL
+}
+
 export default function QuoteForm() {
   const [file, setFile] = useState<File | null>(null);
   const [fileError, setFileError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const [loadingStep, setLoadingStep] = useState("");
   const [successQuoteId, setSuccessQuoteId] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
@@ -47,10 +72,17 @@ export default function QuoteForm() {
     setError(null);
     setFileError(null);
 
-    const formData = new FormData(e.currentTarget);
-    formData.append("file", file);
-
     try {
+      // Step 1: Upload file directly to Cloudinary (unsigned)
+      setLoadingStep("Uploading CAD file...");
+      const cloudinaryUrl = await uploadToCloudinary(file);
+
+      // Step 2: Send form data + Cloudinary URL to our API
+      setLoadingStep("Submitting quote request...");
+      const formData = new FormData(e.currentTarget);
+      formData.append("uploadedFileUrl", cloudinaryUrl);
+      formData.append("uploadedFileName", file.name);
+
       const res = await fetch("/api/upload", {
         method: "POST",
         body: formData,
@@ -67,6 +99,7 @@ export default function QuoteForm() {
       setError(err.message || "An unexpected error occurred.");
     } finally {
       setLoading(false);
+      setLoadingStep("");
     }
   };
 
@@ -91,7 +124,7 @@ export default function QuoteForm() {
   return (
     <div className="bg-slate-900/40 backdrop-blur-md border border-white/5 rounded-3xl p-6 md:p-10 shadow-2xl">
       <form onSubmit={handleSubmit} className="space-y-8">
-        
+
         {/* Customer Information */}
         <div>
           <h3 className="text-xl font-bold text-white mb-6 border-b border-white/10 pb-3 flex items-center gap-3">
@@ -113,7 +146,7 @@ export default function QuoteForm() {
             </div>
             <div className="space-y-2">
               <label htmlFor="phone" className="text-sm font-medium text-slate-300">Phone Number</label>
-              <input type="tel" id="phone" name="phone" className="w-full bg-slate-950 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/50 transition-all" placeholder="+1 (555) 000-0000" />
+              <input type="tel" id="phone" name="phone" className="w-full bg-slate-950 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/50 transition-all" placeholder="+91 98765 43210" />
             </div>
           </div>
         </div>
@@ -124,13 +157,11 @@ export default function QuoteForm() {
             <span className="w-8 h-8 rounded-full bg-cyan-500/20 text-cyan-400 flex items-center justify-center text-sm">2</span>
             Project Information
           </h3>
-          
           <div className="space-y-6">
             <div className="space-y-2">
               <label htmlFor="projectName" className="text-sm font-medium text-slate-300">Project Name *</label>
               <input required type="text" id="projectName" name="projectName" className="w-full bg-slate-950 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/50 transition-all" placeholder="E.g., Drone Frame Prototype" />
             </div>
-
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-2">
                 <label htmlFor="process" className="text-sm font-medium text-slate-300">Manufacturing Process *</label>
@@ -149,7 +180,6 @@ export default function QuoteForm() {
                 </select>
               </div>
             </div>
-
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="space-y-2">
                 <label htmlFor="quantity" className="text-sm font-medium text-slate-300">Current Quantity *</label>
@@ -164,12 +194,10 @@ export default function QuoteForm() {
                 <input type="date" id="deadline" name="deadline" className="w-full bg-slate-950 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/50 transition-all [color-scheme:dark]" />
               </div>
             </div>
-
             <div className="space-y-2">
               <label htmlFor="budgetRange" className="text-sm font-medium text-slate-300">Budget Range</label>
-              <input type="text" id="budgetRange" name="budgetRange" className="w-full bg-slate-950 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/50 transition-all" placeholder="e.g., $500 - $1000" />
+              <input type="text" id="budgetRange" name="budgetRange" className="w-full bg-slate-950 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/50 transition-all" placeholder="e.g., ₹5,000 - ₹10,000" />
             </div>
-
             <div className="space-y-2">
               <label htmlFor="message" className="text-sm font-medium text-slate-300">Additional Details / Message</label>
               <textarea id="message" name="message" rows={4} className="w-full bg-slate-950 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/50 transition-all resize-y" placeholder="Any specific tolerances, finishing requirements, or special instructions?"></textarea>
@@ -192,15 +220,15 @@ export default function QuoteForm() {
           </div>
         )}
 
-        <button 
-          type="submit" 
+        <button
+          type="submit"
           disabled={loading}
           className="w-full relative inline-flex h-16 overflow-hidden rounded-xl p-[1px] focus:outline-none group disabled:opacity-70 disabled:cursor-not-allowed mt-4"
         >
           <span className="absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#06b6d4_0%,#3b82f6_50%,#06b6d4_100%)]" />
           <span className="inline-flex h-full w-full items-center justify-center rounded-xl bg-slate-950 px-8 py-1 text-lg font-bold text-white backdrop-blur-3xl transition-all group-hover:bg-slate-900 shadow-[0_0_25px_rgba(0,229,255,0.2)]">
             {loading ? (
-              <><Loader2 className="w-6 h-6 mr-3 animate-spin" /> Submitting Request...</>
+              <><Loader2 className="w-6 h-6 mr-3 animate-spin" /> {loadingStep}</>
             ) : (
               <><Send className="w-6 h-6 mr-3" /> Submit Quote Request</>
             )}
