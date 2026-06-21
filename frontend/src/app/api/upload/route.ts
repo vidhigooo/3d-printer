@@ -1,26 +1,35 @@
+// 📁 frontend/src/app/api/upload/route.ts
+// Replace your existing file with this one entirely.
+//
+// Uses:
+//   Cloudinary  → stores the CAD file
+//   Supabase    → stores the quote metadata
+
 import { NextRequest, NextResponse } from "next/server";
-import { promises as fs } from "fs";
-import path from "path";
+import { createClient } from "@supabase/supabase-js";
+import { v2 as cloudinary } from "cloudinary";
+
+// ── Cloudinary config (set these in Vercel environment variables) ──
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME!,
+  api_key: process.env.CLOUDINARY_API_KEY!,
+  api_secret: process.env.CLOUDINARY_API_SECRET!,
+});
+
+// ── Supabase client ──
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.SUPABASE_SERVICE_ROLE_KEY! // use service role key (server-side only)
+);
 
 const ALLOWED_EXTENSIONS = [".stl", ".step", ".stp", ".obj", ".iges", ".igs", ".zip", ".rar"];
 const MAX_FILE_SIZE = 50 * 1024 * 1024; // 50MB
 
-// --- Email Hook Placeholders ---
-async function sendAdminNotification(quoteData: any) {
-  // TODO: Integrate email provider here (Resend, SendGrid, Nodemailer, SMTP)
-  // console.log("Sending admin notification email for quote:", quoteData.id);
-}
-
-async function sendCustomerConfirmation(quoteData: any) {
-  // TODO: Integrate email provider here (Resend, SendGrid, Nodemailer, SMTP)
-  // console.log("Sending customer confirmation email to:", quoteData.email);
-}
-
 export async function POST(request: NextRequest) {
   try {
     const formData = await request.formData();
-    
-    // Extract metadata
+
+    // Extract form fields
     const fullName = formData.get("fullName")?.toString() || "";
     const companyName = formData.get("companyName")?.toString() || "";
     const email = formData.get("email")?.toString() || "";
@@ -33,26 +42,20 @@ export async function POST(request: NextRequest) {
     const deadline = formData.get("deadline")?.toString() || "";
     const budgetRange = formData.get("budgetRange")?.toString() || "";
     const message = formData.get("message")?.toString() || "";
-
     const file = formData.get("file") as File | null;
 
+    // Validations
     if (!file) {
       return NextResponse.json({ success: false, message: "No file uploaded" }, { status: 400 });
     }
-
     if (!fullName || !email || !projectName || !processName || !quantity) {
       return NextResponse.json({ success: false, message: "Missing required fields" }, { status: 400 });
     }
-
-    // Validate size
     if (file.size > MAX_FILE_SIZE) {
       return NextResponse.json({ success: false, message: "File exceeds 50MB limit" }, { status: 400 });
     }
 
-    // Validate extension
-    const originalFilename = file.name;
-    const extension = "." + originalFilename.split(".").pop()?.toLowerCase();
-    
+    const extension = "." + file.name.split(".").pop()?.toLowerCase();
     if (!ALLOWED_EXTENSIONS.includes(extension)) {
       return NextResponse.json(
         { success: false, message: `Invalid file format. Allowed: ${ALLOWED_EXTENSIONS.join(", ")}` },
@@ -60,71 +63,58 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Storage Paths
-    const storageDir = path.join(process.cwd(), "storage");
-    const uploadsDir = path.join(storageDir, "uploads");
-    const quotesFile = path.join(storageDir, "quotes.json");
-
-    // Ensure directories exist
-    await fs.mkdir(uploadsDir, { recursive: true });
-
-    // Generate unique filename and ID
-    const timestamp = Date.now();
-    const dateStr = new Date().toISOString().split("T")[0].replace(/-/g, ""); // YYYYMMDD
+    // Generate quote ID
+    const dateStr = new Date().toISOString().split("T")[0].replace(/-/g, "");
     const randomSuffix = Math.floor(Math.random() * 1000).toString().padStart(3, "0");
     const quoteId = `QT-${dateStr}-${randomSuffix}`;
-    const uniqueFilename = `${quoteId}-${originalFilename.replace(/[^a-zA-Z0-9.-]/g, "_")}`;
-    const filePath = path.join(uploadsDir, uniqueFilename);
 
-    // Write file
+    // ── Upload file to Cloudinary ──
     const arrayBuffer = await file.arrayBuffer();
     const buffer = Buffer.from(arrayBuffer);
-    await fs.writeFile(filePath, buffer);
 
-    // Read existing quotes
-    let existingQuotes = [];
-    try {
-      const data = await fs.readFile(quotesFile, "utf-8");
-      existingQuotes = JSON.parse(data);
-    } catch {
-      // File doesn't exist or is invalid, start empty
-      existingQuotes = [];
-    }
+    const cloudinaryResult = await new Promise<any>((resolve, reject) => {
+      cloudinary.uploader.upload_stream(
+        {
+          folder: "vektor3d-quotes",           // folder name in your Cloudinary account
+          public_id: `${quoteId}-${file.name.replace(/[^a-zA-Z0-9.-]/g, "_")}`,
+          resource_type: "raw",                // required for non-image files like STL/STEP
+        },
+        (error, result) => {
+          if (error) reject(error);
+          else resolve(result);
+        }
+      ).end(buffer);
+    });
 
-    // Construct quote data
-    const newQuote = {
+    // ── Save quote to Supabase ──
+    const { error: dbError } = await supabase.from("quotes").insert({
       id: quoteId,
-      fullName,
-      companyName,
+      full_name: fullName,
+      company_name: companyName,
       email,
       phone,
-      projectName,
+      project_name: projectName,
       process: processName,
       material,
       quantity,
-      expectedQuantity,
-      budgetRange,
+      expected_quantity: expectedQuantity,
+      budget_range: budgetRange,
       deadline,
       message,
-      uploadedFile: uniqueFilename,
+      uploaded_file: cloudinaryResult.secure_url,  // store the Cloudinary URL
+      uploaded_file_name: file.name,
       status: "Pending",
-      quoteAmount: "",
-      createdAt: new Date().toISOString(),
-    };
-
-    existingQuotes.push(newQuote);
-
-    // Save metadata
-    await fs.writeFile(quotesFile, JSON.stringify(existingQuotes, null, 2));
-
-    // Fire Email Hooks (Async, don't await so we don't block response)
-    sendAdminNotification(newQuote).catch(console.error);
-    sendCustomerConfirmation(newQuote).catch(console.error);
-
-    return NextResponse.json({
-      success: true,
-      quoteId: quoteId,
+      quote_amount: "",
+      created_at: new Date().toISOString(),
     });
+
+    if (dbError) {
+      console.error("Supabase insert error:", dbError);
+      return NextResponse.json({ success: false, message: "Failed to save quote" }, { status: 500 });
+    }
+
+    return NextResponse.json({ success: true, quoteId });
+
   } catch (error: any) {
     console.error("Upload error:", error);
     return NextResponse.json(

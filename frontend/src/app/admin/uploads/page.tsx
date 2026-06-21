@@ -1,28 +1,51 @@
-import { promises as fs } from "fs";
-import path from "path";
+// 📁 frontend/src/app/admin/uploads/page.tsx
+// Replace your existing file with this one entirely.
+
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import AdminQuoteTable, { Quote } from "@/components/AdminQuoteTable";
+import { createClient } from "@supabase/supabase-js";
 
 export const dynamic = "force-dynamic";
 
+// Map Supabase snake_case columns → your existing Quote interface (camelCase)
+function mapQuote(row: any): Quote {
+  return {
+    id: row.id,
+    fullName: row.full_name,
+    companyName: row.company_name,
+    email: row.email,
+    phone: row.phone,
+    projectName: row.project_name,
+    process: row.process,
+    material: row.material,
+    quantity: row.quantity,
+    expectedQuantity: row.expected_quantity,
+    budgetRange: row.budget_range,
+    deadline: row.deadline,
+    message: row.message,
+    uploadedFile: row.uploaded_file,       // this is now a Cloudinary URL
+    status: row.status,
+    quoteAmount: row.quote_amount,
+    createdAt: row.created_at,
+  };
+}
+
 export default async function AdminUploadsPage() {
-  const storageDir = path.join(process.cwd(), "storage");
-  const quotesFile = path.join(storageDir, "quotes.json");
+  const supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!
+  );
 
-  let quotes: Quote[] = [];
+  const { data, error } = await supabase
+    .from("quotes")
+    .select("*")
+    .order("created_at", { ascending: false });
 
-  try {
-    const data = await fs.readFile(quotesFile, "utf-8");
-    quotes = JSON.parse(data);
-  } catch {
-    console.log("No quotes database found or error reading it");
-  }
+  const quotes: Quote[] = error ? [] : (data || []).map(mapQuote);
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-200 pt-32 pb-20 px-6 selection:bg-cyan-500/30">
-      
-      {/* Background gradients */}
       <div className="fixed inset-0 z-0 opacity-40 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950 z-10" />
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-600/10 rounded-full blur-[120px] -z-10" />
@@ -46,7 +69,6 @@ export default async function AdminUploadsPage() {
         </div>
 
         <AdminQuoteTable initialQuotes={quotes} />
-        
       </div>
     </div>
   );
