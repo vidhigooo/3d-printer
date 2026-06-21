@@ -136,6 +136,7 @@ export default function BlogPage() {
               </Link>
             </motion.div>
           ))}
+        </div>
       </div>
     </div>
   );

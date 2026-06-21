@@ -17,10 +17,15 @@ cloudinary.config({
 });
 
 // ── Supabase client ──
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY! // use service role key (server-side only)
-);
+const getSupabase = () => {
+  if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) {
+    throw new Error("Missing Supabase credentials in environment variables.");
+  }
+  return createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL,
+    process.env.SUPABASE_SERVICE_ROLE_KEY
+  );
+};
 
 const ALLOWED_EXTENSIONS = [".stl", ".step", ".stp", ".obj", ".iges", ".igs", ".zip", ".rar"];
 const MAX_FILE_SIZE = 50 * 1024 * 1024; // 50MB
@@ -87,6 +92,7 @@ export async function POST(request: NextRequest) {
     });
 
     // ── Save quote to Supabase ──
+    const supabase = getSupabase();
     const { error: dbError } = await supabase.from("quotes").insert({
       id: quoteId,
       full_name: fullName,
