@@ -75,7 +75,7 @@ export default function VelvetCoatingPage() {
 
             <div className="flex flex-wrap gap-4 pt-4">
               <Link
-                href="/contact-us"
+                href="/get-quote"
                 className="relative inline-flex h-14 overflow-hidden rounded-xl p-[1px] focus:outline-none group"
               >
                 <span className="absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#06b6d4_0%,#60a5fa_50%,#06b6d4_100%)]" />
@@ -258,7 +258,7 @@ export default function VelvetCoatingPage() {
             Give your prototypes and products a premium soft-touch finish with our Velvet Coating Services.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/contact-us" className="relative inline-flex h-14 overflow-hidden rounded-xl p-[1px] focus:outline-none group">
+            <Link href="/get-quote" className="relative inline-flex h-14 overflow-hidden rounded-xl p-[1px] focus:outline-none group">
               <span className="absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#06b6d4_0%,#60a5fa_50%,#06b6d4_100%)]" />
               <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-xl bg-slate-950 px-10 py-1 text-lg font-bold text-white backdrop-blur-3xl transition-all group-hover:bg-slate-900 shadow-[0_0_25px_rgba(6,182,212,0.2)]">
                 Get Quote

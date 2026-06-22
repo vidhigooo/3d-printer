@@ -147,7 +147,7 @@ export default function Sla3dPrinterPage() {
 
               <div className="flex flex-wrap gap-4">
                 <Link
-                  href="/contact-us"
+                  href="/get-quote"
                   className="inline-flex h-14 items-center justify-center gap-2 rounded-xl border border-transparent bg-gradient-to-r from-sky-500 via-blue-500 to-cyan-500 px-8 text-base font-bold text-white shadow-[0_0_25px_rgba(14,165,233,0.2)] transition-all hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(14,165,233,0.3)]"
                 >
                   Get Quote
@@ -219,7 +219,7 @@ export default function Sla3dPrinterPage() {
                     </ul>
 
                     <Link
-                      href="/contact-us"
+                      href="/get-quote"
                       className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/5 px-5 py-3 text-sm font-bold text-white transition-all hover:border-sky-500/30 hover:bg-sky-500/10 hover:text-sky-200"
                     >
                       Get Quote

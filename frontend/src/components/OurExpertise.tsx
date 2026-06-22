@@ -32,6 +32,7 @@ const services = [
   },
   {
     title: "Scale Modelling",
+    href: "/3d-services/scale-modelling",
     customVisual: <video src="/scale.mp4" autoPlay loop muted playsInline className="w-full h-full object-cover pointer-events-none" />
   },
   {

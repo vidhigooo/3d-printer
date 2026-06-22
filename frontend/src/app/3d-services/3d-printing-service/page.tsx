@@ -277,7 +277,7 @@ export default function ThreeDPrintingServicePage() {
           </div>
 
           <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/contact-us" className="relative inline-flex h-14 overflow-hidden rounded-xl p-[1px] focus:outline-none group">
+            <Link href="/get-quote" className="relative inline-flex h-14 overflow-hidden rounded-xl p-[1px] focus:outline-none group">
               <span className="absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#06b6d4_0%,#a855f7_50%,#06b6d4_100%)]" />
               <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-xl bg-slate-950 px-8 py-1 text-base font-bold text-white backdrop-blur-3xl transition-all group-hover:bg-slate-900 shadow-[0_0_25px_rgba(0,229,255,0.2)]">
                 Get Quote
@@ -488,7 +488,7 @@ export default function ThreeDPrintingServicePage() {
             <div className="flex items-center gap-2"><MessageSquare className="w-5 h-5" /> WhatsApp support available</div>
           </div>
 
-          <Link href="/contact-us" className="inline-flex h-16 items-center justify-center gap-3 rounded-xl bg-cyan-500 px-10 text-lg font-bold text-slate-950 transition-all hover:bg-cyan-400 shadow-[0_0_30px_rgba(0,229,255,0.3)] hover:shadow-[0_0_40px_rgba(0,229,255,0.5)] hover:-translate-y-1">
+          <Link href="/get-quote" className="inline-flex h-16 items-center justify-center gap-3 rounded-xl bg-cyan-500 px-10 text-lg font-bold text-slate-950 transition-all hover:bg-cyan-400 shadow-[0_0_30px_rgba(0,229,255,0.3)] hover:shadow-[0_0_40px_rgba(0,229,255,0.5)] hover:-translate-y-1">
             <UploadCloud className="w-6 h-6" /> Upload Design / Get Quote
           </Link>
         </div>
@@ -539,7 +539,7 @@ export default function ThreeDPrintingServicePage() {
           </h2>
           
           <div className="flex flex-wrap justify-center gap-6">
-            <Link href="/contact-us" className="relative inline-flex h-16 overflow-hidden rounded-xl p-[1px] focus:outline-none group">
+            <Link href="/get-quote" className="relative inline-flex h-16 overflow-hidden rounded-xl p-[1px] focus:outline-none group">
               <span className="absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#06b6d4_0%,#a855f7_50%,#06b6d4_100%)]" />
               <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-xl bg-slate-950 px-10 text-lg font-bold text-white backdrop-blur-3xl transition-all group-hover:bg-slate-900 shadow-[0_0_25px_rgba(0,229,255,0.2)]">
                 Get Instant Quote

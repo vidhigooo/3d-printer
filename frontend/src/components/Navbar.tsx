@@ -13,12 +13,22 @@ export default function Navbar() {
   const { cartCount, setIsCartOpen } = useCart();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [printersMenuOpen, setPrintersMenuOpen] = useState(false);
+  const [servicesMenuOpen, setServicesMenuOpen] = useState(false);
   const [resinMenuOpen, setResinMenuOpen] = useState(false);
   const [contactMenuOpen, setContactMenuOpen] = useState(false);
 
   const resinDropdownItems = [
     { name: "3D Printing Resin", href: "/product/3d-printing-resin" },
     { name: "Techno Polymers & Filaments", href: "/product/techno-polymers-filaments" },
+  ];
+
+  const servicesDropdownItems = [
+    { name: "3D Printing Service", href: "/3d-services/3d-printing-service" },
+    { name: "3D Scanning Service", href: "/3d-services/3d-scanning-service" },
+    { name: "3D Sculpting / Modelling", href: "/3d-services/3d-modelling-service" },
+    { name: "Vacuum Casting", href: "/3d-services/vacuum-casting" },
+    { name: "3D Printer Repair", href: "/3d-services/3d-printer-repair" },
+    { name: "Scale Modelling", href: "/3d-services/scale-modelling" },
   ];
 
   const printerDropdownItems = [
@@ -88,6 +98,36 @@ export default function Navbar() {
                         key={dropdownItem.name}
                         href={dropdownItem.href}
                         onClick={() => setPrintersMenuOpen(false)}
+                        className="block rounded-md px-4 py-3 text-center text-[15px] font-semibold uppercase tracking-wide text-muted-foreground transition-colors hover:bg-primary/10 hover:text-primary"
+                      >
+                        {dropdownItem.name}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              );
+            } else if (item.name === "3D Services") {
+              return (
+                <div
+                  key={item.name}
+                  className="relative pb-5"
+                  onMouseEnter={() => setServicesMenuOpen(true)}
+                  onMouseLeave={() => setServicesMenuOpen(false)}
+                >
+                  <Link
+                    href={item.href}
+                    className="inline-flex items-center gap-1 text-[13px] xl:text-sm font-medium text-muted-foreground hover:text-primary transition-colors whitespace-nowrap"
+                  >
+                    {item.name}
+                    <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${servicesMenuOpen ? "translate-y-0.5" : ""}`} />
+                  </Link>
+
+                  <div className={`absolute left-1/2 top-full z-50 mt-0 w-[340px] -translate-x-1/2 rounded-md border border-border/70 bg-background p-2 shadow-[0_16px_40px_rgba(0,0,0,0.18)] transition-all duration-200 ${servicesMenuOpen ? "visible opacity-100" : "invisible opacity-0"}`}>
+                    {servicesDropdownItems.map((dropdownItem) => (
+                      <Link
+                        key={dropdownItem.name}
+                        href={dropdownItem.href}
+                        onClick={() => setServicesMenuOpen(false)}
                         className="block rounded-md px-4 py-3 text-center text-[15px] font-semibold uppercase tracking-wide text-muted-foreground transition-colors hover:bg-primary/10 hover:text-primary"
                       >
                         {dropdownItem.name}

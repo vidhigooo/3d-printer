@@ -162,7 +162,7 @@ export default function VacuumCastingPage() {
             </p>
             
             <div className="flex flex-wrap gap-4 pt-4">
-              <Link href="/contact-us" className="relative inline-flex h-14 overflow-hidden rounded-xl p-[1px] focus:outline-none group">
+              <Link href="/get-quote" className="relative inline-flex h-14 overflow-hidden rounded-xl p-[1px] focus:outline-none group">
                 <span className="absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#06b6d4_0%,#a855f7_50%,#06b6d4_100%)]" />
                 <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-xl bg-slate-950 px-8 py-1 text-base font-bold text-white backdrop-blur-3xl transition-all group-hover:bg-slate-900 shadow-[0_0_25px_rgba(0,229,255,0.2)]">
                   Get Quote
@@ -366,7 +366,7 @@ export default function VacuumCastingPage() {
           </h2>
           
           <div className="flex flex-wrap justify-center gap-6">
-            <Link href="/contact-us" className="relative inline-flex h-16 overflow-hidden rounded-xl p-[1px] focus:outline-none group">
+            <Link href="/get-quote" className="relative inline-flex h-16 overflow-hidden rounded-xl p-[1px] focus:outline-none group">
               <span className="absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#06b6d4_0%,#a855f7_50%,#06b6d4_100%)]" />
               <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-xl bg-slate-950 px-10 text-lg font-bold text-white backdrop-blur-3xl transition-all group-hover:bg-slate-900 shadow-[0_0_25px_rgba(0,229,255,0.2)]">
                 Get Instant Quote
