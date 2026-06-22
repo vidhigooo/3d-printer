@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { PenTool, Lightbulb, Sparkles, Layers, ImageIcon, Paintbrush, CheckCircle2 } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -38,16 +39,16 @@ export default function ShilpStudioPage() {
             </p>
 
             <div className="flex flex-wrap gap-4 pt-6">
-              <button className="relative inline-flex h-14 overflow-hidden rounded-xl p-[1px] focus:outline-none group">
+              <Link href="/contact-us" className="relative inline-flex h-14 overflow-hidden rounded-xl p-[1px] focus:outline-none group">
                 <span className="absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#a855f7_0%,#f97316_50%,#a855f7_100%)]" />
                 <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-xl bg-slate-950 px-8 py-1 text-base font-bold text-white backdrop-blur-3xl transition-all group-hover:bg-slate-900 shadow-[0_0_25px_rgba(168,85,247,0.2)]">
                   Discuss Your Project
                 </span>
-              </button>
+              </Link>
               
-              <button className="inline-flex h-14 items-center justify-center rounded-xl border border-white/10 bg-white/5 px-8 py-1 text-base font-bold text-white transition-all hover:bg-white/10 hover:border-white/20">
+              <Link href="/get-quote" className="inline-flex h-14 items-center justify-center rounded-xl border border-white/10 bg-white/5 px-8 py-1 text-base font-bold text-white transition-all hover:bg-white/10 hover:border-white/20">
                 Get Quote
-              </button>
+              </Link>
             </div>
           </div>
 
@@ -237,15 +238,15 @@ export default function ShilpStudioPage() {
             Transform Concepts into Sculptural Form
           </h2>
           <div className="flex flex-wrap justify-center gap-6">
-            <button className="relative inline-flex h-14 overflow-hidden rounded-xl p-[1px] focus:outline-none group">
+            <Link href="/contact-us" className="relative inline-flex h-14 overflow-hidden rounded-xl p-[1px] focus:outline-none group">
               <span className="absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#a855f7_0%,#f97316_50%,#a855f7_100%)]" />
               <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-xl bg-slate-950 px-10 py-1 text-lg font-bold text-white backdrop-blur-3xl transition-all group-hover:bg-slate-900 shadow-[0_0_25px_rgba(168,85,247,0.2)]">
                 Discuss Your Project
               </span>
-            </button>
-            <button className="inline-flex h-14 items-center justify-center rounded-xl border border-white/20 bg-white/5 px-10 py-1 text-lg font-bold text-white transition-all hover:bg-white/10 hover:border-white/30 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)]">
+            </Link>
+            <Link href="/get-quote" className="inline-flex h-14 items-center justify-center rounded-xl border border-white/20 bg-white/5 px-10 py-1 text-lg font-bold text-white transition-all hover:bg-white/10 hover:border-white/30 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)]">
               Get Quote
-            </button>
+            </Link>
           </div>
         </div>
       </section>

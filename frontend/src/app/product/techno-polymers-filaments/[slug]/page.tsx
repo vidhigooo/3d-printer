@@ -5,10 +5,13 @@ import { motion } from "framer-motion";
 import { ArrowLeft, Minus, Plus, ShoppingCart } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import Link from "next/link";
 import { technoPolymers } from "@/data/technoPolymersData";
+import { useCart } from "@/context/CartContext";
 
 export default function TechnoPolymersDetailsPage({ params }: { params: { slug: string } }) {
   const router = useRouter();
+  const { addToCart } = useCart();
   const [quantity, setQuantity] = useState(1);
   const [activeImage, setActiveImage] = useState(0);
   const [activeTab, setActiveTab] = useState('technical-specification');
@@ -36,7 +39,7 @@ export default function TechnoPolymersDetailsPage({ params }: { params: { slug: 
             Go Back
           </button>
           <div className="text-sm text-slate-400 hidden md:block">
-            Home / Techno Polymers & Filaments / <span className="text-slate-200">{product.name}</span>
+            <Link href="/" className="hover:text-cyan-400 transition-colors">Home</Link> / <Link href="/product/techno-polymers-filaments" className="hover:text-cyan-400 transition-colors">Techno Polymers & Filaments</Link> / <span className="text-slate-200">{product.name}</span>
           </div>
         </div>
 
@@ -125,10 +128,10 @@ export default function TechnoPolymersDetailsPage({ params }: { params: { slug: 
                     : "bg-gradient-to-r from-cyan-500 to-blue-500 text-white hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(0,229,255,0.4)] active:scale-[0.98]"
                   }`}
                   disabled={product.outOfStock}
-                >
-                  <ShoppingCart className="h-5 w-5 fill-current" />
-                  {product.outOfStock ? "OUT OF STOCK" : "ADD TO CART"}
-                </button>
+                 onClick={() => addToCart({ id: product.id, name: product.name, price: product.price, image: product.image, quantity: quantity || 1 })}>
+<ShoppingCart className="h-5 w-5 fill-current" />
+{product.outOfStock ? "OUT OF STOCK" : "ADD TO CART"}
+</button>
               </div>
             </div>
 

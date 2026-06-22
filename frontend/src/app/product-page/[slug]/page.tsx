@@ -8,8 +8,10 @@ import { useRouter } from "next/navigation";
 
 import Image from "next/image";
 import { mockModels, anycubicFolderModels, formatPrice } from "@/data/printerData";
+import { useCart } from "@/context/CartContext";
 export default function ProductDetailsPage({ params }: { params: { slug: string } }) {
   const router = useRouter();
+  const { addToCart } = useCart();
   const [quantity, setQuantity] = useState(1);
   const [activeImage, setActiveImage] = useState(0);
 

@@ -5,10 +5,13 @@ import { motion } from "framer-motion";
 import { ArrowLeft, Zap, Minus, Plus, ShoppingCart } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import Link from "next/link";
 import { dlpProducts } from "@/data/dlpProducts";
+import { useCart } from "@/context/CartContext";
 
 export default function DLPLCDProductDetailsPage({ params }: { params: { slug: string } }) {
   const router = useRouter();
+  const { addToCart } = useCart();
   const [quantity, setQuantity] = useState(1);
   const [activeImage, setActiveImage] = useState(0);
   const [activeTab, setActiveTab] = useState('description');
@@ -42,7 +45,7 @@ export default function DLPLCDProductDetailsPage({ params }: { params: { slug: s
             Go Back
           </button>
           <div className="text-sm text-slate-400 hidden md:block">
-            Home / 3D Printers / LCD/DLP 3D Printers / <span className="text-slate-200">{product.name}</span>
+            <Link href="/" className="hover:text-cyan-400 transition-colors">Home</Link> / <Link href="/3d-printers" className="hover:text-cyan-400 transition-colors">3D Printers</Link> / <Link href="/3d-printers/lcd-dlp-3d-printers" className="hover:text-cyan-400 transition-colors">LCD/DLP 3D Printers</Link> / <span className="text-slate-200">{product.name}</span>
           </div>
         </div>
 
@@ -147,10 +150,10 @@ export default function DLPLCDProductDetailsPage({ params }: { params: { slug: s
                     : "bg-gradient-to-r from-primary to-secondary text-primary-foreground hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(0,229,255,0.4)] active:scale-[0.98]"
                   }`}
                   disabled={outOfStock}
-                >
-                  <ShoppingCart className="h-5 w-5 fill-current" />
-                  {outOfStock ? "OUT OF STOCK" : "ADD TO CART"}
-                </button>
+                  onClick={() => addToCart({ id: product.id, name: product.name, price: product.price || "", image: product.image, quantity: quantity || 1 })}>
+<ShoppingCart className="h-5 w-5 fill-current" />
+{outOfStock ? "OUT OF STOCK" : "ADD TO CART"}
+</button>
               </div>
             </div>
           </motion.div>

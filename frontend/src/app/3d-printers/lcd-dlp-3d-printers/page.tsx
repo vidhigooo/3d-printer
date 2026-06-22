@@ -6,9 +6,11 @@ import { motion } from "framer-motion";
 import { ShoppingCart, Info, Zap } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { dlpProducts } from "@/data/dlpProducts";
+import { useCart } from "@/context/CartContext";
 
 export default function LCDDLPPrinters() {
   const router = useRouter();
+  const { addToCart } = useCart();
 
   return (
     <div className="relative min-h-screen overflow-hidden pt-36 pb-24 selection:bg-cyan-500/30">

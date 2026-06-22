@@ -6,9 +6,11 @@ import { motion } from "framer-motion";
 import { ShoppingCart, Info, Zap } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { resinProducts } from "@/data/resinData";
+import { useCart } from "@/context/CartContext";
 
 export default function Resin3DPrintingPage() {
   const router = useRouter();
+  const { addToCart } = useCart();
 
   return (
     <div className="relative min-h-screen overflow-hidden pt-36 pb-24 selection:bg-primary/30">
@@ -94,7 +96,7 @@ export default function Resin3DPrintingPage() {
                 <button
                   onClick={() => {
                     if (!product.outOfStock) {
-                       router.push(`/product/3d-printing-resin/${product.slug}`);
+                       addToCart({ id: product.id, name: product.name, price: product.price, image: product.image, quantity: 1 });
                     }
                   }}
                   className={`mt-6 flex w-full items-center justify-center gap-2 rounded-xl py-3 text-sm font-semibold transition-all duration-300 ${

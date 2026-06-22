@@ -83,7 +83,7 @@ export default function OurPrinters() {
 
                 <div className="flex items-center justify-between mt-auto gap-3">
                   <Link
-                    href="/3d-printers"
+                    href="/3d-printers/sla-3d-printer"
                     className="inline-flex items-center justify-center rounded-md bg-cyan-400 text-slate-950 px-4 py-2 text-sm font-semibold transition-colors hover:bg-cyan-300"
                   >
                     Learn More

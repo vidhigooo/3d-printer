@@ -5,14 +5,16 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import { Menu, X, Search, ChevronDown } from "lucide-react";
+import { Menu, X, Search, ChevronDown, ShoppingCart } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useCart } from "@/context/CartContext";
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
+  const { cartCount, setIsCartOpen } = useCart();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [printersMenuOpen, setPrintersMenuOpen] = useState(false);
   const [resinMenuOpen, setResinMenuOpen] = useState(false);
+  const [contactMenuOpen, setContactMenuOpen] = useState(false);
 
   const resinDropdownItems = [
     { name: "3D Printing Resin", href: "/product/3d-printing-resin" },
@@ -26,6 +28,10 @@ export default function Navbar() {
     { name: "LCD / DLP 3D Printers", href: "/3d-printers/lcd-dlp-3d-printers" },
   ];
 
+  const contactDropdownItems = [
+    { name: "Career", href: "/career" },
+  ];
+
   const navItems = [
     { name: "Home", href: "/" },
     { name: "3D Printers", href: "/3d-printers" },
@@ -37,20 +43,12 @@ export default function Navbar() {
     { name: "Contact Us", href: "/contact-us" },
   ];
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  // Scroll effect removed because header is now absolute
+
 
   return (
     <header
-      className={cn(
-        "fixed top-0 w-full z-50 transition-all duration-300",
-        scrolled ? "glass py-4 shadow-lg shadow-primary/5 border-b border-border/50 bg-background/40" : "bg-transparent py-6"
-      )}
+      className="relative w-full z-50 bg-slate-950 backdrop-blur-lg border-b border-white/5 shadow-[0_8px_32px_rgba(0,0,0,0.4)] py-4"
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
@@ -128,6 +126,36 @@ export default function Navbar() {
                   </div>
                 </div>
               );
+            } else if (item.name === "Contact Us") {
+              return (
+                <div
+                  key={item.name}
+                  className="relative pb-5"
+                  onMouseEnter={() => setContactMenuOpen(true)}
+                  onMouseLeave={() => setContactMenuOpen(false)}
+                >
+                  <Link
+                    href={item.href}
+                    className="inline-flex items-center gap-1 text-[13px] xl:text-sm font-medium text-muted-foreground hover:text-primary transition-colors whitespace-nowrap"
+                  >
+                    {item.name}
+                    <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${contactMenuOpen ? "translate-y-0.5" : ""}`} />
+                  </Link>
+
+                  <div className={`absolute left-1/2 top-full z-50 mt-0 w-[200px] -translate-x-1/2 rounded-md border border-border/70 bg-background p-2 shadow-[0_16px_40px_rgba(0,0,0,0.18)] transition-all duration-200 ${contactMenuOpen ? "visible opacity-100" : "invisible opacity-0"}`}>
+                    {contactDropdownItems.map((dropdownItem) => (
+                      <Link
+                        key={dropdownItem.name}
+                        href={dropdownItem.href}
+                        onClick={() => setContactMenuOpen(false)}
+                        className="block rounded-md px-4 py-3 text-center text-[15px] font-semibold uppercase tracking-wide text-muted-foreground transition-colors hover:bg-primary/10 hover:text-primary"
+                      >
+                        {dropdownItem.name}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              );
             } else {
               return (
                 <Link
@@ -163,12 +191,36 @@ export default function Navbar() {
                 <Search className="w-4 h-4" />
               </button>
             </div>
+            
+            <button 
+              onClick={() => setIsCartOpen(true)}
+              className="relative p-2 hover:bg-white/5 rounded-full transition-colors"
+            >
+              <ShoppingCart className="w-5 h-5 text-slate-300 hover:text-white" />
+              {cartCount > 0 && (
+                <span className="absolute 0 right-0 flex h-4 w-4 items-center justify-center rounded-full bg-cyan-500 text-[10px] font-bold text-white">
+                  {cartCount}
+                </span>
+              )}
+            </button>
+            
             <ThemeToggle />
           </div>
         </div>
 
         {/* Mobile menu button */}
-        <div className="md:hidden flex items-center gap-4 text-foreground">
+        <div className="md:hidden flex items-center gap-3 text-foreground">
+          <button 
+            onClick={() => setIsCartOpen(true)}
+            className="relative p-2 text-slate-300"
+          >
+            <ShoppingCart className="w-5 h-5" />
+            {cartCount > 0 && (
+              <span className="absolute top-0 right-0 flex h-4 w-4 items-center justify-center rounded-full bg-cyan-500 text-[10px] font-bold text-white">
+                {cartCount}
+              </span>
+            )}
+          </button>
           <ThemeToggle />
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}

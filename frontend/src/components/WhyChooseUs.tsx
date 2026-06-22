@@ -40,7 +40,7 @@ export default function WhyChooseUs() {
   return (
     <section className="py-24 bg-background">
       <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
 
           {/* Left: Heading */}
           <motion.div
@@ -48,7 +48,7 @@ export default function WhyChooseUs() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="space-y-8"
+            className="flex flex-col justify-between h-full"
           >
             <div>
               <h2 className="text-4xl md:text-5xl font-extrabold text-foreground leading-tight">

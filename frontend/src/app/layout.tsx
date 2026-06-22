@@ -7,6 +7,8 @@ import Chatbot from "@/components/Chatbot";
 import { Analytics } from '@vercel/analytics/react';
 
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { CartProvider } from "@/context/CartContext";
+import CartDrawer from "@/components/CartDrawer";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -29,11 +31,14 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Navbar />
-          <main>{children}</main>
-          <Footer />
-          <Chatbot />
-             <Analytics /> 
+          <CartProvider>
+            <Navbar />
+            <main>{children}</main>
+            <Footer />
+            <Chatbot />
+            <CartDrawer />
+            <Analytics /> 
+          </CartProvider>
         </ThemeProvider>
       </body>
     </html>

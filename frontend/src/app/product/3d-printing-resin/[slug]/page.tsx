@@ -5,10 +5,13 @@ import { motion } from "framer-motion";
 import { ArrowLeft, Minus, Plus, ShoppingCart } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import Link from "next/link";
 import { resinProducts } from "@/data/resinData";
+import { useCart } from "@/context/CartContext";
 
 export default function ResinProductDetailsPage({ params }: { params: { slug: string } }) {
   const router = useRouter();
+  const { addToCart } = useCart();
   const [quantity, setQuantity] = useState(1);
   const [activeImage, setActiveImage] = useState(0);
   const [activeTab, setActiveTab] = useState('description');
@@ -39,7 +42,7 @@ export default function ResinProductDetailsPage({ params }: { params: { slug: st
             Go Back
           </button>
           <div className="text-sm text-muted-foreground hidden md:block">
-            Home / Products / 3D Printing Resin / <span className="text-foreground">{product.name}</span>
+            <Link href="/" className="hover:text-primary transition-colors">Home</Link> / Products / <Link href="/product/3d-printing-resin" className="hover:text-primary transition-colors">3D Printing Resin</Link> / <span className="text-foreground">{product.name}</span>
           </div>
         </div>
 
@@ -144,10 +147,10 @@ export default function ResinProductDetailsPage({ params }: { params: { slug: st
                     : "bg-gradient-to-r from-primary to-secondary text-primary-foreground hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(0,229,255,0.4)] active:scale-[0.98]"
                   }`}
                   disabled={product.outOfStock}
-                >
-                  <ShoppingCart className="h-5 w-5 fill-current" />
-                  {product.outOfStock ? "OUT OF STOCK" : "ADD TO CART"}
-                </button>
+                 onClick={() => addToCart({ id: product.id, name: product.name, price: product.price, image: product.image, quantity: quantity || 1 })}>
+<ShoppingCart className="h-5 w-5 fill-current" />
+{product.outOfStock ? "OUT OF STOCK" : "ADD TO CART"}
+</button>
               </div>
             </div>
           </motion.div>

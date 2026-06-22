@@ -66,7 +66,7 @@ export default function Hero() {
                 <ArrowRight className="w-5 h-5" />
               </Link>
               <Link
-                href="#portfolio"
+                href="/blog"
                 className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-muted border border-border text-foreground font-medium hover:bg-accent transition-all duration-300 flex items-center justify-center backdrop-blur-md"
               >
                 View Projects

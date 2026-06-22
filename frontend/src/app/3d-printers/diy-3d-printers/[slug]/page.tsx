@@ -5,10 +5,13 @@ import { motion } from "framer-motion";
 import { ArrowLeft, Zap, Minus, Plus, ShoppingCart } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import Link from "next/link";
 import { diyProducts } from "@/data/diyPrintersData";
+import { useCart } from "@/context/CartContext";
 
 export default function DIYProductDetailsPage({ params }: { params: { slug: string } }) {
   const router = useRouter();
+  const { addToCart } = useCart();
   const [quantity, setQuantity] = useState(1);
   const [activeImage, setActiveImage] = useState(0);
   const [activeTab, setActiveTab] = useState('description');
@@ -39,7 +42,7 @@ export default function DIYProductDetailsPage({ params }: { params: { slug: stri
             Go Back
           </button>
           <div className="text-sm text-muted-foreground hidden md:block">
-            Home / 3D Printers / DIY 3D Printers / <span className="text-foreground">{product.name}</span>
+            <Link href="/" className="hover:text-primary transition-colors">Home</Link> / <Link href="/3d-printers" className="hover:text-primary transition-colors">3D Printers</Link> / <Link href="/3d-printers/diy-3d-printers" className="hover:text-primary transition-colors">DIY 3D Printers</Link> / <span className="text-foreground">{product.name}</span>
           </div>
         </div>
 
@@ -138,6 +141,7 @@ export default function DIYProductDetailsPage({ params }: { params: { slug: stri
                 </div>
 
                 <button 
+                  onClick={() => addToCart({ id: product.id, name: product.name, price: product.price, image: product.image, quantity })}
                   className={`flex h-14 flex-1 items-center justify-center gap-3 rounded-2xl px-8 text-base font-bold tracking-wide shadow-lg transition-all ${
                     product.outOfStock 
                     ? "bg-muted text-muted-foreground cursor-not-allowed" 

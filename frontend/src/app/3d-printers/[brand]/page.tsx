@@ -8,11 +8,13 @@ import Image from "next/image";
 
 // Simulated mock data inspired by the user's screenshots
 import { mockModels, anycubicFolderModels, formatPrice } from "@/data/printerData";
+import { useCart } from "@/context/CartContext";
 
 
 
 export default function BrandModelsPage({ params }: { params: { brand: string } }) {
   const [selectedModel, setSelectedModel] = useState<any | null>(null);
+  const { addToCart } = useCart();
   const [quantity, setQuantity] = useState(1);
   const normalizedBrand = params.brand.toLowerCase();
 
@@ -155,7 +157,10 @@ export default function BrandModelsPage({ params }: { params: { brand: string } 
 
                 <div className="mt-auto pt-4">
                   {model.inStock ? (
-                    <button className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-primary to-secondary px-6 py-4 text-sm font-bold tracking-wide text-primary-foreground shadow-lg transition-all hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(0,229,255,0.4)] active:scale-[0.98]">
+                    <button 
+                      onClick={() => addToCart({ id: model.id, name: model.name, price: typeof model.price === 'number' ? formatPrice(model.price) : model.price, image: model.image, quantity: 1 })}
+                      className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-primary to-secondary px-6 py-4 text-sm font-bold tracking-wide text-primary-foreground shadow-lg transition-all hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(0,229,255,0.4)] active:scale-[0.98]"
+                    >
                       Add to Cart
                     </button>
                   ) : (
@@ -277,7 +282,13 @@ export default function BrandModelsPage({ params }: { params: { brand: string } 
 
                 <div className="mt-auto flex flex-col gap-4">
                   {selectedModel.inStock ? (
-                    <button className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-primary to-secondary px-6 py-4 text-sm font-bold tracking-wide text-primary-foreground shadow-lg transition-all hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(0,229,255,0.4)] active:scale-[0.98]">
+                    <button 
+                      onClick={() => {
+                        addToCart({ id: selectedModel.id, name: selectedModel.name, price: typeof selectedModel.price === 'number' ? formatPrice(selectedModel.price) : selectedModel.price, image: selectedModel.image, quantity: quantity || 1 });
+                        closeModal();
+                      }}
+                      className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-primary to-secondary px-6 py-4 text-sm font-bold tracking-wide text-primary-foreground shadow-lg transition-all hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(0,229,255,0.4)] active:scale-[0.98]"
+                    >
                       Add to Cart
                     </button>
                   ) : (
