@@ -406,20 +406,6 @@ export default function ThreeDPrintingServicePage() {
                   </div>
                 </div>
 
-                {/* Performance Metrics */}
-                <div className="pt-6 border-t border-white/5 space-y-4 relative z-10">
-                  {cat.metrics.map((metric, idx) => (
-                    <div key={idx} className="w-full">
-                      <div className="flex justify-between items-center mb-2">
-                        <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">{metric.label}</span>
-                        <span className="text-xs font-bold text-white">{metric.value}%</span>
-                      </div>
-                      <div className="h-1.5 w-full bg-slate-950 rounded-full overflow-hidden">
-                        <div className={`h-full rounded-full ${metric.color} opacity-70 group-hover:opacity-100 transition-all duration-1000 ease-out origin-left scale-x-0 group-hover:scale-x-100`} style={{ width: `${metric.value}%` }} />
-                      </div>
-                    </div>
-                  ))}
-                </div>
               </div>
             ))}
           </div>
@@ -477,12 +463,7 @@ export default function ThreeDPrintingServicePage() {
                     ))}
                   </div>
 
-                  <div className="mt-auto pt-6 border-t border-white/5 flex items-center justify-between group/btn cursor-pointer">
-                    <span className="text-sm font-bold text-white group-hover/btn:text-cyan-400 transition-colors">
-                      Learn More
-                    </span>
-                    <ArrowRight className="w-5 h-5 text-slate-500 group-hover/btn:text-cyan-400 group-hover/btn:translate-x-1 transition-all" />
-                  </div>
+
                 </div>
               </div>
             ))}
