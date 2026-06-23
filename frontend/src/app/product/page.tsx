@@ -103,6 +103,12 @@ export default function ProductCategories() {
       description: "High-quality filaments for strong and durable parts.",
       href: "/product/techno-polymers-filaments",
     },
+    {
+      name: "3D Printing Wax",
+      image: "/3d-printing-wax/hq-build.jpg",
+      description: "Premium castable wax for jewelry and dental applications.",
+      href: "/product/3d-printing-wax",
+    },
   ];
 
   return (
@@ -149,8 +155,8 @@ export default function ProductCategories() {
         </div>
 
         {/* Grid Layout */}
-        <div className="mx-auto max-w-5xl">
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
+        <div className="mx-auto max-w-6xl">
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {categories.map((category, index) => (
               <div key={category.name}>
                 <CategoryCard

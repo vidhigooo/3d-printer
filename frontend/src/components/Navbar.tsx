@@ -20,6 +20,7 @@ export default function Navbar() {
   const resinDropdownItems = [
     { name: "3D Printing Resin", href: "/product/3d-printing-resin" },
     { name: "Techno Polymers & Filaments", href: "/product/techno-polymers-filaments" },
+    { name: "3D Printing Wax", href: "/product/3d-printing-wax" },
   ];
 
   const servicesDropdownItems = [
@@ -37,6 +38,7 @@ export default function Navbar() {
     { name: "SLA 3D Printer", href: "/3d-printers/sla-3d-printer" },
     { name: "LCD / DLP 3D Printers", href: "/3d-printers/lcd-dlp-3d-printers" },
     { name: "Waxjet 51C Printer", href: "/3d-printers/waxjet-51c-printer" },
+    { name: "3D Printing Wax", href: "/product/3d-printing-wax" },
   ];
 
   const contactDropdownItems = [

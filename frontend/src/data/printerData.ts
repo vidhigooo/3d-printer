@@ -7,6 +7,8 @@ export type PrinterModel = {
     badge?: string;
     image: string;
     inStock: boolean;
+    description?: string;
+    features?: string[];
 };
 
 export const mockModels: PrinterModel[] = [
@@ -194,6 +196,47 @@ export const anycubicFolderModels: PrinterModel[] = [
         image: "/anycubic/img13.png",
         inStock: true,
     },
+];
+
+export const waxModels: PrinterModel[] = [
+    {
+        id: 201,
+        name: "Flashforge WaxJet 51C Build Material – 20 Pack | High-Precision Castable Wax",
+        slug: "flashforge-waxjet-51c-build-material",
+        price: 12000,
+        image: "/3d-printing-wax/hq-build.jpg",
+        inStock: true,
+        description: "Professional castable wax material designed for the Flashforge WaxJet 51C, delivering ultra-fine detail accuracy, smooth surface finish, and reliable investment casting performance for jewelry manufacturing.",
+        features: [
+            "100% castable wax material.",
+            "Ultra-high detail accuracy for jewelry printing.",
+            "Clean ash-free burnout performance.",
+            "Smooth surface finish with fine detailing.",
+            "Optimized for Flashforge WaxJet 51C.",
+            "Stable melting point (68°C) for reliable printing.",
+            "Ideal for filigree and complex geometries.",
+            "20 blocks – 72 g (Approx. 1.4 Kg total)."
+        ]
+    },
+    {
+        id: 202,
+        name: "Flashforge WJ 51C Support Material (White Wax) – 8 Blocks × 180 g | FFMS3200",
+        slug: "flashforge-wj-51c-support-material",
+        price: 8000,
+        image: "/3d-printing-wax/hq-support.jpg",
+        inStock: true,
+        description: "Professional dissolvable white wax support material for Flashforge WJ 51C, designed to provide stable support for complex jewelry geometries and easy post-processing removal.",
+        features: [
+            "Includes 8 white wax support blocks.",
+            "Reliable support for intricate geometries.",
+            "Hands-free dissolvable support material.",
+            "Protects delicate jewelry details.",
+            "Optimized for Flashforge WaxJet 51C.",
+            "Stable melting point (~55°C).",
+            "Ideal for professional production workflows.",
+            "Total weight: Approx. 1.44 Kg."
+        ]
+    }
 ];
 
 export const formatPrice = (price: number) => {

@@ -7,15 +7,14 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 import Image from "next/image";
-import { mockModels, anycubicFolderModels, formatPrice } from "@/data/printerData";
+import { mockModels, anycubicFolderModels, waxModels, formatPrice } from "@/data/printerData";
 import { useCart } from "@/context/CartContext";
 export default function ProductDetailsPage({ params }: { params: { slug: string } }) {
   const router = useRouter();
   const { addToCart } = useCart();
   const [quantity, setQuantity] = useState(1);
-  const [activeImage, setActiveImage] = useState(0);
 
-  const allModels = [...mockModels, ...anycubicFolderModels];
+  const allModels = [...mockModels, ...anycubicFolderModels, ...waxModels];
 
   // Fallback to first model if exact slug not found
   const product = allModels.find((m) => m.slug === params.slug) || allModels[0];
@@ -51,21 +50,6 @@ export default function ProductDetailsPage({ params }: { params: { slug: string 
               </div>
             </div>
 
-            {/* Thumbnails */}
-            <div className="grid grid-cols-4 gap-4">
-              {[...Array(4)].map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setActiveImage(i)}
-                  className={`glass relative flex aspect-square items-center justify-center overflow-hidden rounded-2xl border transition-all duration-300 ${activeImage === i ? "border-primary shadow-[0_0_20px_rgba(0,229,255,0.2)] bg-white/10" : "border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/30"
-                    }`}
-                >
-                  <div className="relative h-14 w-14">
-                    <Image src={product.image} alt={product.name} fill className="object-contain drop-shadow-xl" />
-                  </div>
-                </button>
-              ))}
-            </div>
           </motion.div>
 
           {/* Right Column: Key Details & Add to Cart */}
@@ -131,7 +115,10 @@ export default function ProductDetailsPage({ params }: { params: { slug: string 
                   </div>
                 </div>
 
-                <button className="flex h-14 flex-1 items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-primary to-secondary px-8 text-base font-bold tracking-wide text-primary-foreground shadow-lg transition-all hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(0,229,255,0.4)] active:scale-[0.98]">
+                <button 
+                  onClick={() => addToCart({ id: product.id.toString(), name: product.name, price: `₹${product.price}`, image: product.image, quantity })}
+                  className="flex h-14 flex-1 items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-primary to-secondary px-8 text-base font-bold tracking-wide text-primary-foreground shadow-lg transition-all hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(0,229,255,0.4)] active:scale-[0.98]"
+                >
                   <ShoppingCart className="h-5 w-5 fill-current" />
                   Add to Cart
                 </button>
@@ -149,46 +136,35 @@ export default function ProductDetailsPage({ params }: { params: { slug: string 
                 Fast Shipping
               </div>
             </div>
+            {/* Product Details Section Moved Here */}
+            <div className="mt-12 rounded-[32px] border border-white/10 bg-white/5 p-8 backdrop-blur-md md:p-10">
+              <h2 className="mb-6 text-xl font-bold tracking-tight text-foreground sm:text-2xl">
+                PRODUCT DETAILS
+              </h2>
+              <div className="prose prose-invert max-w-none text-muted-foreground prose-h3:text-foreground prose-h4:text-foreground">
+                <p className="mb-6 text-base leading-relaxed">
+                  {product.description || "Experience hassle-free 3D printing with the Bambu Lab P1S 3D Printer. Setup is a breeze, taking just 15 minutes, and its well-polished hardware and software ensure smooth operation. The enclosed body supports high-temperature filament printing, while the AMS enables stunning 16-color prints. With up to 20,000 mm/s² acceleration, enjoy rapid printing without sacrificing quality. Plus, monitor your prints remotely with the built-in camera and enjoy seamless multi-color capability with the AMS combo."}
+                </p>
+
+                <ul className="mb-0 space-y-3 text-sm leading-relaxed marker:text-primary list-disc pl-5">
+                  {product.features ? product.features.map((feature, i) => (
+                    <li key={i} className="pl-2">{feature}</li>
+                  )) : (
+                    <>
+                      <li className="pl-2">Set up your Bambu Lab P1S in just 15 minutes, hassle-free.</li>
+                      <li className="pl-2">Enjoy smooth operation with meticulously designed hardware and software.</li>
+                      <li className="pl-2">Supports high-temperature filament printing.</li>
+                      <li className="pl-2">Enables stunning 16-color prints for vibrant and intricate designs.</li>
+                      <li className="pl-2">20,000 mm/s² acceleration.</li>
+                      <li className="pl-2">Rapid printing without compromising quality.</li>
+                      <li className="pl-2">Seamlessly print with up to 16 colors using the AMS combo.</li>
+                    </>
+                  )}
+                </ul>
+              </div>
+            </div>
           </motion.div>
         </div>
-
-        {/* Product Details Section - Replicating screenshot text exactly */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-24 grid grid-cols-1 lg:grid-cols-2 gap-16"
-        >
-          <div className="glass rounded-[32px] border border-white/10 bg-white/5 p-10 backdrop-blur-md md:p-14">
-            <h2 className="mb-8 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
-              PRODUCT DETAILS
-            </h2>
-            <div className="prose prose-invert max-w-none text-muted-foreground prose-h3:text-foreground prose-h4:text-foreground">
-              <p className="mb-8 text-lg leading-relaxed">
-                Experience hassle-free 3D printing with the Bambu Lab P1S 3D Printer. Setup is a breeze, taking just 15 minutes, and its well-polished hardware and software ensure smooth operation. The enclosed body supports high-temperature filament printing, while the AMS enables stunning 16-color prints. With up to 20,000 mm/s² acceleration, enjoy rapid printing without sacrificing quality. Plus, monitor your prints remotely with the built-in camera and enjoy seamless multi-color capability with the AMS combo.
-              </p>
-
-              <ul className="mb-0 space-y-4 text-base leading-relaxed marker:text-primary">
-                <li className="pl-2">Set up your Bambu Lab P1S in just 15 minutes, hassle-free.</li>
-                <li className="pl-2">Enjoy smooth operation with meticulously designed hardware and software.</li>
-                <li className="pl-2">Supports high-temperature filament printing.</li>
-                <li className="pl-2">Enables stunning 16-color prints for vibrant and intricate designs.</li>
-                <li className="pl-2">20,000 mm/s² acceleration.</li>
-                <li className="pl-2">Rapid printing without compromising quality.</li>
-                <li className="pl-2">Seamlessly print with up to 16 colors using the AMS combo.</li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="hidden lg:block relative rounded-[32px] overflow-hidden border border-white/10">
-            {/* Optional right side visual flair */}
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-secondary/20" />
-            <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]" />
-            <div className="flex h-full items-center justify-center">
-              <Zap className="h-32 w-32 text-white/5" />
-            </div>
-          </div>
-        </motion.div>
 
       </div>
     </div>
