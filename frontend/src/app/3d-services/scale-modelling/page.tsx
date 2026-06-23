@@ -31,25 +31,25 @@ const applications = [
     title: "Architectural Models",
     desc: "Showcase residential, commercial, and urban development projects with realistic physical models.",
     icon: Building2,
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80"
+    image: "/scale-models/architectural.jpg"
   },
   {
     title: "Industrial Models",
     desc: "Visualize factories, plants, machinery layouts, and engineering concepts.",
     icon: Factory,
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80"
+    image: "/scale-models/industrial.png"
   },
   {
     title: "Product Demonstration Models",
     desc: "Present product designs and prototypes in a compact, easy-to-understand format.",
     icon: MonitorPlay,
-    image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=600&q=80"
+    image: "/scale-models/product.png"
   },
   {
     title: "Educational & Exhibition Models",
     desc: "Create engaging models for museums, exhibitions, research institutes, and educational institutions.",
     icon: GraduationCap,
-    image: "https://images.unsplash.com/photo-1544531586-fde5298cdd40?auto=format&fit=crop&w=600&q=80"
+    image: "/scale-models/educational.png"
   }
 ];
 

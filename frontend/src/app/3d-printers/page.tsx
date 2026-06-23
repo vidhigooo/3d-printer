@@ -115,6 +115,12 @@ export default function ThreeDPrinters() {
       description: "Ultra-fast and precise resin printing technologies for jewelry and dental applications.",
       href: "/3d-printers/lcd-dlp-3d-printers",
     },
+    {
+      name: "Waxjet 51C Printer",
+      image: "/waxjet-51c/thumbnail.jpg",
+      description: "Desktop MJP Wax 3D Printer engineered for jewelry manufacturing and investment casting.",
+      href: "/3d-printers/waxjet-51c-printer",
+    },
   ];
 
   return (

@@ -36,6 +36,7 @@ export default function Navbar() {
     { name: "Industrial FDM 3D Printers", href: "/3d-printers/industrial-fdm-3d-printers" },
     { name: "SLA 3D Printer", href: "/3d-printers/sla-3d-printer" },
     { name: "LCD / DLP 3D Printers", href: "/3d-printers/lcd-dlp-3d-printers" },
+    { name: "Waxjet 51C Printer", href: "/3d-printers/waxjet-51c-printer" },
   ];
 
   const contactDropdownItems = [
