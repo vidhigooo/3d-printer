@@ -155,7 +155,7 @@ Message: ${formData.message || 'N/A'}
 *File Link:*
 ${fileUrl || 'No file uploaded'}`;
 
-    const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(shareText)}`;
+    const whatsappUrl = `https://wa.me/919082020416?text=${encodeURIComponent(shareText)}`;
     const mailtoUrl = `mailto:vektor3dsocial@gmail.com?subject=${encodeURIComponent(`New Quote Request: ${successQuoteId}`)}&body=${encodeURIComponent(shareText)}`;
 
     return (
