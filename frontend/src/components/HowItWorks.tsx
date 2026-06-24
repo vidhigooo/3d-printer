@@ -26,7 +26,7 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section id="how-it-works" className="py-32 bg-muted/20 border-y border-border/50 relative overflow-hidden">
+    <section id="how-it-works" className="py-32 bg-slate-100 dark:bg-slate-900/20 border-y border-border/50 relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.03] opacity-[0.08] bg-[radial-gradient(#00E5FF_1px,transparent_1px)] dark:bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:20px_20px]" />
       
@@ -40,7 +40,7 @@ export default function HowItWorks() {
           >
             Streamlined <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Workflow</span>
           </motion.h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-lg text-balance">
+          <p className="text-slate-700 dark:text-slate-300 max-w-2xl mx-auto text-lg text-balance">
             From digital file to physical part in three simple steps.
           </p>
         </div>
@@ -60,7 +60,7 @@ export default function HowItWorks() {
                 className="relative flex flex-col items-center text-center group"
               >
                 {/* Step Number Background */}
-                <div className="absolute -top-8 -left-4 text-6xl md:text-8xl font-black text-foreground/[0.03] select-none pointer-events-none group-hover:text-primary/[0.05] transition-colors duration-500">
+                <div className="absolute -top-8 -left-4 text-6xl md:text-8xl font-black text-black/5 dark:text-white/5 select-none pointer-events-none group-hover:text-cyan-500/10 transition-colors duration-500">
                   {step.number}
                 </div>
 
@@ -72,7 +72,7 @@ export default function HowItWorks() {
                 </div>
 
                 <h3 className="text-xl font-bold text-foreground mb-4">{step.title}</h3>
-                <p className="text-muted-foreground leading-relaxed text-sm px-4">
+                <p className="text-slate-700 dark:text-slate-300 leading-relaxed text-sm px-4">
                   {step.description}
                 </p>
               </motion.div>

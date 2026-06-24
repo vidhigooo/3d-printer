@@ -44,7 +44,7 @@ export default function Portfolio() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-muted-foreground text-lg"
+              className="text-slate-700 dark:text-slate-300 text-lg"
             >
               Explore our gallery of complex geometries, functional prototypes, and end-use production parts.
             </motion.p>
@@ -55,7 +55,7 @@ export default function Portfolio() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
           >
-            <button className="px-6 py-3 rounded-full border border-border text-foreground font-medium hover:bg-muted transition-colors flex items-center gap-2">
+            <button className="px-6 py-3 rounded-full border border-border text-foreground font-medium hover:bg-slate-100 dark:bg-slate-900 transition-colors flex items-center gap-2">
               View All Projects
               <ArrowUpRight className="w-4 h-4" />
             </button>
@@ -70,7 +70,7 @@ export default function Portfolio() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className={`group relative overflow-hidden rounded-2xl bg-muted ${item.colSpan} aspect-[4/3] md:aspect-auto md:min-h-[400px] cursor-pointer`}
+              className={`group relative overflow-hidden rounded-2xl bg-slate-100 dark:bg-slate-900 ${item.colSpan} aspect-[4/3] md:aspect-auto md:min-h-[400px] cursor-pointer`}
             >
               <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500 z-10" />
               
@@ -87,10 +87,10 @@ export default function Portfolio() {
                 <span className="text-primary text-xs font-bold tracking-wider uppercase mb-2 block drop-shadow-md">
                   {item.category}
                 </span>
-                <h3 className="text-2xl font-bold text-white flex items-center justify-between drop-shadow-md">
+                <h3 className="text-2xl font-bold text-foreground flex items-center justify-between drop-shadow-md">
                   {item.title}
-                  <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 -translate-x-4 group-hover:translate-x-0">
-                    <ArrowUpRight className="w-5 h-5 text-white" />
+                  <div className="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-900/80 backdrop-blur-md flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 -translate-x-4 group-hover:translate-x-0">
+                    <ArrowUpRight className="w-5 h-5 text-foreground" />
                   </div>
                 </h3>
               </div>

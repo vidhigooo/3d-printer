@@ -9,7 +9,7 @@ import { blogPosts } from "@/data/blogData";
 
 export default function BlogPage() {
   return (
-    <div className="relative min-h-screen overflow-hidden pt-36 pb-24 bg-background selection:bg-primary/30">
+    <div className="relative min-h-screen overflow-hidden pt-8 pb-24 bg-background selection:bg-primary/30">
       {/* Background Ambience */}
       <div className="pointer-events-none absolute top-[10%] right-[-5%] h-[50%] w-[40%] rounded-full bg-primary/10 blur-[150px]" />
       <div className="pointer-events-none absolute bottom-[10%] left-[-10%] h-[40%] w-[30%] rounded-full bg-secondary/10 blur-[150px]" />
@@ -44,7 +44,7 @@ export default function BlogPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mx-auto max-w-2xl text-lg text-muted-foreground md:text-xl"
+            className="mx-auto max-w-2xl text-lg text-slate-700 dark:text-slate-300 md:text-xl"
           >
             Stay updated with the latest news, industry trends, and insights from the world of 3D printing.
           </motion.p>
@@ -58,7 +58,7 @@ export default function BlogPage() {
             transition={{ duration: 0.6 }}
             className="mb-12"
           >
-            <Link href={`/blog/${blogPosts[0].slug}`} className="group relative glass flex flex-col md:flex-row overflow-hidden rounded-[32px] border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-500 hover:shadow-[0_20px_60px_-15px_rgba(0,229,255,0.2)]">
+            <Link href={`/blog/${blogPosts[0].slug}`} className="group relative glass flex flex-col md:flex-row overflow-hidden rounded-[32px] border border-border/50 bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-500 hover:shadow-[0_20px_60px_-15px_rgba(0,229,255,0.2)]">
               {/* Image Section */}
               <div className="relative w-full md:w-1/2 lg:w-3/5 aspect-video md:aspect-auto overflow-hidden bg-black/20">
                 <Image
@@ -102,7 +102,7 @@ export default function BlogPage() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.1, duration: 0.6 }}
-              className="group glass flex flex-col rounded-[24px] overflow-hidden border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_15px_40px_-10px_rgba(0,229,255,0.15)]"
+              className="group glass flex flex-col rounded-[24px] overflow-hidden border border-border/50 bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_15px_40px_-10px_rgba(0,229,255,0.15)]"
             >
               <Link href={`/blog/${post.slug}`} className="flex flex-col h-full">
                 <div className="relative aspect-[16/10] w-full overflow-hidden bg-black/20">
@@ -113,7 +113,7 @@ export default function BlogPage() {
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute top-4 left-4 z-10">
-                    <span className="inline-block rounded-full bg-background/80 backdrop-blur-md px-3 py-1 text-xs font-semibold text-foreground border border-white/10 shadow-lg">
+                    <span className="inline-block rounded-full bg-background/80 backdrop-blur-md px-3 py-1 text-xs font-semibold text-foreground border border-border shadow-lg">
                       {post.date}
                     </span>
                   </div>
@@ -124,11 +124,11 @@ export default function BlogPage() {
                     {post.title}
                   </h3>
                   
-                  <div className="mt-auto pt-8 flex items-center justify-between border-t border-white/5">
-                    <span className="text-sm font-medium text-muted-foreground group-hover:text-cyan-300 transition-colors">
+                  <div className="mt-auto pt-8 flex items-center justify-between border-t border-border/50">
+                    <span className="text-sm font-medium text-slate-700 dark:text-slate-300 group-hover:text-cyan-300 transition-colors">
                       Read Article
                     </span>
-                    <div className="h-10 w-10 rounded-full bg-white/5 flex items-center justify-center text-foreground group-hover:bg-cyan-500 group-hover:text-cyan-950 group-hover:-rotate-45 transition-all duration-300">
+                    <div className="h-10 w-10 rounded-full bg-slate-100 dark:bg-slate-900/50 flex items-center justify-center text-foreground group-hover:bg-cyan-500 group-hover:text-cyan-950 group-hover:-rotate-45 transition-all duration-300">
                       <ArrowRight className="w-5 h-5" />
                     </div>
                   </div>

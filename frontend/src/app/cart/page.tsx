@@ -32,7 +32,7 @@ export default function CartPage() {
 
   if (cartItems.length === 0) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center bg-background pt-36 pb-24">
+      <div className="min-h-screen flex flex-col items-center justify-center bg-background pt-8 pb-24">
         <h1 className="text-3xl font-bold mb-6 text-foreground">Your cart is empty</h1>
         <Link href="/" className="px-8 py-3 bg-primary text-primary-foreground rounded-full hover:opacity-90 transition-opacity">
           Continue Shopping
@@ -42,7 +42,7 @@ export default function CartPage() {
   }
 
   return (
-    <div className="min-h-screen bg-background pt-36 pb-24 px-6">
+    <div className="min-h-screen bg-background pt-8 pb-24 px-6">
       <div className="container mx-auto max-w-6xl">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           
@@ -59,22 +59,22 @@ export default function CartPage() {
                   
                   <div className="flex-1 min-w-0">
                     <h3 className="text-lg font-medium text-foreground truncate">{item.name}</h3>
-                    <p className="text-sm text-muted-foreground mt-1">{item.price}</p>
-                    <p className="text-sm text-muted-foreground mt-1">Color: black</p> {/* Hardcoded as per reference image if needed, or omit */}
+                    <p className="text-sm text-slate-700 dark:text-slate-300 mt-1">{item.price}</p>
+                    <p className="text-sm text-slate-700 dark:text-slate-300 mt-1">Color: black</p> {/* Hardcoded as per reference image if needed, or omit */}
                   </div>
 
                   <div className="flex items-center gap-6">
                     <div className="flex items-center border border-border/80 rounded">
                       <button
                         onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                        className="px-3 py-1 hover:bg-muted text-foreground transition-colors"
+                        className="px-3 py-1 hover:bg-slate-100 dark:bg-slate-900 text-foreground transition-colors"
                       >
                         -
                       </button>
                       <span className="px-3 py-1 border-x border-border/80 min-w-[2.5rem] text-center text-sm">{item.quantity}</span>
                       <button
                         onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                        className="px-3 py-1 hover:bg-muted text-foreground transition-colors"
+                        className="px-3 py-1 hover:bg-slate-100 dark:bg-slate-900 text-foreground transition-colors"
                       >
                         +
                       </button>
@@ -86,7 +86,7 @@ export default function CartPage() {
 
                     <button
                       onClick={() => removeFromCart(item.id)}
-                      className="text-muted-foreground hover:text-red-500 transition-colors"
+                      className="text-slate-700 dark:text-slate-300 hover:text-red-500 transition-colors"
                     >
                       <Trash2 className="h-5 w-5" />
                     </button>
@@ -118,7 +118,7 @@ export default function CartPage() {
                 <span className="text-foreground">Delivery</span>
                 <div className="text-right">
                   <span className="text-foreground block">FREE</span>
-                  <a href="#" className="text-muted-foreground hover:text-foreground underline decoration-1 underline-offset-2 transition-colors mt-1 inline-block">Maharashtra, India</a>
+                  <a href="#" className="text-slate-700 dark:text-slate-300 hover:text-foreground underline decoration-1 underline-offset-2 transition-colors mt-1 inline-block">Maharashtra, India</a>
                 </div>
               </div>
             </div>
@@ -130,12 +130,12 @@ export default function CartPage() {
 
             <button
               onClick={handleCheckout}
-              className="w-full bg-[#7a8a6b] hover:bg-[#6b795d] text-white py-4 rounded font-medium transition-colors shadow-sm mb-4"
+              className="w-full bg-[#7a8a6b] hover:bg-[#6b795d] text-foreground py-4 rounded font-medium transition-colors shadow-sm mb-4"
             >
               Checkout
             </button>
 
-            <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground">
+            <div className="flex items-center justify-center gap-2 text-xs text-slate-700 dark:text-slate-300">
               <Lock className="w-3 h-3" /> Secure Checkout
             </div>
           </div>

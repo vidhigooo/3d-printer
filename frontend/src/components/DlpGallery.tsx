@@ -13,9 +13,9 @@ export default function DlpGallery() {
         <article
           key={printer.id}
           onClick={() => router.push(`/3d-printers/lcd-dlp-3d-printers/${printer.id}`)}
-          className="group cursor-pointer overflow-hidden rounded-[28px] border border-white/10 bg-white/[0.04] shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:border-cyan-500/30 hover:shadow-[0_0_40px_-10px_rgba(0,229,255,0.22)]"
+          className="group cursor-pointer overflow-hidden rounded-[28px] border border-border bg-white/[0.04] shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:border-cyan-500/30 hover:shadow-[0_0_40px_-10px_rgba(0,229,255,0.22)]"
         >
-          <div className="relative aspect-[4/3] flex items-center justify-center overflow-hidden bg-white/5 p-8">
+          <div className="relative aspect-[4/3] flex items-center justify-center overflow-hidden bg-slate-100 dark:bg-slate-900/50 p-8">
             <Image
               src={printer.image}
               alt={printer.name}
@@ -31,7 +31,7 @@ export default function DlpGallery() {
 
           <div className="space-y-5 p-7">
             <div>
-              <h3 className="text-2xl font-bold tracking-tight text-white">{printer.name}</h3>
+              <h3 className="text-2xl font-bold tracking-tight text-foreground">{printer.name}</h3>
               <p className="mt-2 text-sm font-semibold uppercase tracking-[0.22em] text-cyan-300/90">
                 Resin printer showcase
               </p>

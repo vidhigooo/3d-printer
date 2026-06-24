@@ -79,28 +79,28 @@ export default function AdminQuoteTable({ initialQuotes }: AdminQuoteTableProps)
     <div className="space-y-6">
       
       {/* Controls */}
-      <div className="flex flex-col md:flex-row gap-4 justify-between items-center bg-slate-900/40 p-4 rounded-2xl border border-white/10">
+      <div className="flex flex-col md:flex-row gap-4 justify-between items-center bg-card/40 p-4 rounded-2xl border border-border">
         <div className="relative w-full md:w-96">
-          <Search className="w-5 h-5 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
+          <Search className="w-5 h-5 absolute left-3 top-1/2 -translate-y-1/2 text-slate-700 dark:text-slate-300" />
           <input 
             type="text" 
             placeholder="Search by ID, Name or Company..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full bg-slate-950 border border-white/10 rounded-xl pl-10 pr-4 py-2 text-white focus:outline-none focus:border-cyan-500/50 transition-all"
+            className="w-full bg-background border border-border rounded-xl pl-10 pr-4 py-2 text-foreground focus:outline-none focus:border-cyan-500/50 transition-all"
           />
         </div>
-        <div className="text-sm text-slate-400">
+        <div className="text-sm text-slate-700 dark:text-slate-300">
           Total Requests: <span className="text-cyan-400 font-bold">{filteredQuotes.length}</span>
         </div>
       </div>
 
       {/* Table */}
-      <div className="bg-slate-900/60 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden shadow-2xl">
+      <div className="bg-card/60 backdrop-blur-xl border border-border rounded-2xl overflow-hidden shadow-2xl">
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse">
             <thead>
-              <tr className="bg-slate-950/50 text-slate-300 text-sm border-b border-white/10">
+              <tr className="bg-background/50 text-slate-700 dark:text-slate-300 text-sm border-b border-border">
                 <th className="p-4 font-semibold">Quote ID</th>
                 <th className="p-4 font-semibold">Customer Details</th>
                 <th className="p-4 font-semibold">Project Specs</th>
@@ -122,21 +122,21 @@ export default function AdminQuoteTable({ initialQuotes }: AdminQuoteTableProps)
                   </td>
                   
                   <td className="p-4 align-top max-w-[200px]">
-                    <div className="font-semibold text-white truncate" title={quote.fullName}>{quote.fullName}</div>
-                    {quote.companyName && <div className="text-xs text-slate-400 truncate mt-0.5" title={quote.companyName}>{quote.companyName}</div>}
+                    <div className="font-semibold text-foreground truncate" title={quote.fullName}>{quote.fullName}</div>
+                    {quote.companyName && <div className="text-xs text-slate-700 dark:text-slate-300 truncate mt-0.5" title={quote.companyName}>{quote.companyName}</div>}
                     <div className="text-xs text-slate-500 mt-1 truncate" title={quote.email}>{quote.email}</div>
                     {quote.phone && <div className="text-xs text-slate-500 truncate" title={quote.phone}>{quote.phone}</div>}
                   </td>
                   
                   <td className="p-4 align-top max-w-[250px]">
-                    <div className="text-sm text-white font-medium mb-1 truncate" title={quote.projectName}>{quote.projectName}</div>
-                    <div className="text-xs text-slate-400">
+                    <div className="text-sm text-foreground font-medium mb-1 truncate" title={quote.projectName}>{quote.projectName}</div>
+                    <div className="text-xs text-slate-700 dark:text-slate-300">
                       <span className="text-slate-500">Proc:</span> {quote.process}
                     </div>
-                    <div className="text-xs text-slate-400">
+                    <div className="text-xs text-slate-700 dark:text-slate-300">
                       <span className="text-slate-500">Mat:</span> {quote.material || "N/A"}
                     </div>
-                    <div className="text-xs text-slate-400">
+                    <div className="text-xs text-slate-700 dark:text-slate-300">
                       <span className="text-slate-500">Qty:</span> {quote.quantity} 
                       {quote.expectedQuantity && ` (Exp: ${quote.expectedQuantity})`}
                     </div>
@@ -157,7 +157,7 @@ export default function AdminQuoteTable({ initialQuotes }: AdminQuoteTableProps)
                   
                   <td className="p-4 align-top">
                     <div className="relative">
-                      <DollarSign className="w-4 h-4 absolute left-2 top-1/2 -translate-y-1/2 text-slate-400" />
+                      <DollarSign className="w-4 h-4 absolute left-2 top-1/2 -translate-y-1/2 text-slate-700 dark:text-slate-300" />
                       <input 
                         type="text" 
                         defaultValue={quote.quoteAmount}
@@ -167,7 +167,7 @@ export default function AdminQuoteTable({ initialQuotes }: AdminQuoteTableProps)
                           }
                         }}
                         placeholder="0.00"
-                        className="w-28 bg-slate-950 border border-white/10 rounded-lg pl-7 pr-3 py-1.5 text-sm text-white focus:outline-none focus:border-cyan-500/50"
+                        className="w-28 bg-background border border-border rounded-lg pl-7 pr-3 py-1.5 text-sm text-foreground focus:outline-none focus:border-cyan-500/50"
                       />
                     </div>
                   </td>
@@ -184,7 +184,7 @@ export default function AdminQuoteTable({ initialQuotes }: AdminQuoteTableProps)
                         <button 
                           onClick={() => handleUpdateStatus(quote.id, "Completed")}
                           disabled={updatingId === quote.id}
-                          className="inline-flex items-center gap-1.5 text-xs text-slate-400 hover:text-green-400 transition-colors mt-1"
+                          className="inline-flex items-center gap-1.5 text-xs text-slate-700 dark:text-slate-300 hover:text-green-400 transition-colors mt-1"
                         >
                           <CheckCircle className="w-3.5 h-3.5" />
                           Mark Completed

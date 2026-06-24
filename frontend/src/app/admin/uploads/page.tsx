@@ -45,7 +45,7 @@ export default async function AdminUploadsPage() {
   const quotes: Quote[] = error ? [] : (data || []).map(mapQuote);
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-200 pt-32 pb-20 px-6 selection:bg-cyan-500/30">
+    <div className="min-h-screen bg-background text-foreground pt-32 pb-20 px-6 selection:bg-cyan-500/30">
       <div className="fixed inset-0 z-0 opacity-40 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950 z-10" />
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-600/10 rounded-full blur-[120px] -z-10" />
@@ -55,14 +55,14 @@ export default async function AdminUploadsPage() {
       <div className="container mx-auto max-w-7xl relative z-10">
         <div className="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
-            <Link href="/" className="inline-flex items-center text-slate-400 hover:text-cyan-400 transition-colors mb-4 text-sm font-medium">
+            <Link href="/" className="inline-flex items-center text-slate-700 dark:text-slate-300 hover:text-cyan-400 transition-colors mb-4 text-sm font-medium">
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Home
             </Link>
-            <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-2">
+            <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-foreground mb-2">
               Quote <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Dashboard</span>
             </h1>
-            <p className="text-lg text-slate-400">
+            <p className="text-lg text-slate-700 dark:text-slate-300">
               Manage incoming CAD uploads and manufacturing requests.
             </p>
           </div>

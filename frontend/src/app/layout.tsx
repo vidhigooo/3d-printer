@@ -17,6 +17,8 @@ export const metadata: Metadata = {
   description: "Precision 3D Printing for Industrial & Custom Projects. From prototypes to production — fast, accurate, reliable.",
 };
 
+import Breadcrumbs from "@/components/Breadcrumbs";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -33,6 +35,7 @@ export default function RootLayout({
         >
           <CartProvider>
             <Navbar />
+            <Breadcrumbs />
             <main>{children}</main>
             <Footer />
             <Chatbot />

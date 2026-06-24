@@ -76,7 +76,7 @@ const services = [
 
 export default function ThreeDModellingServicePage() {
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-200 overflow-hidden relative selection:bg-cyan-500/30">
+    <div className="min-h-screen bg-background text-foreground overflow-hidden relative selection:bg-cyan-500/30">
       
       <style dangerouslySetInnerHTML={{__html: `
         @keyframes shimmer {
@@ -93,18 +93,18 @@ export default function ThreeDModellingServicePage() {
       </div>
 
       {/* Hero Section */}
-      <section className="relative pt-40 pb-20 md:pt-48 md:pb-32 px-6 z-10 border-b border-white/5">
+      <section className="relative pt-40 pb-20 md:pt-16 md:pb-32 px-6 z-10 border-b border-border/50">
         <div className="container mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           
           {/* Hero Content */}
           <div className="space-y-8 relative z-10">
 
             
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-foreground drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]">
               3D Designing & 3D Modelling
             </h1>
             
-            <p className="text-lg md:text-xl text-slate-400 leading-relaxed max-w-xl">
+            <p className="text-lg md:text-xl text-slate-700 dark:text-slate-300 leading-relaxed max-w-xl">
               We are professional designers who can help you in giving perfect shape to your ideas into CAD Modeling. 
             </p>
             
@@ -112,7 +112,7 @@ export default function ThreeDModellingServicePage() {
           </div>
 
           {/* Hero Visual */}
-          <div className="relative w-full aspect-video lg:aspect-square max-h-[500px] rounded-[24px] bg-slate-900/50 backdrop-blur-xl border border-white/10 shadow-[0_0_50px_rgba(0,229,255,0.1)] flex items-center justify-center p-2 group hover:border-cyan-500/30 transition-colors duration-500">
+          <div className="relative w-full aspect-video lg:aspect-square max-h-[500px] rounded-[24px] bg-card/50 backdrop-blur-xl border border-border shadow-[0_0_50px_rgba(0,229,255,0.1)] flex items-center justify-center p-2 group hover:border-cyan-500/30 transition-colors duration-500">
             <div className="absolute inset-0 bg-cyan-500/10 blur-[80px] rounded-full scale-75 group-hover:bg-cyan-400/20 transition-all duration-700" />
             
             <div className="absolute inset-0 overflow-hidden rounded-[24px] z-20 pointer-events-none">
@@ -148,7 +148,7 @@ export default function ThreeDModellingServicePage() {
                 >
                   
                   {/* Image Container */}
-                  <div className="w-full lg:w-1/2 relative aspect-[4/3] rounded-3xl overflow-hidden bg-slate-900 border border-white/5 shadow-2xl group-hover:border-cyan-500/30 transition-colors duration-500">
+                  <div className="w-full lg:w-1/2 relative aspect-[4/3] rounded-3xl overflow-hidden bg-card border border-border/50 shadow-2xl group-hover:border-cyan-500/30 transition-colors duration-500">
                     <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-purple-500/10 mix-blend-overlay z-10 pointer-events-none" />
                     
                     <img 
@@ -163,13 +163,13 @@ export default function ThreeDModellingServicePage() {
 
                   {/* Text Container */}
                   <div className="w-full lg:w-1/2 space-y-6">
-                    <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight drop-shadow-md group-hover:text-cyan-50 transition-colors">
+                    <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight drop-shadow-md group-hover:text-cyan-50 transition-colors">
                       {service.title}
                     </h2>
                     
                     <div className="h-1 w-20 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-full opacity-50 group-hover:opacity-100 transition-opacity" />
                     
-                    <p className="text-lg text-slate-400 leading-relaxed pt-2 group-hover:text-slate-300 transition-colors">
+                    <p className="text-lg text-slate-700 dark:text-slate-300 leading-relaxed pt-2 group-hover:text-slate-700 dark:text-slate-300 transition-colors">
                       {service.description}
                     </p>
                   </div>

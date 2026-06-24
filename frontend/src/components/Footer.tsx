@@ -9,7 +9,7 @@ export default function Footer() {
           {/* Quick Links */}
           <div>
             <h3 className="text-foreground font-semibold text-lg mb-6">Quick Links</h3>
-            <ul className="space-y-4 text-sm text-muted-foreground">
+            <ul className="space-y-4 text-sm text-slate-700 dark:text-slate-300">
               <li><Link href="/" className="hover:text-primary transition-colors">Home</Link></li>
               <li><Link href="/about-us" className="hover:text-primary transition-colors">About Us</Link></li>
               <li><Link href="/blogs" className="hover:text-primary transition-colors">Blogs</Link></li>
@@ -21,7 +21,7 @@ export default function Footer() {
           {/* Products */}
           <div>
             <h3 className="text-foreground font-semibold text-lg mb-6">Products</h3>
-            <ul className="space-y-4 text-sm text-muted-foreground">
+            <ul className="space-y-4 text-sm text-slate-700 dark:text-slate-300">
               <li><Link href="/3d-printers" className="hover:text-primary transition-colors">3D Printers</Link></li>
               <li><Link href="/product/techno-polymers-filaments" className="hover:text-primary transition-colors">Techno Polymers & Filaments</Link></li>
               <li><Link href="/spare-parts" className="hover:text-primary transition-colors">Spare Parts</Link></li>
@@ -32,7 +32,7 @@ export default function Footer() {
           {/* Services */}
           <div>
             <h3 className="text-foreground font-semibold text-lg mb-6">Services</h3>
-            <ul className="space-y-4 text-sm text-muted-foreground">
+            <ul className="space-y-4 text-sm text-slate-700 dark:text-slate-300">
               <li><Link href="/3d-services" className="hover:text-primary transition-colors">3D Services</Link></li>
               <li><Link href="/shilp-studio" className="hover:text-primary transition-colors">Shilp Studio</Link></li>
               <li><Link href="/velvet-coating" className="hover:text-primary transition-colors">Velvet Coating</Link></li>
@@ -44,7 +44,7 @@ export default function Footer() {
           {/* Resources */}
           <div>
             <h3 className="text-foreground font-semibold text-lg mb-6">Resources</h3>
-            <ul className="space-y-4 text-sm text-muted-foreground">
+            <ul className="space-y-4 text-sm text-slate-700 dark:text-slate-300">
               <li><Link href="/terms-and-conditions" className="hover:text-primary transition-colors">Site Terms</Link></li>
               <li><Link href="/privacy-policy" className="hover:text-primary transition-colors">Privacy Policies</Link></li>
               <li><Link href="/return-refund" className="hover:text-primary transition-colors">Return/Refund</Link></li>
@@ -57,7 +57,7 @@ export default function Footer() {
           <div className="col-span-2 md:col-span-1">
             <h3 className="text-foreground font-semibold text-base mb-2 uppercase tracking-wide">CHEMBUR , MUMBAI-400071</h3>
             <p className="text-primary font-semibold text-lg mb-4">+91-9082944592</p>
-            <ul className="space-y-3 text-sm text-muted-foreground">
+            <ul className="space-y-3 text-sm text-slate-700 dark:text-slate-300">
               <li><a href="mailto:sales@vektor3ds.com" className="hover:text-foreground transition-colors">sales@vektor3ds.com</a></li>
               <li><a href="mailto:sales1@vektor3ds.com" className="hover:text-foreground transition-colors">sales1@vektor3ds.com</a></li>
               <li><a href="mailto:sales2@vektor3ds.com" className="hover:text-foreground transition-colors">sales2@vektor3ds.com</a></li>
@@ -66,7 +66,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="pt-8 border-t border-border/50 flex flex-col items-center justify-center gap-4 text-muted-foreground">
+        <div className="pt-8 border-t border-border/50 flex flex-col items-center justify-center gap-4 text-slate-700 dark:text-slate-300">
           <div className="flex items-center gap-5">
             {/* WhatsApp */}
             <a href="https://wa.me/919082020416" target="_blank" rel="noopener noreferrer" className="hover:-translate-y-1 transition-transform">

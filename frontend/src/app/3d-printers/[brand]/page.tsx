@@ -41,7 +41,7 @@ export default function BrandModelsPage({ params }: { params: { brand: string } 
   };
 
   return (
-    <div className="relative min-h-screen overflow-hidden pt-36 pb-24 selection:bg-primary/30">
+    <div className="relative min-h-screen overflow-hidden pt-8 pb-24 selection:bg-primary/30">
       {/* Background Ambience */}
       <div className="pointer-events-none absolute -top-[20%] -left-[10%] h-[70%] w-[50%] rounded-full bg-primary/10 blur-[120px]" />
       <div className="pointer-events-none absolute top-[40%] -right-[10%] h-[50%] w-[40%] rounded-full bg-secondary/10 blur-[150px]" />
@@ -51,7 +51,7 @@ export default function BrandModelsPage({ params }: { params: { brand: string } 
         <div className="mb-12">
           <Link
             href="/3d-printers"
-            className="group mb-8 inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+            className="group mb-8 inline-flex items-center gap-2 text-sm font-medium text-slate-700 dark:text-slate-300 transition-colors hover:text-primary"
           >
             <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
             Back to Brands
@@ -77,7 +77,7 @@ export default function BrandModelsPage({ params }: { params: { brand: string } 
                 transition={{ duration: 0.6, delay: 0.1 }}
                 className="text-4xl font-extrabold tracking-tight text-foreground md:text-5xl"
               >
-                {brandName} <span className="text-muted-foreground font-light">3D Printers</span>
+                {brandName} <span className="text-slate-700 dark:text-slate-300 font-light">3D Printers</span>
               </motion.h1>
             </div>
 
@@ -88,9 +88,9 @@ export default function BrandModelsPage({ params }: { params: { brand: string } 
               transition={{ duration: 0.6, delay: 0.2 }}
               className="relative min-w-[200px]"
             >
-              <div className="glass flex cursor-pointer items-center justify-between rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-medium text-foreground backdrop-blur-md transition-colors hover:bg-white/10">
+              <div className="glass flex cursor-pointer items-center justify-between rounded-xl border border-border bg-slate-100 dark:bg-slate-900/50 px-4 py-3 text-sm font-medium text-foreground backdrop-blur-md transition-colors hover:bg-slate-100 dark:bg-slate-900">
                 <span>Sort by: Recommended</span>
-                <ChevronDown className="h-4 w-4 text-muted-foreground" />
+                <ChevronDown className="h-4 w-4 text-slate-700 dark:text-slate-300" />
               </div>
             </motion.div>
           </div>
@@ -104,10 +104,10 @@ export default function BrandModelsPage({ params }: { params: { brand: string } 
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group glass relative flex flex-col overflow-hidden rounded-[24px] border border-white/10 bg-gradient-to-b from-white/[0.05] to-transparent shadow-2xl transition-all duration-500 hover:border-primary/30 hover:shadow-[0_0_40px_-10px_rgba(0,229,255,0.15)]"
+              className="group glass relative flex flex-col overflow-hidden rounded-[24px] border border-border bg-gradient-to-b from-white/[0.05] to-transparent shadow-2xl transition-all duration-500 hover:border-primary/30 hover:shadow-[0_0_40px_-10px_rgba(0,229,255,0.15)]"
             >
               {/* Card Image Area */}
-              <div className="relative aspect-[4/3] w-full overflow-hidden bg-white/5 p-8 transition-colors group-hover:bg-white/10">
+              <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-100 dark:bg-slate-900/50 p-8 transition-colors group-hover:bg-slate-100 dark:bg-slate-900">
                 {/* Badges */}
                 {model.badge && (
                   <div className="absolute top-4 left-4 z-10 rounded-md bg-secondary/80 px-3 py-1.5 text-xs font-semibold tracking-wide text-secondary-foreground backdrop-blur-md">
@@ -119,14 +119,14 @@ export default function BrandModelsPage({ params }: { params: { brand: string } 
                 <div className="absolute inset-0 z-20 flex flex-col items-center justify-end bg-black/60 p-8 opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100">
                   <button
                     onClick={() => handleQuickView(model)}
-                    className="flex translate-y-4 items-center gap-2 rounded-full bg-white/10 px-6 py-3 text-sm font-bold tracking-wider text-white backdrop-blur-md transition-all duration-300 hover:scale-105 hover:bg-white/20 group-hover:translate-y-0"
+                    className="flex translate-y-4 items-center gap-2 rounded-full bg-slate-100 dark:bg-slate-900 px-6 py-3 text-sm font-bold tracking-wider text-foreground backdrop-blur-md transition-all duration-300 hover:scale-105 hover:bg-slate-100 dark:bg-slate-900/80 group-hover:translate-y-0"
                   >
                     Quick View
                   </button>
                 </div>
 
                 {/* Product Image */}
-                <div className="relative h-full w-full overflow-hidden rounded-xl bg-white/5 transition-colors duration-500 group-hover:bg-white/10">
+                <div className="relative h-full w-full overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900/50 transition-colors duration-500 group-hover:bg-slate-100 dark:bg-slate-900">
                   <Image
                     src={model.image}
                     alt={model.name}
@@ -148,7 +148,7 @@ export default function BrandModelsPage({ params }: { params: { brand: string } 
                       {formatPrice(model.price)}
                     </span>
                     {model.originalPrice && (
-                      <span className="text-lg font-medium text-muted-foreground line-through decoration-muted-foreground/50">
+                      <span className="text-lg font-medium text-slate-700 dark:text-slate-300 line-through decoration-muted-foreground/50">
                         {formatPrice(model.originalPrice)}
                       </span>
                     )}
@@ -166,7 +166,7 @@ export default function BrandModelsPage({ params }: { params: { brand: string } 
                   ) : (
                     <button
                       disabled
-                      className="flex w-full cursor-not-allowed items-center justify-center gap-2 rounded-xl bg-muted/30 px-6 py-4 text-sm font-bold tracking-wide text-muted-foreground border border-white/5"
+                      className="flex w-full cursor-not-allowed items-center justify-center gap-2 rounded-xl bg-slate-100 dark:bg-slate-900/30 px-6 py-4 text-sm font-bold tracking-wide text-slate-700 dark:text-slate-300 border border-border/50"
                     >
                       Out of Stock
                     </button>
@@ -196,18 +196,18 @@ export default function BrandModelsPage({ params }: { params: { brand: string } 
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
-              className="glass relative flex max-h-[90vh] w-full max-w-5xl flex-col overflow-y-auto rounded-3xl border border-white/10 bg-background/90 shadow-2xl md:flex-row md:overflow-hidden"
+              className="glass relative flex max-h-[90vh] w-full max-w-5xl flex-col overflow-y-auto rounded-3xl border border-border bg-background/90 shadow-2xl md:flex-row md:overflow-hidden"
             >
               <button
                 onClick={closeModal}
-                className="absolute right-4 top-4 z-20 rounded-full bg-white/10 p-2 text-muted-foreground backdrop-blur-md transition-colors hover:bg-white/20 hover:text-white"
+                className="absolute right-4 top-4 z-20 rounded-full bg-slate-100 dark:bg-slate-900 p-2 text-slate-700 dark:text-slate-300 backdrop-blur-md transition-colors hover:bg-slate-100 dark:bg-slate-900/80 hover:text-foreground"
               >
                 <X className="h-5 w-5" />
               </button>
 
               {/* Modal Image Area */}
-              <div className="relative flex aspect-square w-full flex-col items-center justify-center bg-white/5 p-8 md:w-1/2 md:p-12 md:aspect-auto">
-                <div className="relative h-full w-full overflow-hidden rounded-xl bg-white/5">
+              <div className="relative flex aspect-square w-full flex-col items-center justify-center bg-slate-100 dark:bg-slate-900/50 p-8 md:w-1/2 md:p-12 md:aspect-auto">
+                <div className="relative h-full w-full overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900/50">
                   <Image
                     src={selectedModel.image}
                     alt={selectedModel.name}
@@ -220,7 +220,7 @@ export default function BrandModelsPage({ params }: { params: { brand: string } 
                   {[...Array(4)].map((_, i) => (
                     <div
                       key={i}
-                      className={`h-2 w-2 rounded-full ${i === 0 ? "bg-primary" : "bg-white/20"}`}
+                      className={`h-2 w-2 rounded-full ${i === 0 ? "bg-primary" : "bg-slate-100 dark:bg-slate-900/80"}`}
                     />
                   ))}
                 </div>
@@ -237,7 +237,7 @@ export default function BrandModelsPage({ params }: { params: { brand: string } 
                     {formatPrice(selectedModel.price)}
                   </span>
                   {selectedModel.originalPrice && (
-                    <span className="text-xl font-medium text-muted-foreground line-through decoration-muted-foreground/50">
+                    <span className="text-xl font-medium text-slate-700 dark:text-slate-300 line-through decoration-muted-foreground/50">
                       {formatPrice(selectedModel.originalPrice)}
                     </span>
                   )}
@@ -245,12 +245,12 @@ export default function BrandModelsPage({ params }: { params: { brand: string } 
 
                 <div className="mb-8 space-y-6">
                   <div className="flex items-center gap-2">
-                    <span className="text-sm font-medium uppercase tracking-wider text-muted-foreground">SKU:</span>
+                    <span className="text-sm font-medium uppercase tracking-wider text-slate-700 dark:text-slate-300">SKU:</span>
                     <span className="font-mono text-sm text-foreground">V3D-{selectedModel.slug.substring(0, 6).toUpperCase()}</span>
                   </div>
 
                   <div>
-                    <h4 className="mb-3 text-sm font-semibold text-foreground">Color: <span className="font-normal text-muted-foreground">Black</span>*</h4>
+                    <h4 className="mb-3 text-sm font-semibold text-foreground">Color: <span className="font-normal text-slate-700 dark:text-slate-300">Black</span>*</h4>
                     <div className="flex gap-3">
                       <button className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-primary bg-black ring-2 ring-primary/20 transition-all hover:scale-110">
                         {/* inner border to separate black background from black circle */}
@@ -262,17 +262,17 @@ export default function BrandModelsPage({ params }: { params: { brand: string } 
 
                   <div>
                     <h4 className="mb-3 text-sm font-semibold text-foreground">Quantity *</h4>
-                    <div className="inline-flex items-center rounded-xl border border-white/10 bg-white/5">
+                    <div className="inline-flex items-center rounded-xl border border-border bg-slate-100 dark:bg-slate-900/50">
                       <button
                         onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                        className="px-4 py-3 text-muted-foreground transition-colors hover:text-white"
+                        className="px-4 py-3 text-slate-700 dark:text-slate-300 transition-colors hover:text-foreground"
                       >
                         <Minus className="h-4 w-4" />
                       </button>
                       <span className="w-8 text-center text-sm font-semibold">{quantity}</span>
                       <button
                         onClick={() => setQuantity(quantity + 1)}
-                        className="px-4 py-3 text-muted-foreground transition-colors hover:text-white"
+                        className="px-4 py-3 text-slate-700 dark:text-slate-300 transition-colors hover:text-foreground"
                       >
                         <Plus className="h-4 w-4" />
                       </button>
@@ -294,7 +294,7 @@ export default function BrandModelsPage({ params }: { params: { brand: string } 
                   ) : (
                     <button
                       disabled
-                      className="flex w-full cursor-not-allowed items-center justify-center gap-2 rounded-xl bg-muted/30 px-6 py-4 text-sm font-bold tracking-wide text-muted-foreground border border-white/5"
+                      className="flex w-full cursor-not-allowed items-center justify-center gap-2 rounded-xl bg-slate-100 dark:bg-slate-900/30 px-6 py-4 text-sm font-bold tracking-wide text-slate-700 dark:text-slate-300 border border-border/50"
                     >
                       Out of Stock
                     </button>
@@ -303,7 +303,7 @@ export default function BrandModelsPage({ params }: { params: { brand: string } 
                   <Link
                     href={`/product-page/${selectedModel.slug}`}
                     onClick={() => document.body.style.overflow = ""} // make sure to restore scrolling
-                    className="mt-2 inline-block self-start text-sm font-medium text-muted-foreground underline decoration-muted-foreground/30 underline-offset-4 transition-colors hover:text-primary hover:decoration-primary/50"
+                    className="mt-2 inline-block self-start text-sm font-medium text-slate-700 dark:text-slate-300 underline decoration-muted-foreground/30 underline-offset-4 transition-colors hover:text-primary hover:decoration-primary/50"
                   >
                     View More Details
                   </Link>

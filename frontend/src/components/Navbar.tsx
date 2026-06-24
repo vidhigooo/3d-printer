@@ -61,7 +61,7 @@ export default function Navbar() {
 
   return (
     <header
-      className="relative w-full z-50 bg-slate-950 backdrop-blur-lg border-b border-white/5 shadow-[0_8px_32px_rgba(0,0,0,0.4)] py-4"
+      className="relative w-full z-50 bg-background backdrop-blur-lg border-b border-border/50 shadow-[0_8px_32px_rgba(0,0,0,0.4)] py-4"
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
@@ -89,7 +89,7 @@ export default function Navbar() {
                 >
                   <Link
                     href={item.href}
-                    className="inline-flex items-center gap-1 text-[13px] xl:text-sm font-medium text-muted-foreground hover:text-primary transition-colors whitespace-nowrap"
+                    className="inline-flex items-center gap-1 text-[13px] xl:text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-primary transition-colors whitespace-nowrap"
                   >
                     {item.name}
                     <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${printersMenuOpen ? "translate-y-0.5" : ""}`} />
@@ -101,7 +101,7 @@ export default function Navbar() {
                         key={dropdownItem.name}
                         href={dropdownItem.href}
                         onClick={() => setPrintersMenuOpen(false)}
-                        className="block rounded-md px-4 py-3 text-center text-[15px] font-semibold uppercase tracking-wide text-muted-foreground transition-colors hover:bg-primary/10 hover:text-primary"
+                        className="block rounded-md px-4 py-3 text-center text-[15px] font-semibold uppercase tracking-wide text-slate-700 dark:text-slate-300 transition-colors hover:bg-primary/10 hover:text-primary"
                       >
                         {dropdownItem.name}
                       </Link>
@@ -119,7 +119,7 @@ export default function Navbar() {
                 >
                   <Link
                     href={item.href}
-                    className="inline-flex items-center gap-1 text-[13px] xl:text-sm font-medium text-muted-foreground hover:text-primary transition-colors whitespace-nowrap"
+                    className="inline-flex items-center gap-1 text-[13px] xl:text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-primary transition-colors whitespace-nowrap"
                   >
                     {item.name}
                     <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${servicesMenuOpen ? "translate-y-0.5" : ""}`} />
@@ -131,7 +131,7 @@ export default function Navbar() {
                         key={dropdownItem.name}
                         href={dropdownItem.href}
                         onClick={() => setServicesMenuOpen(false)}
-                        className="block rounded-md px-4 py-3 text-center text-[15px] font-semibold uppercase tracking-wide text-muted-foreground transition-colors hover:bg-primary/10 hover:text-primary"
+                        className="block rounded-md px-4 py-3 text-center text-[15px] font-semibold uppercase tracking-wide text-slate-700 dark:text-slate-300 transition-colors hover:bg-primary/10 hover:text-primary"
                       >
                         {dropdownItem.name}
                       </Link>
@@ -149,7 +149,7 @@ export default function Navbar() {
                 >
                   <Link
                     href={item.href}
-                    className="inline-flex items-center gap-1 text-[13px] xl:text-sm font-medium text-muted-foreground hover:text-primary transition-colors whitespace-nowrap"
+                    className="inline-flex items-center gap-1 text-[13px] xl:text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-primary transition-colors whitespace-nowrap"
                   >
                     {item.name}
                     <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${resinMenuOpen ? "translate-y-0.5" : ""}`} />
@@ -161,7 +161,7 @@ export default function Navbar() {
                         key={dropdownItem.name}
                         href={dropdownItem.href}
                         onClick={() => setResinMenuOpen(false)}
-                        className="block rounded-md px-4 py-3 text-center text-[15px] font-semibold uppercase tracking-wide text-muted-foreground transition-colors hover:bg-primary/10 hover:text-primary"
+                        className="block rounded-md px-4 py-3 text-center text-[15px] font-semibold uppercase tracking-wide text-slate-700 dark:text-slate-300 transition-colors hover:bg-primary/10 hover:text-primary"
                       >
                         {dropdownItem.name}
                       </Link>
@@ -179,7 +179,7 @@ export default function Navbar() {
                 >
                   <Link
                     href={item.href}
-                    className="inline-flex items-center gap-1 text-[13px] xl:text-sm font-medium text-muted-foreground hover:text-primary transition-colors whitespace-nowrap"
+                    className="inline-flex items-center gap-1 text-[13px] xl:text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-primary transition-colors whitespace-nowrap"
                   >
                     {item.name}
                     <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${contactMenuOpen ? "translate-y-0.5" : ""}`} />
@@ -191,7 +191,7 @@ export default function Navbar() {
                         key={dropdownItem.name}
                         href={dropdownItem.href}
                         onClick={() => setContactMenuOpen(false)}
-                        className="block rounded-md px-4 py-3 text-center text-[15px] font-semibold uppercase tracking-wide text-muted-foreground transition-colors hover:bg-primary/10 hover:text-primary"
+                        className="block rounded-md px-4 py-3 text-center text-[15px] font-semibold uppercase tracking-wide text-slate-700 dark:text-slate-300 transition-colors hover:bg-primary/10 hover:text-primary"
                       >
                         {dropdownItem.name}
                       </Link>
@@ -204,7 +204,7 @@ export default function Navbar() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="text-[13px] xl:text-sm font-medium text-muted-foreground hover:text-primary transition-colors whitespace-nowrap"
+                  className="text-[13px] xl:text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-primary transition-colors whitespace-nowrap"
                 >
                   {item.name}
                 </Link>
@@ -216,7 +216,7 @@ export default function Navbar() {
         {/* Contact Info & Search */}
         <div className="hidden lg:flex flex-col items-end gap-2 xl:gap-3 flex-shrink-0 ml-4 translate-y-1">
           {/* Top row: Numbers */}
-          <div className="text-[12px] xl:text-[13px] font-medium text-muted-foreground whitespace-nowrap">
+          <div className="text-[12px] xl:text-[13px] font-medium text-slate-700 dark:text-slate-300 whitespace-nowrap">
             <span>3D Printing: +91-9082020416 | +91-8655211644</span>
             <span className="mx-2 text-border/50">|</span>
             <span>3D Printer: +91-8369305601</span>
@@ -228,7 +228,7 @@ export default function Navbar() {
               <input 
                 type="text" 
                 placeholder="Search..." 
-                className="w-24 xl:w-36 bg-transparent text-sm outline-none placeholder:text-muted-foreground"
+                className="w-24 xl:w-36 bg-transparent text-sm outline-none placeholder:text-slate-700 dark:text-slate-300"
               />
               <button className="p-1 hover:opacity-80 rounded text-foreground transition-colors bg-[#f0ece1] dark:bg-primary/20">
                 <Search className="w-4 h-4" />
@@ -237,11 +237,11 @@ export default function Navbar() {
             
             <button 
               onClick={() => setIsCartOpen(true)}
-              className="relative p-2 hover:bg-white/5 rounded-full transition-colors"
+              className="relative p-2 hover:bg-slate-100 dark:bg-slate-900/50 rounded-full transition-colors"
             >
-              <ShoppingCart className="w-5 h-5 text-slate-300 hover:text-white" />
+              <ShoppingCart className="w-5 h-5 text-slate-700 dark:text-slate-300 hover:text-foreground" />
               {cartCount > 0 && (
-                <span className="absolute 0 right-0 flex h-4 w-4 items-center justify-center rounded-full bg-cyan-500 text-[10px] font-bold text-white">
+                <span className="absolute 0 right-0 flex h-4 w-4 items-center justify-center rounded-full bg-cyan-500 text-[10px] font-bold text-foreground">
                   {cartCount}
                 </span>
               )}
@@ -255,11 +255,11 @@ export default function Navbar() {
         <div className="md:hidden flex items-center gap-3 text-foreground">
           <button 
             onClick={() => setIsCartOpen(true)}
-            className="relative p-2 text-slate-300"
+            className="relative p-2 text-slate-700 dark:text-slate-300"
           >
             <ShoppingCart className="w-5 h-5" />
             {cartCount > 0 && (
-              <span className="absolute top-0 right-0 flex h-4 w-4 items-center justify-center rounded-full bg-cyan-500 text-[10px] font-bold text-white">
+              <span className="absolute top-0 right-0 flex h-4 w-4 items-center justify-center rounded-full bg-cyan-500 text-[10px] font-bold text-foreground">
                 {cartCount}
               </span>
             )}
@@ -292,7 +292,7 @@ export default function Navbar() {
           ))}
           <div className="flex flex-col items-center mt-4 w-full p-4 border-t border-border/50 text-xs text-center space-y-1">
             <span className="text-foreground">3D Printing: +91-9082020416 | +91-8655211644</span>
-            <span className="text-muted-foreground">3D Printer: +91-8369305601</span>
+            <span className="text-slate-700 dark:text-slate-300">3D Printer: +91-8369305601</span>
           </div>
           
           <div className="flex items-center border border-border/50 rounded-md overflow-hidden bg-background/50 mt-4 w-11/12 max-w-sm">

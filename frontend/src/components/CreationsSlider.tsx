@@ -21,12 +21,12 @@ export default function CreationsSlider({ creations }: CreationsSliderProps) {
           {loopedCreations.map((creation, idx) => (
             <div
               key={`${creation.alt}-${idx}`}
-              className="h-48 w-64 md:h-64 md:w-80 shrink-0 rounded-xl overflow-hidden border border-border bg-muted flex items-center justify-center relative group"
+              className="h-48 w-64 md:h-64 md:w-80 shrink-0 rounded-xl overflow-hidden border border-border bg-slate-100 dark:bg-slate-900 flex items-center justify-center relative group"
             >
               {/* Fallback styling in case image fails to load or doesn't exist yet */}
-              <div className="absolute inset-0 flex flex-col items-center justify-center bg-muted">
+              <div className="absolute inset-0 flex flex-col items-center justify-center bg-slate-100 dark:bg-slate-900">
                  <span className="text-4xl mb-2">📷</span>
-                 <span className="text-xs text-muted-foreground">{creation.alt}</span>
+                 <span className="text-xs text-slate-700 dark:text-slate-300">{creation.alt}</span>
               </div>
               
               <img

@@ -13,22 +13,22 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
         primary: {
-          DEFAULT: "#00E5FF", // Neon Blue
-          foreground: "#000000",
+          DEFAULT: "var(--primary)",
+          foreground: "var(--primary-foreground)",
         },
         secondary: {
-          DEFAULT: "#7000FF", // Purple Accent
-          foreground: "#FFFFFF",
+          DEFAULT: "var(--secondary)",
+          foreground: "var(--secondary-foreground)",
         },
         muted: {
-          DEFAULT: "#1F232B",
-          foreground: "#A0AABF",
+          DEFAULT: "var(--muted)",
+          foreground: "var(--muted-foreground)",
         },
         card: {
-          DEFAULT: "rgba(20, 24, 31, 0.6)", // Glassmorphism base
-          foreground: "#FFFFFF",
+          DEFAULT: "var(--card)",
+          foreground: "var(--card-foreground)",
         },
-        border: "#2A3140",
+        border: "var(--border)",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

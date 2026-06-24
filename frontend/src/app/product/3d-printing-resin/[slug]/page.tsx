@@ -26,7 +26,7 @@ export default function ResinProductDetailsPage({ params }: { params: { slug: st
   const overviewPoints = product.description.split('\n').filter(p => p.trim().length > 0);
 
   return (
-    <div className="relative min-h-screen overflow-hidden pt-36 pb-24 selection:bg-primary/30">
+    <div className="relative min-h-screen overflow-hidden pt-8 pb-24 selection:bg-primary/30">
       {/* Background Ambience */}
       <div className="pointer-events-none absolute -top-[20%] -left-[10%] h-[70%] w-[50%] rounded-full bg-primary/10 blur-[120px]" />
       <div className="pointer-events-none absolute top-[40%] -right-[10%] h-[50%] w-[40%] rounded-full bg-secondary/10 blur-[150px]" />
@@ -36,12 +36,12 @@ export default function ResinProductDetailsPage({ params }: { params: { slug: st
         <div className="mb-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
           <button
             onClick={() => router.back()}
-            className="group inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-primary w-fit"
+            className="group inline-flex items-center gap-2 text-sm font-medium text-slate-700 dark:text-slate-300 transition-colors hover:text-primary w-fit"
           >
             <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
             Go Back
           </button>
-          <div className="text-sm text-muted-foreground hidden md:block">
+          <div className="text-sm text-slate-700 dark:text-slate-300 hidden md:block">
             <Link href="/" className="hover:text-primary transition-colors">Home</Link> / Products / <Link href="/product/3d-printing-resin" className="hover:text-primary transition-colors">3D Printing Resin</Link> / <span className="text-foreground">{product.name}</span>
           </div>
         </div>
@@ -60,7 +60,7 @@ export default function ResinProductDetailsPage({ params }: { params: { slug: st
                 <button
                   key={i}
                   onClick={() => setActiveImage(i)}
-                  className={`glass relative flex h-20 w-20 md:h-24 md:w-24 shrink-0 items-center justify-center overflow-hidden rounded-2xl border transition-all duration-300 ${activeImage === i ? "border-primary shadow-[0_0_20px_rgba(0,229,255,0.2)] bg-white/10" : "border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/30"
+                  className={`glass relative flex h-20 w-20 md:h-24 md:w-24 shrink-0 items-center justify-center overflow-hidden rounded-2xl border transition-all duration-300 ${activeImage === i ? "border-primary shadow-[0_0_20px_rgba(0,229,255,0.2)] bg-slate-100 dark:bg-slate-900" : "border-border bg-slate-100 dark:bg-slate-900/50 hover:bg-slate-100 dark:bg-slate-900 hover:border-white/30"
                     }`}
                 >
                   <div className="relative h-full w-full p-2">
@@ -71,7 +71,7 @@ export default function ResinProductDetailsPage({ params }: { params: { slug: st
             </div>
 
             {/* Main Active Image */}
-            <div className="glass relative flex flex-1 aspect-[4/3] md:aspect-auto md:min-h-[500px] w-full items-start justify-center overflow-hidden rounded-[32px] border border-white/10 bg-gradient-to-b from-white/5 to-transparent shadow-2xl pt-8">
+            <div className="glass relative flex flex-1 aspect-[4/3] md:aspect-auto md:min-h-[500px] w-full items-start justify-center overflow-hidden rounded-[32px] border border-border bg-gradient-to-b from-white/5 to-transparent shadow-2xl pt-8">
               <div className="absolute inset-0 bg-black/20" />
               <div className="relative z-10 h-[80%] w-full p-8">
                 <Image src={images[activeImage]} alt={product.name} fill className="object-contain object-top drop-shadow-2xl p-8" />
@@ -98,17 +98,17 @@ export default function ResinProductDetailsPage({ params }: { params: { slug: st
 
             <div className="mb-8 flex flex-col gap-2">
               <span className="text-4xl font-bold tracking-tight text-primary">
-                {product.price} <span className="text-lg font-normal text-muted-foreground">Incl. of all taxes</span>
+                {product.price} <span className="text-lg font-normal text-slate-700 dark:text-slate-300">Incl. of all taxes</span>
               </span>
             </div>
 
-            <div className="mb-10 space-y-8 rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-md">
+            <div className="mb-10 space-y-8 rounded-3xl border border-border bg-slate-100 dark:bg-slate-900/50 p-8 backdrop-blur-md">
               {/* Product Overview */}
               <div>
                 <h3 className="mb-4 text-xl font-bold text-foreground">Product Overview</h3>
                 <ul className="space-y-3">
                   {overviewPoints.slice(0, 3).map((point, i) => (
-                    <li key={i} className="flex items-start gap-3 text-sm text-muted-foreground">
+                    <li key={i} className="flex items-start gap-3 text-sm text-slate-700 dark:text-slate-300">
                       <div className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
                       <span className="leading-relaxed">{point.replace(/•\s*/g, '')}</span>
                     </li>
@@ -121,10 +121,10 @@ export default function ResinProductDetailsPage({ params }: { params: { slug: st
               {/* Quantity and Cart */}
               <div className="flex flex-col gap-6 sm:flex-row sm:items-end">
                 <div>
-                  <div className="inline-flex h-14 items-center rounded-2xl border border-white/10 bg-white/5">
+                  <div className="inline-flex h-14 items-center rounded-2xl border border-border bg-slate-100 dark:bg-slate-900/50">
                     <button
                       onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                      className="flex h-full w-14 items-center justify-center text-muted-foreground transition-colors hover:text-white"
+                      className="flex h-full w-14 items-center justify-center text-slate-700 dark:text-slate-300 transition-colors hover:text-foreground"
                       disabled={product.outOfStock}
                     >
                       <Minus className="h-5 w-5" />
@@ -132,7 +132,7 @@ export default function ResinProductDetailsPage({ params }: { params: { slug: st
                     <span className="w-12 text-center text-lg font-semibold">{quantity}</span>
                     <button
                       onClick={() => setQuantity(quantity + 1)}
-                      className="flex h-full w-14 items-center justify-center text-muted-foreground transition-colors hover:text-white"
+                      className="flex h-full w-14 items-center justify-center text-slate-700 dark:text-slate-300 transition-colors hover:text-foreground"
                       disabled={product.outOfStock}
                     >
                       <Plus className="h-5 w-5" />
@@ -143,7 +143,7 @@ export default function ResinProductDetailsPage({ params }: { params: { slug: st
                 <button 
                   className={`flex h-14 flex-1 items-center justify-center gap-3 rounded-2xl px-8 text-base font-bold tracking-wide shadow-lg transition-all ${
                     product.outOfStock 
-                    ? "bg-muted text-muted-foreground cursor-not-allowed" 
+                    ? "bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-300 cursor-not-allowed" 
                     : "bg-gradient-to-r from-primary to-secondary text-primary-foreground hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(0,229,255,0.4)] active:scale-[0.98]"
                   }`}
                   disabled={product.outOfStock}
@@ -164,7 +164,7 @@ export default function ResinProductDetailsPage({ params }: { params: { slug: st
           className="mt-24"
         >
           {/* Tab Headers */}
-          <div className="flex border-b border-white/10 overflow-x-auto custom-scrollbar">
+          <div className="flex border-b border-border overflow-x-auto custom-scrollbar">
             {["DESCRIPTION"].map((tab) => {
               const tabId = tab.toLowerCase().replace(/ /g, '-').replace(/'/g, '');
               return (
@@ -174,7 +174,7 @@ export default function ResinProductDetailsPage({ params }: { params: { slug: st
                   className={`px-8 py-4 text-sm font-semibold tracking-wider transition-colors whitespace-nowrap ${
                     activeTab === tabId
                       ? "border-b-2 border-primary text-primary"
-                      : "text-muted-foreground hover:text-foreground"
+                      : "text-slate-700 dark:text-slate-300 hover:text-foreground"
                   }`}
                 >
                   {tab}
@@ -184,12 +184,12 @@ export default function ResinProductDetailsPage({ params }: { params: { slug: st
           </div>
 
           {/* Tab Content */}
-          <div className="mt-10 min-h-[300px] glass rounded-[32px] border border-white/10 bg-white/5 p-10 backdrop-blur-md md:p-14">
+          <div className="mt-10 min-h-[300px] glass rounded-[32px] border border-border bg-slate-100 dark:bg-slate-900/50 p-10 backdrop-blur-md md:p-14">
             {activeTab === 'description' && (
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="prose prose-invert max-w-none text-muted-foreground"
+                className="prose prose-invert max-w-none text-slate-700 dark:text-slate-300"
               >
                 <h2 className="text-2xl font-bold text-foreground mb-6">
                   {product.name} Details

@@ -9,14 +9,14 @@ export default function ReturnRefund() {
   return (
     <main className="min-h-screen pt-32 pb-24 px-6 bg-white dark:bg-black transition-colors duration-300">
       <div className="container mx-auto max-w-4xl">
-        <h1 className="text-4xl md:text-5xl font-extrabold text-zinc-900 dark:text-white mb-8 tracking-tight">
+        <h1 className="text-4xl md:text-5xl font-extrabold text-zinc-900 dark:text-foreground mb-8 tracking-tight">
           Return / <span className="text-blue-600 dark:text-blue-500">Refund</span>
         </h1>
         
         <div className="space-y-8 text-zinc-700 dark:text-zinc-300 leading-relaxed mt-12">
           
           <section>
-            <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mb-4">CANCEL AND RETURN POLICY</h2>
+            <h2 className="text-2xl font-bold text-zinc-900 dark:text-foreground mb-4">CANCEL AND RETURN POLICY</h2>
             <p>Our policy lasts 10 days. If 10 days have gone by since your purchase, unfortunately we can’t offer you a returns or exchange.</p>
             <p className="mt-4">In order to protect your rights, please check the item is correct and completed immediately after you receive it. If the product is defected or damaged during the delivery, please contact customer service immediately.</p>
             <p className="mt-4">To be eligible for a return, your item must be UNUSED and in the same condition that you received it, restocking fee may apply. It must also be in the original packaging, the end-user is responsible for any damage incurred during shipping.</p>
@@ -27,7 +27,7 @@ export default function ReturnRefund() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mb-4">SHIPPING AND DELIVERY POLICY</h2>
+            <h2 className="text-2xl font-bold text-zinc-900 dark:text-foreground mb-4">SHIPPING AND DELIVERY POLICY</h2>
             <p>To return your product, you should file a return case with us first by sending us an email to infous@Vektor3D.com and include the following information in your email,</p>
             <ol className="list-decimal list-outside ml-6 mt-4 space-y-2">
               <li>Order/ Invoice No</li>
@@ -40,7 +40,7 @@ export default function ReturnRefund() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mb-4">REFUND POLICY</h2>
+            <h2 className="text-2xl font-bold text-zinc-900 dark:text-foreground mb-4">REFUND POLICY</h2>
             <p>Once your return is received and inspected, we will send you an email to notify you that we have received your returned item. We will also notify you of the approval or rejection of your refund. A 15％ restocking fee will be applied to the item(s) you returned If you are approved, then your refund will be processed, and a credit will automatically be applied to your credit card or original method of payment, within a certain amount of days.</p>
             
             <h3 className="text-xl font-bold text-zinc-800 dark:text-zinc-200 mt-6 mb-2">Late or missing refunds (if applicable)</h3>

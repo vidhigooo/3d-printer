@@ -113,7 +113,7 @@ export default function Trust() {
               transition={{ delay: index * 0.1 }}
               className="flex flex-col items-center text-center px-4"
             >
-              <div className="mb-4 p-3 rounded-full bg-muted border border-border">
+              <div className="mb-4 p-3 rounded-full bg-slate-100 dark:bg-slate-900 border border-border">
                 {stat.icon}
               </div>
 
@@ -125,7 +125,7 @@ export default function Trust() {
                 />
               </div>
 
-              <div className="text-muted-foreground font-medium text-sm md:text-base uppercase tracking-wider">
+              <div className="text-slate-700 dark:text-slate-300 font-medium text-sm md:text-base uppercase tracking-wider">
                 {stat.label}
               </div>
             </motion.div>

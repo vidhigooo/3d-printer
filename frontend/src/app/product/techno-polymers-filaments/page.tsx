@@ -14,7 +14,7 @@ export default function TechnoPolymersFilamentsPage() {
   const { addToCart } = useCart();
 
   return (
-    <div className="relative min-h-screen overflow-hidden pt-36 pb-24 selection:bg-primary/30">
+    <div className="relative min-h-screen overflow-hidden pt-8 pb-24 selection:bg-primary/30">
       {/* Background Ambience */}
       <div className="pointer-events-none absolute -top-[30%] -left-[10%] h-[70%] w-[50%] rounded-full bg-primary/15 blur-[120px]" />
       <div className="pointer-events-none absolute top-[30%] -right-[10%] h-[60%] w-[40%] rounded-full bg-secondary/15 blur-[150px]" />
@@ -50,7 +50,7 @@ export default function TechnoPolymersFilamentsPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mx-auto max-w-2xl text-lg text-muted-foreground"
+            className="mx-auto max-w-2xl text-lg text-slate-700 dark:text-slate-300"
           >
             Discover our extensive range of high-quality 3D printer filaments. Perfect for hobbyists, engineers, and large-scale manufacturing with exceptional precision and strength.
           </motion.p>
@@ -102,7 +102,7 @@ export default function TechnoPolymersFilamentsPage() {
                   }}
                   className={`mt-6 flex w-full items-center justify-center gap-2 rounded-xl py-3 text-sm font-semibold transition-all duration-300 ${
                     product.outOfStock
-                      ? "cursor-not-allowed bg-muted text-muted-foreground"
+                      ? "cursor-not-allowed bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-300"
                       : "bg-gradient-to-r from-primary to-secondary text-primary-foreground hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(0,229,255,0.4)]"
                   }`}
                   disabled={product.outOfStock}

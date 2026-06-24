@@ -82,10 +82,10 @@ export default function ContactUs() {
           <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-white/70">
             Let's Discuss Your Next 3D Project
           </h1>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+          <p className="text-slate-700 dark:text-slate-300 text-lg max-w-2xl mx-auto">
             Whether you need prototyping, scanning, modelling, or technical support, our team is ready to help with reliable manufacturing solutions.
           </p>
-          <p className="text-sm font-medium text-white/50">Team Vektor3DS</p>
+          <p className="text-sm font-medium text-foreground/50">Team Vektor3D</p>
         </div>
 
         {/* Contact Info Cards */}
@@ -98,17 +98,17 @@ export default function ContactUs() {
             
             <div className="space-y-4 w-full">
               <div>
-                <p className="text-muted-foreground mb-1">Printing Support</p>
+                <p className="text-slate-700 dark:text-slate-300 mb-1">Printing Support</p>
                 <p className="text-lg font-medium">+91-9082020416</p>
               </div>
               <div className="h-px w-full bg-border/50" />
               <div>
-                <p className="text-muted-foreground mb-1">Printer Support</p>
+                <p className="text-slate-700 dark:text-slate-300 mb-1">Printer Support</p>
                 <p className="text-lg font-medium">+91-8369305601</p>
               </div>
               <div className="h-px w-full bg-border/50" />
               <div>
-                <p className="text-muted-foreground mb-1">Repair Support</p>
+                <p className="text-slate-700 dark:text-slate-300 mb-1">Repair Support</p>
                 <p className="text-lg font-medium">+91-8655211644</p>
               </div>
             </div>
@@ -122,18 +122,18 @@ export default function ContactUs() {
             
             <div className="space-y-4 w-full">
               <div>
-                <p className="text-muted-foreground mb-1">Printing Support</p>
+                <p className="text-slate-700 dark:text-slate-300 mb-1">Printing Support</p>
                 <p className="text-lg font-medium">sales@vektor3ds.com</p>
                 <p className="text-lg font-medium">sales1@vektor3ds.com</p>
               </div>
               <div className="h-px w-full bg-border/50" />
               <div>
-                <p className="text-muted-foreground mb-1">Printer Support</p>
+                <p className="text-slate-700 dark:text-slate-300 mb-1">Printer Support</p>
                 <p className="text-lg font-medium">sales2@vektor3ds.com</p>
               </div>
               <div className="h-px w-full bg-border/50" />
               <div>
-                <p className="text-muted-foreground mb-1">Repair Support</p>
+                <p className="text-slate-700 dark:text-slate-300 mb-1">Repair Support</p>
                 <p className="text-lg font-medium">sales3@vektor3ds.com</p>
               </div>
             </div>
@@ -142,13 +142,13 @@ export default function ContactUs() {
 
         {/* Social Cards */}
         <div className="grid md:grid-cols-2 gap-8">
-          <a href="#" className="glass p-6 rounded-2xl flex items-center justify-center gap-4 hover:bg-white/5 transition-colors group">
+          <a href="#" className="glass p-6 rounded-2xl flex items-center justify-center gap-4 hover:bg-slate-100 dark:bg-slate-900/50 transition-colors group">
             <div className="w-12 h-12 rounded-full bg-[#1877F2]/20 flex items-center justify-center text-[#1877F2] group-hover:scale-110 transition-transform">
               <FacebookIcon size={24} />
             </div>
             <span className="text-xl font-bold">Follow Us</span>
           </a>
-          <a href="#" className="glass p-6 rounded-2xl flex items-center justify-center gap-4 hover:bg-white/5 transition-colors group">
+          <a href="#" className="glass p-6 rounded-2xl flex items-center justify-center gap-4 hover:bg-slate-100 dark:bg-slate-900/50 transition-colors group">
             <div className="w-12 h-12 rounded-full bg-[#25D366]/20 flex items-center justify-center text-[#25D366] group-hover:scale-110 transition-transform">
               <MessageCircle size={24} />
             </div>
@@ -162,7 +162,7 @@ export default function ContactUs() {
           <div className="glass p-8 md:p-10 rounded-3xl">
             <div className="mb-8 text-center">
               <h2 className="text-3xl font-bold mb-2">SEND YOUR INQUIRY</h2>
-              <p className="text-muted-foreground">Tell us about your project & requirement.</p>
+              <p className="text-slate-700 dark:text-slate-300">Tell us about your project & requirement.</p>
             </div>
 
             <form className="space-y-6" onSubmit={handleSubmit}>
@@ -213,7 +213,7 @@ export default function ContactUs() {
 
               <div className="flex flex-col items-center justify-center gap-2">
                 <input type="file" ref={fileInputRef} onChange={handleFileChange} className="hidden" />
-                <button type="button" onClick={() => fileInputRef.current?.click()} className="flex items-center gap-2 px-6 py-3 rounded-lg border border-border bg-white/5 hover:bg-white/10 transition-colors font-medium">
+                <button type="button" onClick={() => fileInputRef.current?.click()} className="flex items-center gap-2 px-6 py-3 rounded-lg border border-border bg-slate-100 dark:bg-slate-900/50 hover:bg-slate-100 dark:bg-slate-900 transition-colors font-medium">
                   <Upload size={18} />
                   {file ? file.name : "Upload File"}
                 </button>
@@ -243,7 +243,7 @@ export default function ContactUs() {
               </div>
               <h2 className="text-3xl font-bold mb-6">ADDRESS</h2>
               <h3 className="text-2xl font-semibold mb-4 text-primary">Vektor3D Systems LLP</h3>
-              <p className="text-lg text-muted-foreground leading-relaxed max-w-md">
+              <p className="text-lg text-slate-700 dark:text-slate-300 leading-relaxed max-w-md">
                 Shop no MG15,<br />
                 Gala number 3 & 4, Shell colony road,<br />
                 Opp. Kamraj Hall, Sai baba nagar,<br />

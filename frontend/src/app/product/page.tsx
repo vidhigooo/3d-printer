@@ -68,7 +68,7 @@ const CategoryCard = ({ name, image, description, href, delay }: CategoryCardPro
             className="relative z-10 flex h-full w-full flex-col items-center justify-between gap-6"
             style={{ transform: "translateZ(60px)" }}
           >
-            <div className="flex flex-1 w-full items-center justify-center rounded-2xl bg-white/5 p-4 shadow-inner ring-1 ring-white/10 transition-colors duration-500 group-hover:bg-white/10">
+            <div className="flex flex-1 w-full items-center justify-center rounded-2xl bg-slate-100 dark:bg-slate-900/50 p-4 shadow-inner ring-1 ring-white/10 transition-colors duration-500 group-hover:bg-slate-100 dark:bg-slate-900">
               <div className="relative h-full w-full min-h-[300px]">
                 <Image
                   src={image}
@@ -112,7 +112,7 @@ export default function ProductCategories() {
   ];
 
   return (
-    <div className="relative min-h-screen overflow-hidden pt-36 pb-24 selection:bg-primary/30">
+    <div className="relative min-h-screen overflow-hidden pt-8 pb-24 selection:bg-primary/30">
       {/* Background Ambience */}
       <div className="pointer-events-none absolute -top-[30%] -left-[10%] h-[70%] w-[50%] rounded-full bg-primary/15 blur-[120px]" />
       <div className="pointer-events-none absolute top-[30%] -right-[10%] h-[60%] w-[40%] rounded-full bg-secondary/15 blur-[150px]" />
@@ -148,7 +148,7 @@ export default function ProductCategories() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mx-auto max-w-2xl text-lg text-muted-foreground md:text-xl"
+            className="mx-auto max-w-2xl text-lg text-slate-700 dark:text-slate-300 md:text-xl"
           >
             Explore our curated selection of industry-leading materials, tailored to meet the demands of rapid prototyping and industrial production.
           </motion.p>

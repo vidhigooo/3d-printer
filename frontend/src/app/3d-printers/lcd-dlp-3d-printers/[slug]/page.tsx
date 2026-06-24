@@ -29,7 +29,7 @@ export default function DLPLCDProductDetailsPage({ params }: { params: { slug: s
   const price = product.price || "Contact for Price";
 
   return (
-    <div className="relative min-h-screen overflow-hidden pt-36 pb-24 selection:bg-cyan-500/30 text-slate-200 bg-slate-950">
+    <div className="relative min-h-screen overflow-hidden pt-8 pb-24 selection:bg-cyan-500/30 text-foreground bg-background">
       {/* Background Ambience */}
       <div className="pointer-events-none absolute -top-[20%] -left-[10%] h-[70%] w-[50%] rounded-full bg-cyan-600/10 blur-[120px]" />
       <div className="pointer-events-none absolute top-[40%] -right-[10%] h-[50%] w-[40%] rounded-full bg-blue-600/10 blur-[150px]" />
@@ -39,13 +39,13 @@ export default function DLPLCDProductDetailsPage({ params }: { params: { slug: s
         <div className="mb-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
           <button
             onClick={() => router.back()}
-            className="group inline-flex items-center gap-2 text-sm font-medium text-slate-400 transition-colors hover:text-cyan-400 w-fit"
+            className="group inline-flex items-center gap-2 text-sm font-medium text-slate-700 dark:text-slate-300 transition-colors hover:text-cyan-400 w-fit"
           >
             <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
             Go Back
           </button>
-          <div className="text-sm text-slate-400 hidden md:block">
-            <Link href="/" className="hover:text-cyan-400 transition-colors">Home</Link> / <Link href="/3d-printers" className="hover:text-cyan-400 transition-colors">3D Printers</Link> / <Link href="/3d-printers/lcd-dlp-3d-printers" className="hover:text-cyan-400 transition-colors">LCD/DLP 3D Printers</Link> / <span className="text-slate-200">{product.name}</span>
+          <div className="text-sm text-slate-700 dark:text-slate-300 hidden md:block">
+            <Link href="/" className="hover:text-cyan-400 transition-colors">Home</Link> / <Link href="/3d-printers" className="hover:text-cyan-400 transition-colors">3D Printers</Link> / <Link href="/3d-printers/lcd-dlp-3d-printers" className="hover:text-cyan-400 transition-colors">LCD/DLP 3D Printers</Link> / <span className="text-foreground">{product.name}</span>
           </div>
         </div>
 
@@ -63,7 +63,7 @@ export default function DLPLCDProductDetailsPage({ params }: { params: { slug: s
                 <button
                   key={i}
                   onClick={() => setActiveImage(i)}
-                  className={`glass relative flex h-20 w-20 md:h-24 md:w-24 shrink-0 items-center justify-center overflow-hidden rounded-2xl border transition-all duration-300 ${activeImage === i ? "border-cyan-500 shadow-[0_0_20px_rgba(0,229,255,0.2)] bg-white/10" : "border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/30"
+                  className={`glass relative flex h-20 w-20 md:h-24 md:w-24 shrink-0 items-center justify-center overflow-hidden rounded-2xl border transition-all duration-300 ${activeImage === i ? "border-cyan-500 shadow-[0_0_20px_rgba(0,229,255,0.2)] bg-slate-100 dark:bg-slate-900" : "border-border bg-slate-100 dark:bg-slate-900/50 hover:bg-slate-100 dark:bg-slate-900 hover:border-white/30"
                     }`}
                 >
                   <div className="relative h-full w-full p-2">
@@ -74,7 +74,7 @@ export default function DLPLCDProductDetailsPage({ params }: { params: { slug: s
             </div>
 
             {/* Main Active Image */}
-            <div className="glass relative flex flex-1 aspect-[4/3] md:aspect-auto md:min-h-[500px] w-full items-start justify-center overflow-hidden rounded-[32px] border border-white/10 bg-gradient-to-b from-white/5 to-transparent shadow-2xl pt-8">
+            <div className="glass relative flex flex-1 aspect-[4/3] md:aspect-auto md:min-h-[500px] w-full items-start justify-center overflow-hidden rounded-[32px] border border-border bg-gradient-to-b from-white/5 to-transparent shadow-2xl pt-8">
               <div className="absolute inset-0 bg-black/20" />
               <div className="relative z-10 h-[80%] w-full p-8">
                 <Image src={images[activeImage]} alt={product.name} fill className="object-contain object-top drop-shadow-2xl p-8" />
@@ -95,7 +95,7 @@ export default function DLPLCDProductDetailsPage({ params }: { params: { slug: s
               </span>
             </div>
 
-            <h1 className="mb-6 text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl leading-tight">
+            <h1 className="mb-6 text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl lg:text-5xl leading-tight">
               {product.name}
             </h1>
 
@@ -105,13 +105,13 @@ export default function DLPLCDProductDetailsPage({ params }: { params: { slug: s
               </span>
             </div>
 
-            <div className="mb-10 space-y-8 rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-md">
+            <div className="mb-10 space-y-8 rounded-3xl border border-border bg-slate-100 dark:bg-slate-900/50 p-8 backdrop-blur-md">
               {/* Product Overview */}
               <div>
-                <h3 className="mb-4 text-xl font-bold text-white">Product Overview</h3>
+                <h3 className="mb-4 text-xl font-bold text-foreground">Product Overview</h3>
                 <ul className="space-y-3">
                   {overviewPoints.slice(0, 3).map((point, i) => (
-                    <li key={i} className="flex items-start gap-3 text-sm text-slate-400">
+                    <li key={i} className="flex items-start gap-3 text-sm text-slate-700 dark:text-slate-300">
                       <div className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-500" />
                       <span className="leading-relaxed">{point.replace(/•\s*/g, '')}</span>
                     </li>
@@ -124,10 +124,10 @@ export default function DLPLCDProductDetailsPage({ params }: { params: { slug: s
               {/* Quantity and Cart */}
               <div className="flex flex-col gap-6 sm:flex-row sm:items-end">
                 <div>
-                  <div className="inline-flex h-14 items-center rounded-2xl border border-white/10 bg-white/5">
+                  <div className="inline-flex h-14 items-center rounded-2xl border border-border bg-slate-100 dark:bg-slate-900/50">
                     <button
                       onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                      className="flex h-full w-14 items-center justify-center text-slate-400 transition-colors hover:text-white"
+                      className="flex h-full w-14 items-center justify-center text-slate-700 dark:text-slate-300 transition-colors hover:text-foreground"
                       disabled={outOfStock}
                     >
                       <Minus className="h-5 w-5" />
@@ -135,7 +135,7 @@ export default function DLPLCDProductDetailsPage({ params }: { params: { slug: s
                     <span className="w-12 text-center text-lg font-semibold">{quantity}</span>
                     <button
                       onClick={() => setQuantity(quantity + 1)}
-                      className="flex h-full w-14 items-center justify-center text-slate-400 transition-colors hover:text-white"
+                      className="flex h-full w-14 items-center justify-center text-slate-700 dark:text-slate-300 transition-colors hover:text-foreground"
                       disabled={outOfStock}
                     >
                       <Plus className="h-5 w-5" />
@@ -146,7 +146,7 @@ export default function DLPLCDProductDetailsPage({ params }: { params: { slug: s
                 <button 
                   className={`flex h-14 flex-1 items-center justify-center gap-3 rounded-2xl px-8 text-base font-bold tracking-wide shadow-lg transition-all ${
                     outOfStock 
-                    ? "bg-slate-800 text-slate-500 cursor-not-allowed" 
+                    ? "bg-slate-100 dark:bg-slate-900 text-slate-500 cursor-not-allowed" 
                     : "bg-gradient-to-r from-primary to-secondary text-primary-foreground hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(0,229,255,0.4)] active:scale-[0.98]"
                   }`}
                   disabled={outOfStock}
@@ -167,7 +167,7 @@ export default function DLPLCDProductDetailsPage({ params }: { params: { slug: s
           className="mt-24"
         >
           {/* Tab Headers */}
-          <div className="flex border-b border-white/10 overflow-x-auto custom-scrollbar">
+          <div className="flex border-b border-border overflow-x-auto custom-scrollbar">
             {["DESCRIPTION", "TECHNICAL SPECIFICATION"].map((tab) => {
               const tabId = tab.toLowerCase().replace(/ /g, '-').replace(/'/g, '');
               return (
@@ -177,7 +177,7 @@ export default function DLPLCDProductDetailsPage({ params }: { params: { slug: s
                   className={`px-8 py-4 text-sm font-semibold tracking-wider transition-colors whitespace-nowrap ${
                     activeTab === tabId
                       ? "border-b-2 border-cyan-500 text-cyan-400"
-                      : "text-slate-400 hover:text-white"
+                      : "text-slate-700 dark:text-slate-300 hover:text-foreground"
                   }`}
                 >
                   {tab}
@@ -187,14 +187,14 @@ export default function DLPLCDProductDetailsPage({ params }: { params: { slug: s
           </div>
 
           {/* Tab Content */}
-          <div className="mt-10 min-h-[300px] glass rounded-[32px] border border-white/10 bg-white/5 p-10 backdrop-blur-md md:p-14">
+          <div className="mt-10 min-h-[300px] glass rounded-[32px] border border-border bg-slate-100 dark:bg-slate-900/50 p-10 backdrop-blur-md md:p-14">
             {activeTab === 'description' && (
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="prose prose-invert max-w-none text-slate-400"
+                className="prose prose-invert max-w-none text-slate-700 dark:text-slate-300"
               >
-                <h2 className="text-2xl font-bold text-white mb-6">
+                <h2 className="text-2xl font-bold text-foreground mb-6">
                   Meet the {product.name}
                 </h2>
                 <div className="space-y-6 text-base leading-relaxed whitespace-pre-wrap">
@@ -207,14 +207,14 @@ export default function DLPLCDProductDetailsPage({ params }: { params: { slug: s
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="prose prose-invert max-w-none text-slate-400"
+                className="prose prose-invert max-w-none text-slate-700 dark:text-slate-300"
               >
-                <h2 className="text-2xl font-bold text-white mb-6">Technical Specifications</h2>
+                <h2 className="text-2xl font-bold text-foreground mb-6">Technical Specifications</h2>
                 {product.specs ? (
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
                     {Object.entries(product.specs).map(([key, value]) => (
-                      <div key={key} className="border-b border-white/5 pb-4">
-                        <span className="font-semibold text-white block mb-1">{key}</span>
+                      <div key={key} className="border-b border-border/50 pb-4">
+                        <span className="font-semibold text-foreground block mb-1">{key}</span>
                         <span>{value}</span>
                       </div>
                     ))}

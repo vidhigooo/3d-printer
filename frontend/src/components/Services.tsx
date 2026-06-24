@@ -55,7 +55,7 @@ function ServiceCard({ service, index, scrollYProgress }: { service: any, index:
       <h3 className="text-xl font-semibold text-card-foreground mb-3 group-hover:text-primary transition-colors duration-300">
         {service.title}
       </h3>
-      <p className="text-muted-foreground leading-relaxed text-sm">
+      <p className="text-slate-700 dark:text-slate-300 leading-relaxed text-sm">
         {service.description}
       </p>
     </motion.div>
@@ -89,7 +89,7 @@ export default function Services() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ delay: 0.1 }}
-            className="text-muted-foreground text-lg"
+            className="text-slate-700 dark:text-slate-300 text-lg"
           >
             Equipped with state-of-the-art SLA, SLS, and FDM technology to meet the rigorous demands of modern engineering.
           </motion.p>

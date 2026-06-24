@@ -67,17 +67,17 @@ export default function OurPrinters() {
                 />
               </div>
 
-              <div className="px-6 py-7 md:px-8 md:py-9 text-white flex flex-col bg-gradient-to-br from-[#0f1f38] via-[#163254] to-[#1a4470]">
+              <div className="px-6 py-7 md:px-8 md:py-9 text-foreground flex flex-col bg-gradient-to-br from-[#0f1f38] via-[#163254] to-[#1a4470]">
                 <h3 className="text-3xl md:text-4xl font-bold leading-tight mb-4">
                   {activePrinter.name}
                 </h3>
-                <p className="text-xl md:text-2xl font-medium text-white/95 mb-3">
+                <p className="text-xl md:text-2xl font-medium text-foreground/95 mb-3">
                   {activePrinter.series}
                 </p>
                 <p className="text-base md:text-lg uppercase tracking-[0.09em] font-semibold mb-4 text-cyan-100/95">
                   {activePrinter.highlight}
                 </p>
-                <p className="text-xl md:text-2xl text-white/95 mb-7 max-w-[24ch] leading-relaxed">
+                <p className="text-xl md:text-2xl text-foreground/95 mb-7 max-w-[24ch] leading-relaxed">
                   {activePrinter.details}
                 </p>
 
@@ -94,7 +94,7 @@ export default function OurPrinters() {
                       type="button"
                       onClick={showPrevious}
                       aria-label="Show previous printer"
-                      className="h-9 w-9 inline-flex items-center justify-center rounded-full border border-white/30 text-white hover:bg-white/10 transition-colors"
+                      className="h-9 w-9 inline-flex items-center justify-center rounded-full border border-white/30 text-foreground hover:bg-slate-100 dark:bg-slate-900 transition-colors"
                     >
                       <ChevronLeft className="h-4 w-4" />
                     </button>
@@ -102,7 +102,7 @@ export default function OurPrinters() {
                       type="button"
                       onClick={showNext}
                       aria-label="Show next printer"
-                      className="h-9 w-9 inline-flex items-center justify-center rounded-full border border-white/30 text-white hover:bg-white/10 transition-colors"
+                      className="h-9 w-9 inline-flex items-center justify-center rounded-full border border-white/30 text-foreground hover:bg-slate-100 dark:bg-slate-900 transition-colors"
                     >
                       <ChevronRight className="h-4 w-4" />
                     </button>
@@ -118,7 +118,7 @@ export default function OurPrinters() {
                   type="button"
                   onClick={() => setActiveIndex(idx)}
                   className={`h-2.5 rounded-full transition-all ${
-                    activeIndex === idx ? "w-7 bg-primary" : "w-2.5 bg-muted-foreground/40 hover:bg-muted-foreground/70"
+                    activeIndex === idx ? "w-7 bg-primary" : "w-2.5 bg-slate-100 dark:bg-slate-900-foreground/40 hover:bg-slate-100 dark:bg-slate-900-foreground/70"
                   }`}
                   aria-label={`Show ${printer.name}`}
                 />

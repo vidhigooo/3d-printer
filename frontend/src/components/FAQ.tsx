@@ -50,7 +50,7 @@ export default function FAQ({ title = "FAQs", items }: FAQProps) {
               >
                 <button
                   onClick={() => toggleOpen(index)}
-                  className="w-full px-6 py-4 flex items-center justify-between text-left focus:outline-none hover:bg-muted/10 transition-colors"
+                  className="w-full px-6 py-4 flex items-center justify-between text-left focus:outline-none hover:bg-slate-100 dark:bg-slate-900/10 transition-colors"
                 >
                   <span className="font-semibold text-lg text-foreground pr-8">
                     {item.question}
@@ -58,7 +58,7 @@ export default function FAQ({ title = "FAQs", items }: FAQProps) {
                   <motion.div
                     animate={{ rotate: isOpen ? 180 : 0 }}
                     transition={{ duration: 0.3 }}
-                    className="flex-shrink-0 text-muted-foreground"
+                    className="flex-shrink-0 text-slate-700 dark:text-slate-300"
                   >
                     <ChevronDown className="w-5 h-5" />
                   </motion.div>
@@ -71,7 +71,7 @@ export default function FAQ({ title = "FAQs", items }: FAQProps) {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <div className="px-6 pb-4 text-muted-foreground leading-relaxed border-t border-border/50 bg-muted/5 pt-4">
+                      <div className="px-6 pb-4 text-slate-700 dark:text-slate-300 leading-relaxed border-t border-border/50 bg-slate-100 dark:bg-slate-900/5 pt-4">
                         {item.answer}
                       </div>
                     </motion.div>

@@ -45,7 +45,7 @@ const services = [
     href: "/electroplating",
     icon: <Sparkles className="w-24 h-24 text-blue-500" />,
     customVisual: (
-      <div className="w-full h-full rounded-full overflow-hidden bg-zinc-900 border border-white/10 shadow-inner">
+      <div className="w-full h-full rounded-full overflow-hidden bg-zinc-900 border border-border shadow-inner">
         <video
           src="/electroplating.mp4"
           autoPlay
@@ -95,7 +95,7 @@ export default function OurExpertise() {
         
         {/* Page Header */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-zinc-900 dark:text-white mb-4 tracking-tight">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-zinc-900 dark:text-foreground mb-4 tracking-tight">
             Our <span className="text-blue-600 dark:text-blue-500">Expertise</span>
           </h1>
           <p className="text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto">
@@ -134,7 +134,7 @@ export default function OurExpertise() {
           {/* Navigation Arrows */}
           <button 
             onClick={prevSlide}
-            className="absolute left-0 md:left-2 top-1/2 -translate-y-1/2 p-3 rounded-full bg-zinc-100/80 dark:bg-zinc-800/80 text-zinc-800 dark:text-zinc-200 shadow-lg hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 dark:hover:text-white transition-all opacity-0 group-hover:opacity-100 z-10"
+            className="absolute left-0 md:left-2 top-1/2 -translate-y-1/2 p-3 rounded-full bg-zinc-100/80 dark:bg-zinc-800/80 text-zinc-800 dark:text-zinc-200 shadow-lg hover:bg-blue-600 hover:text-foreground dark:hover:bg-blue-600 dark:hover:text-foreground transition-all opacity-0 group-hover:opacity-100 z-10"
             aria-label="Previous slide"
           >
             <ChevronLeft className="w-6 h-6" />
@@ -142,7 +142,7 @@ export default function OurExpertise() {
           
           <button 
             onClick={nextSlide}
-            className="absolute right-0 md:right-2 top-1/2 -translate-y-1/2 p-3 rounded-full bg-zinc-100/80 dark:bg-zinc-800/80 text-zinc-800 dark:text-zinc-200 shadow-lg hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 dark:hover:text-white transition-all opacity-0 group-hover:opacity-100 z-10"
+            className="absolute right-0 md:right-2 top-1/2 -translate-y-1/2 p-3 rounded-full bg-zinc-100/80 dark:bg-zinc-800/80 text-zinc-800 dark:text-zinc-200 shadow-lg hover:bg-blue-600 hover:text-foreground dark:hover:bg-blue-600 dark:hover:text-foreground transition-all opacity-0 group-hover:opacity-100 z-10"
             aria-label="Next slide"
           >
             <ChevronRight className="w-6 h-6" />

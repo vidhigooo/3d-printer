@@ -245,7 +245,7 @@ const creations = [
 
 export default function ThreeDPrintingServicePage() {
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-200 overflow-hidden relative selection:bg-cyan-500/30">
+    <div className="min-h-screen bg-background text-foreground overflow-hidden relative selection:bg-cyan-500/30">
       
       {/* Background Effects */}
       <div className="fixed inset-0 pointer-events-none z-0">
@@ -255,7 +255,7 @@ export default function ThreeDPrintingServicePage() {
       </div>
 
       {/* 1. HERO SECTION */}
-      <section className="relative pt-36 pb-20 md:pt-48 md:pb-28 px-6 z-10 border-b border-white/5">
+      <section className="relative pt-8 pb-20 md:pt-16 md:pb-28 px-6 z-10 border-b border-border/50">
         <div className="container mx-auto max-w-5xl text-center">
           
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-sm font-semibold tracking-wide uppercase shadow-[0_0_15px_rgba(0,229,255,0.1)] mb-8">
@@ -266,11 +266,11 @@ export default function ThreeDPrintingServicePage() {
             SLA | DLP | FDM | SLS | MJF
           </div>
 
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.2)] mb-8">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-foreground drop-shadow-[0_0_15px_rgba(255,255,255,0.2)] mb-8">
             Advanced 3D Printing Solutions for Prototyping & Production
           </h1>
 
-          <div className="flex flex-wrap justify-center gap-4 text-sm md:text-base font-medium text-slate-300 mb-10">
+          <div className="flex flex-wrap justify-center gap-4 text-sm md:text-base font-medium text-slate-700 dark:text-slate-300 mb-10">
             <div className="flex items-center gap-2"><CheckCircle2 className="w-5 h-5 text-cyan-400" /> Fast Turnaround</div>
             <div className="flex items-center gap-2"><CheckCircle2 className="w-5 h-5 text-purple-400" /> Industrial Quality</div>
             <div className="flex items-center gap-2"><CheckCircle2 className="w-5 h-5 text-cyan-400" /> Custom Manufacturing</div>
@@ -279,12 +279,12 @@ export default function ThreeDPrintingServicePage() {
           <div className="flex flex-wrap justify-center gap-4">
             <Link href="/get-quote" className="relative inline-flex h-14 overflow-hidden rounded-xl p-[1px] focus:outline-none group">
               <span className="absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#06b6d4_0%,#a855f7_50%,#06b6d4_100%)]" />
-              <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-xl bg-slate-950 px-8 py-1 text-base font-bold text-white backdrop-blur-3xl transition-all group-hover:bg-slate-900 shadow-[0_0_25px_rgba(0,229,255,0.2)]">
+              <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-xl bg-background px-8 py-1 text-base font-bold text-foreground backdrop-blur-3xl transition-all group-hover:bg-card shadow-[0_0_25px_rgba(0,229,255,0.2)]">
                 Get Quote
               </span>
             </Link>
             
-            <Link href="#upload" className="inline-flex h-14 items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/5 px-8 py-1 text-base font-bold text-white transition-all hover:bg-white/10 hover:border-white/20">
+            <Link href="#upload" className="inline-flex h-14 items-center justify-center gap-2 rounded-xl border border-border bg-slate-100 dark:bg-slate-900/50 px-8 py-1 text-base font-bold text-foreground transition-all hover:bg-slate-100 dark:bg-slate-900 hover:border-border/80">
               <UploadCloud className="w-5 h-5" /> Upload Design
             </Link>
           </div>
@@ -292,9 +292,9 @@ export default function ThreeDPrintingServicePage() {
       </section>
 
       {/* 2. SHORT INTRO */}
-      <section className="relative py-20 z-10 bg-slate-900/20 border-b border-white/5">
+      <section className="relative py-20 z-10 bg-card/20 border-b border-border/50">
         <div className="container mx-auto px-6 max-w-4xl text-center">
-          <p className="text-xl md:text-2xl text-slate-300 leading-relaxed font-medium">
+          <p className="text-xl md:text-2xl text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
             We provide high-precision 3D printing solutions for industrial prototyping, functional parts, and product development using advanced technologies like SLA, DLP, FDM, SLS, and MJF.
           </p>
         </div>
@@ -304,7 +304,7 @@ export default function ThreeDPrintingServicePage() {
       <section className="relative py-24 z-10 overflow-hidden">
         <div className="container mx-auto px-6 max-w-7xl">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight drop-shadow-md">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight drop-shadow-md">
               Technologies We Offer
             </h2>
           </div>
@@ -312,8 +312,8 @@ export default function ThreeDPrintingServicePage() {
           <div className="relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_4%,black_96%,transparent)]">
             <div className="tech-marquee-track flex w-max gap-6 pb-8 pt-4">
               {[...technologies, ...technologies].map((tech, idx) => (
-                <div key={`${tech.id}-${idx}`} className="w-[320px] md:w-[400px] flex-shrink-0 rounded-3xl bg-slate-900/60 backdrop-blur-md border border-white/5 overflow-hidden shadow-xl group hover:-translate-y-2 transition-all duration-300">
-                  <div className="relative w-full h-48 overflow-hidden bg-slate-950">
+                <div key={`${tech.id}-${idx}`} className="w-[320px] md:w-[400px] flex-shrink-0 rounded-3xl bg-card/60 backdrop-blur-md border border-border/50 overflow-hidden shadow-xl group hover:-translate-y-2 transition-all duration-300">
+                  <div className="relative w-full h-48 overflow-hidden bg-background">
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 to-transparent z-10 pointer-events-none" />
                     <img src={tech.image} alt={tech.name} className="w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-700" />
                     <div className="absolute bottom-4 left-6 z-20 w-12 h-12 rounded-xl bg-cyan-500/10 backdrop-blur-md flex items-center justify-center border border-cyan-500/30 group-hover:bg-cyan-500/30 transition-colors shadow-[0_0_15px_rgba(0,229,255,0.2)]">
@@ -321,10 +321,10 @@ export default function ThreeDPrintingServicePage() {
                     </div>
                   </div>
                   <div className="p-8 pt-6">
-                    <h3 className="text-2xl font-bold text-white mb-4">{tech.name}</h3>
+                    <h3 className="text-2xl font-bold text-foreground mb-4">{tech.name}</h3>
                     <ul className="space-y-3">
                       {tech.features.map((feature, fIdx) => (
-                        <li key={fIdx} className="flex items-start gap-3 text-slate-300">
+                        <li key={fIdx} className="flex items-start gap-3 text-slate-700 dark:text-slate-300">
                           <ChevronRight className="w-5 h-5 text-cyan-500 shrink-0 mt-0.5" />
                           <span>{feature}</span>
                         </li>
@@ -352,7 +352,7 @@ export default function ThreeDPrintingServicePage() {
       </section>
 
       {/* 4. MATERIALS WE WORK WITH */}
-      <section className="relative py-32 z-10 overflow-hidden bg-slate-950">
+      <section className="relative py-32 z-10 overflow-hidden bg-background">
         {/* Background Effects */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-cyan-900/10 blur-[120px] rounded-full opacity-50" />
@@ -367,29 +367,29 @@ export default function ThreeDPrintingServicePage() {
               <div className="mx-4 w-2 h-2 rounded-full bg-cyan-400 shadow-[0_0_15px_rgba(0,229,255,1)]" />
               <div className="h-[1px] w-16 bg-gradient-to-l from-transparent to-cyan-500" />
             </div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white tracking-tight drop-shadow-lg mb-6 relative">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-foreground tracking-tight drop-shadow-lg mb-6 relative">
               Materials We Work With
             </h2>
-            <p className="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed relative">
+            <p className="text-lg md:text-xl text-slate-700 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed relative">
               Engineered additive manufacturing materials optimized for prototyping, functional parts, and industrial-grade applications.
             </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {materials.map((cat, i) => (
-              <div key={i} className={`group relative p-6 rounded-3xl bg-slate-900/60 backdrop-blur-xl border border-white/5 overflow-hidden transition-all duration-500 hover:-translate-y-2 flex flex-col ${cat.glow}`}>
+              <div key={i} className={`group relative p-6 rounded-3xl bg-card/60 backdrop-blur-xl border border-border/50 overflow-hidden transition-all duration-500 hover:-translate-y-2 flex flex-col ${cat.glow}`}>
                 {/* Ambient glow sweep on hover */}
                 <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                 
                 <div className="flex items-start justify-between mb-6 relative">
-                  <div className={`w-14 h-14 rounded-2xl bg-slate-950 flex items-center justify-center border border-white/10 shadow-lg relative overflow-hidden group-hover:border-white/20 transition-colors duration-300`}>
+                  <div className={`w-14 h-14 rounded-2xl bg-background flex items-center justify-center border border-border shadow-lg relative overflow-hidden group-hover:border-border/80 transition-colors duration-300`}>
                     <div className={`absolute inset-0 opacity-20 bg-gradient-to-br ${cat.accent}`} />
-                    <cat.icon className="w-7 h-7 text-white relative z-10" />
+                    <cat.icon className="w-7 h-7 text-foreground relative z-10" />
                   </div>
                 </div>
 
-                <h3 className="text-2xl font-bold text-white mb-3">{cat.title}</h3>
-                <p className="text-slate-400 text-sm leading-relaxed mb-8 min-h-[60px]">
+                <h3 className="text-2xl font-bold text-foreground mb-3">{cat.title}</h3>
+                <p className="text-slate-700 dark:text-slate-300 text-sm leading-relaxed mb-8 min-h-[60px]">
                   {cat.desc}
                 </p>
 
@@ -397,8 +397,8 @@ export default function ThreeDPrintingServicePage() {
                 <div className="mb-8 flex-1">
                   <div className="flex flex-wrap gap-2">
                     {cat.chips.map((chip, idx) => (
-                      <div key={idx} className="group/chip relative px-4 py-2 rounded-xl bg-slate-950 border border-white/5 hover:border-white/20 transition-all duration-300 cursor-default overflow-hidden flex flex-col min-w-[120px]">
-                        <span className="text-sm font-bold text-slate-200 group-hover/chip:text-white transition-colors z-10 relative">{chip.name}</span>
+                      <div key={idx} className="group/chip relative px-4 py-2 rounded-xl bg-background border border-border/50 hover:border-border/80 transition-all duration-300 cursor-default overflow-hidden flex flex-col min-w-[120px]">
+                        <span className="text-sm font-bold text-foreground group-hover/chip:text-foreground transition-colors z-10 relative">{chip.name}</span>
                         <span className="text-[10px] uppercase tracking-wider text-slate-500 group-hover/chip:text-cyan-400 font-semibold mt-0.5 z-10 relative">{chip.tag}</span>
                         <div className={`absolute inset-0 opacity-0 group-hover/chip:opacity-10 transition-opacity duration-300 bg-gradient-to-br ${cat.accent}`} />
                       </div>
@@ -428,30 +428,30 @@ export default function ThreeDPrintingServicePage() {
               <div className="mx-4 w-2 h-2 rounded-full bg-cyan-400 shadow-[0_0_10px_rgba(0,229,255,0.8)]" />
               <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-cyan-500" />
             </div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight drop-shadow-[0_0_15px_rgba(255,255,255,0.1)] mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground tracking-tight drop-shadow-[0_0_15px_rgba(255,255,255,0.1)] mb-6">
               What We Print
             </h2>
-            <p className="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-slate-700 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed">
               Advanced additive manufacturing solutions for industrial, engineering, and product development applications.
             </p>
           </div>
 
           <div className="flex flex-wrap justify-center gap-8">
             {whatWePrint.map((item, i) => (
-              <div key={i} className="group relative rounded-3xl bg-slate-900/60 backdrop-blur-xl border border-white/5 hover:border-cyan-500/30 overflow-hidden shadow-2xl hover:shadow-[0_20px_40px_-15px_rgba(0,229,255,0.2)] hover:-translate-y-2 transition-all duration-500 flex flex-col w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.35rem)]">
-                <div className="relative w-full h-52 overflow-hidden bg-slate-950">
+              <div key={i} className="group relative rounded-3xl bg-card/60 backdrop-blur-xl border border-border/50 hover:border-cyan-500/30 overflow-hidden shadow-2xl hover:shadow-[0_20px_40px_-15px_rgba(0,229,255,0.2)] hover:-translate-y-2 transition-all duration-500 flex flex-col w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.35rem)]">
+                <div className="relative w-full h-52 overflow-hidden bg-background">
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/20 to-transparent z-10" />
                   <img src={item.image} alt={item.title} className="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700" />
                   
                   {/* Glowing Icon Overlay */}
-                  <div className="absolute bottom-6 left-6 z-20 w-14 h-14 rounded-2xl bg-slate-900/80 backdrop-blur-md border border-white/10 flex items-center justify-center shadow-[0_0_20px_rgba(0,0,0,0.5)] group-hover:border-cyan-500/50 group-hover:shadow-[0_0_20px_rgba(0,229,255,0.3)] transition-all duration-500">
-                    <item.icon className="w-7 h-7 text-cyan-400 group-hover:text-white transition-colors duration-300" />
+                  <div className="absolute bottom-6 left-6 z-20 w-14 h-14 rounded-2xl bg-card/80 backdrop-blur-md border border-border flex items-center justify-center shadow-[0_0_20px_rgba(0,0,0,0.5)] group-hover:border-cyan-500/50 group-hover:shadow-[0_0_20px_rgba(0,229,255,0.3)] transition-all duration-500">
+                    <item.icon className="w-7 h-7 text-cyan-400 group-hover:text-foreground transition-colors duration-300" />
                   </div>
                 </div>
 
-                <div className="p-6 pt-5 flex-1 flex flex-col relative z-20 bg-slate-900/80">
-                  <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors duration-300">{item.title}</h3>
-                  <p className="text-slate-400 leading-relaxed mb-8 flex-1">
+                <div className="p-6 pt-5 flex-1 flex flex-col relative z-20 bg-card/80">
+                  <h3 className="text-2xl font-bold text-foreground mb-3 group-hover:text-cyan-400 transition-colors duration-300">{item.title}</h3>
+                  <p className="text-slate-700 dark:text-slate-300 leading-relaxed mb-8 flex-1">
                     {item.desc}
                   </p>
                   
@@ -476,11 +476,11 @@ export default function ThreeDPrintingServicePage() {
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1631427962232-803d4f30c64f?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-5 mix-blend-screen pointer-events-none" />
         
         <div className="container mx-auto px-6 max-w-4xl text-center relative z-10">
-          <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-6">
+          <h2 className="text-3xl md:text-5xl font-bold text-foreground tracking-tight mb-6">
             Got a design? <span className="text-cyan-400">We’ll turn it into reality.</span>
           </h2>
           
-          <div className="flex flex-col md:flex-row items-center justify-center gap-6 text-lg text-slate-300 mb-10">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-6 text-lg text-slate-700 dark:text-slate-300 mb-10">
             <div className="flex items-center gap-2"><UploadCloud className="w-5 h-5" /> Upload STL / OBJ files</div>
             <div className="hidden md:block w-1.5 h-1.5 rounded-full bg-slate-600" />
             <div className="flex items-center gap-2"><Clock className="w-5 h-5" /> Get quote within 24 hours</div>
@@ -498,26 +498,26 @@ export default function ThreeDPrintingServicePage() {
       <section className="relative py-24 z-10">
         <div className="container mx-auto px-6 max-w-7xl">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight drop-shadow-md">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight drop-shadow-md">
               Our Creations
             </h2>
           </div>
 
           <div className="flex flex-wrap justify-center gap-8">
             {creations.map((creation, i) => (
-              <div key={i} className="rounded-3xl bg-slate-900/60 backdrop-blur-md border border-white/5 overflow-hidden shadow-xl group hover:-translate-y-2 transition-all duration-300 flex flex-col w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.35rem)]">
-                <div className="relative w-full h-56 overflow-hidden bg-slate-950">
+              <div key={i} className="rounded-3xl bg-card/60 backdrop-blur-md border border-border/50 overflow-hidden shadow-xl group hover:-translate-y-2 transition-all duration-300 flex flex-col w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.35rem)]">
+                <div className="relative w-full h-56 overflow-hidden bg-background">
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent z-10 pointer-events-none" />
                   <img src={creation.image} alt={creation.subtitle} className="w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-700" />
                 </div>
-                <div className="p-8 flex-1 flex flex-col items-center text-center relative bg-slate-900/80">
+                <div className="p-8 flex-1 flex flex-col items-center text-center relative bg-card/80">
                   <div className={`w-12 h-1 mb-5 rounded-full bg-gradient-to-r ${creation.accent}`} />
-                  <h3 className="text-2xl font-bold text-white mb-1">{creation.title}</h3>
+                  <h3 className="text-2xl font-bold text-foreground mb-1">{creation.title}</h3>
                   <h4 className="text-cyan-400 font-medium mb-4">{creation.subtitle}</h4>
-                  <p className="text-slate-300 text-sm leading-relaxed mb-6 flex-1">
+                  <p className="text-slate-700 dark:text-slate-300 text-sm leading-relaxed mb-6 flex-1">
                     {creation.desc}
                   </p>
-                  <div className="pt-4 border-t border-white/10 w-full flex justify-center">
+                  <div className="pt-4 border-t border-border w-full flex justify-center">
                     <p className="text-xs font-bold text-slate-500 uppercase tracking-widest">
                       {creation.tags}
                     </p>
@@ -530,18 +530,18 @@ export default function ThreeDPrintingServicePage() {
       </section>
 
       {/* 8. FINAL CTA */}
-      <section className="relative py-24 z-10 bg-slate-900/60 border-t border-white/5">
+      <section className="relative py-24 z-10 bg-card/60 border-t border-border/50">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-cyan-500/10 blur-[120px] pointer-events-none" />
         
         <div className="container mx-auto px-6 max-w-5xl text-center relative z-10">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight mb-12">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-foreground tracking-tight mb-12">
             From Concept to Real Functional Product — <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400">We Print It All</span>
           </h2>
           
           <div className="flex flex-wrap justify-center gap-6">
             <Link href="/get-quote" className="relative inline-flex h-16 overflow-hidden rounded-xl p-[1px] focus:outline-none group">
               <span className="absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#06b6d4_0%,#a855f7_50%,#06b6d4_100%)]" />
-              <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-xl bg-slate-950 px-10 text-lg font-bold text-white backdrop-blur-3xl transition-all group-hover:bg-slate-900 shadow-[0_0_25px_rgba(0,229,255,0.2)]">
+              <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-xl bg-background px-10 text-lg font-bold text-foreground backdrop-blur-3xl transition-all group-hover:bg-card shadow-[0_0_25px_rgba(0,229,255,0.2)]">
                 Get Instant Quote
               </span>
             </Link>

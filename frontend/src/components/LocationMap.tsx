@@ -15,7 +15,7 @@ export default function LocationMap() {
             <h2 className="text-2xl md:text-3xl font-bold text-card-foreground underline underline-offset-8 decoration-2">
               Find Us
             </h2>
-            <p className="mt-3 text-muted-foreground max-w-2xl">
+            <p className="mt-3 text-slate-700 dark:text-slate-300 max-w-2xl">
               Visit our workshop in Chembur or open the location directly in Google Maps for turn-by-turn directions.
             </p>
           </div>
@@ -42,7 +42,7 @@ export default function LocationMap() {
                   Vektor3D Systems
                 </h3>
 
-                <p className="text-muted-foreground leading-relaxed mb-6">
+                <p className="text-slate-700 dark:text-slate-300 leading-relaxed mb-6">
                   Shop No. MG15, Gala, Samrat, & 4, Shell Colony Rd, near Kamraj Hall, Sai Baba Nagar, Chembur, Mumbai, Maharashtra 400071
                 </p>
 
@@ -51,7 +51,7 @@ export default function LocationMap() {
                     href={googleMapsUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-start gap-3 rounded-xl border border-border/70 bg-muted/60 p-4 hover:bg-muted transition-colors"
+                    className="flex items-start gap-3 rounded-xl border border-border/70 bg-slate-100 dark:bg-slate-900/60 p-4 hover:bg-slate-100 dark:bg-slate-900 transition-colors"
                   >
                     <Navigation className="mt-0.5 h-5 w-5 text-primary shrink-0" />
                     <span className="text-foreground font-medium">Open in Google Maps</span>
@@ -61,7 +61,7 @@ export default function LocationMap() {
                     href={googleMapsUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-start gap-3 rounded-xl border border-border/70 bg-muted/60 p-4 hover:bg-muted transition-colors"
+                    className="flex items-start gap-3 rounded-xl border border-border/70 bg-slate-100 dark:bg-slate-900/60 p-4 hover:bg-slate-100 dark:bg-slate-900 transition-colors"
                   >
                     <MapPin className="mt-0.5 h-5 w-5 text-primary shrink-0" />
                     <span className="text-foreground font-medium underline underline-offset-4">
@@ -70,22 +70,22 @@ export default function LocationMap() {
                   </a>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="rounded-xl border border-border/70 bg-muted/40 p-4">
+                    <div className="rounded-xl border border-border/70 bg-slate-100 dark:bg-slate-900/40 p-4">
                       <div className="flex items-center gap-2 mb-2 text-foreground font-medium">
                         <Phone className="h-4 w-4 text-primary" />
                         Call
                       </div>
-                      <a href="tel:+919082020416" className="text-muted-foreground hover:text-foreground transition-colors">
+                      <a href="tel:+919082020416" className="text-slate-700 dark:text-slate-300 hover:text-foreground transition-colors">
                         +91-9082020416
                       </a>
                     </div>
 
-                   <div className="rounded-xl border border-border/70 bg-muted/40 p-4">
+                   <div className="rounded-xl border border-border/70 bg-slate-100 dark:bg-slate-900/40 p-4">
                       <div className="flex items-center gap-2 mb-2 text-foreground font-medium">
                         <MapPin className="h-4 w-4 text-primary" />
                         Address
                       </div>
-                      <a href="mailto:quotes@vektor3d.com" className="text-muted-foreground hover:text-foreground transition-colors">
+                      <a href="mailto:quotes@vektor3d.com" className="text-slate-700 dark:text-slate-300 hover:text-foreground transition-colors">
                         Shop No. 3 & 4, Opp. Kamraj Hall, Shell Colony Road,Sai Baba Nagar, Chembur, Mumbai - 400071
                       </a>
                     </div>

@@ -54,7 +54,7 @@ export default function WhyChooseUs() {
               <h2 className="text-4xl md:text-5xl font-extrabold text-foreground leading-tight">
                 Why Choose <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Vektor 3D</span>?
               </h2>
-              <p className="mt-4 text-muted-foreground max-w-xl">
+              <p className="mt-4 text-slate-700 dark:text-slate-300 max-w-xl">
                 Because precision, reliability, and deep expertise matter. We deliver exceptional 3D printing solutions backed by advanced technology and dedicated support.
               </p>
             </div>
@@ -68,7 +68,7 @@ export default function WhyChooseUs() {
                     </div>
                     <div>
                       <h3 className="text-base font-semibold text-card-foreground">{f.title}</h3>
-                      <p className="mt-2 text-sm text-muted-foreground max-w-xs">{f.description}</p>
+                      <p className="mt-2 text-sm text-slate-700 dark:text-slate-300 max-w-xs">{f.description}</p>
                     </div>
                   </div>
                 </div>
@@ -92,7 +92,7 @@ export default function WhyChooseUs() {
                   </div>
                   <div>
                     <h3 className="text-base font-semibold text-card-foreground">{f.title}</h3>
-                    <p className="mt-2 text-sm text-muted-foreground max-w-xs">{f.description}</p>
+                    <p className="mt-2 text-sm text-slate-700 dark:text-slate-300 max-w-xs">{f.description}</p>
                   </div>
                 </div>
               </div>

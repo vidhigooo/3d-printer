@@ -38,7 +38,7 @@ function DropletIcon(props: any) {
 
 export default function GetQuotePage() {
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-200 overflow-hidden relative selection:bg-cyan-500/30">
+    <div className="min-h-screen bg-background text-foreground overflow-hidden relative selection:bg-cyan-500/30">
       
       {/* Background Effects */}
       <div className="fixed inset-0 pointer-events-none z-0">
@@ -49,7 +49,7 @@ export default function GetQuotePage() {
       </div>
 
       {/* Header Section */}
-      <section className="relative pt-36 pb-12 px-6 z-10">
+      <section className="relative pt-8 pb-12 px-6 z-10">
         <div className="container mx-auto max-w-5xl text-center space-y-8">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-sm font-semibold tracking-wide uppercase shadow-[0_0_15px_rgba(0,229,255,0.1)]">
             <span className="relative flex h-2 w-2">
@@ -59,17 +59,17 @@ export default function GetQuotePage() {
             Instant Quotation System
           </div>
           
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-foreground drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]">
             Upload CAD Design & <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Get Quote</span>
           </h1>
           
-          <p className="text-lg md:text-xl text-slate-400 leading-relaxed max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-slate-700 dark:text-slate-300 leading-relaxed max-w-3xl mx-auto">
             Upload your CAD files and receive a manufacturing quotation for rapid prototyping, production parts, 3D printing, scanning, casting, and finishing services.
           </p>
 
           <div className="flex flex-wrap justify-center gap-3 pt-6">
             {services.map((service, i) => (
-              <div key={i} className="flex items-center gap-2 bg-slate-900/50 border border-white/5 rounded-full px-4 py-2 text-sm text-slate-300 backdrop-blur-md">
+              <div key={i} className="flex items-center gap-2 bg-card/50 border border-border/50 rounded-full px-4 py-2 text-sm text-slate-700 dark:text-slate-300 backdrop-blur-md">
                 <service.icon className="w-4 h-4 text-cyan-400" />
                 {service.name}
               </div>

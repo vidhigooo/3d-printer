@@ -49,10 +49,10 @@ export default function Chatbot() {
             transition={{ duration: 0.22, ease: "easeOut" }}
             className="fixed bottom-24 right-4 z-[100] w-[calc(100vw-2rem)] max-w-[21rem] overflow-hidden rounded-[1.75rem] border border-black/10 bg-[#e8ddd3] shadow-[0_24px_60px_rgba(0,0,0,0.22)] sm:right-6 sm:w-[22rem]"
           >
-            <div className="relative bg-[#0f8f79] px-5 py-4 text-white">
+            <div className="relative bg-[#0f8f79] px-5 py-4 text-foreground">
               <button
                 onClick={() => setIsOpen(false)}
-                className="absolute right-3 top-3 rounded-full p-1.5 text-white/90 transition-colors hover:bg-white/10 hover:text-white"
+                className="absolute right-3 top-3 rounded-full p-1.5 text-foreground/90 transition-colors hover:bg-slate-100 dark:bg-slate-900 hover:text-foreground"
                 aria-label="Close WhatsApp panel"
               >
                 <X className="h-5 w-5" />
@@ -60,7 +60,7 @@ export default function Chatbot() {
 
               <div className="space-y-2 pr-8">
                 <p className="text-xl font-semibold leading-tight">Hello Customer 👋</p>
-                <p className="text-sm leading-6 text-white/90">
+                <p className="text-sm leading-6 text-foreground/90">
                   We are happy to help, please choose from below option or email us at
                   <a href="mailto:sales@vektor3ds.com" className="ml-1 font-semibold underline decoration-white/50 underline-offset-2">
                     sales@vektor3ds.com.
@@ -114,7 +114,7 @@ export default function Chatbot() {
             whileTap={{ scale: 0.94 }}
             onClick={() => setIsOpen(true)}
             aria-label="Open WhatsApp chat options"
-            className="fixed bottom-6 right-6 z-[100] flex h-16 w-16 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_14px_28px_rgba(37,211,102,0.35)] transition-colors hover:bg-[#1ebe5d]"
+            className="fixed bottom-6 right-6 z-[100] flex h-16 w-16 items-center justify-center rounded-full bg-[#25D366] text-foreground shadow-[0_14px_28px_rgba(37,211,102,0.35)] transition-colors hover:bg-[#1ebe5d]"
           >
             <WhatsAppIcon className="h-8 w-8" />
           </motion.button>

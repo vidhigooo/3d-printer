@@ -13,7 +13,7 @@ export default function LCDDLPPrinters() {
   const { addToCart } = useCart();
 
   return (
-    <div className="relative min-h-screen overflow-hidden pt-36 pb-24 selection:bg-cyan-500/30">
+    <div className="relative min-h-screen overflow-hidden pt-8 pb-24 selection:bg-cyan-500/30">
       {/* Background Ambience */}
       <div className="pointer-events-none absolute -top-[30%] -left-[10%] h-[70%] w-[50%] rounded-full bg-cyan-500/15 blur-[120px]" />
       <div className="pointer-events-none absolute top-[30%] -right-[10%] h-[60%] w-[40%] rounded-full bg-blue-500/15 blur-[150px]" />
@@ -49,7 +49,7 @@ export default function LCDDLPPrinters() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mx-auto max-w-2xl text-lg text-muted-foreground"
+            className="mx-auto max-w-2xl text-lg text-slate-700 dark:text-slate-300"
           >
             Discover our extensive range of high-quality LCD and DLP 3D printers. Perfect for miniatures, dental workflows, and high-resolution prototyping.
           </motion.p>
@@ -105,7 +105,7 @@ export default function LCDDLPPrinters() {
                     }}
                     className={`mt-6 flex w-full items-center justify-center gap-2 rounded-xl py-3 text-sm font-semibold transition-all duration-300 ${
                       outOfStock
-                        ? "cursor-not-allowed bg-muted text-muted-foreground"
+                        ? "cursor-not-allowed bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-300"
                         : "bg-gradient-to-r from-primary to-secondary text-primary-foreground hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(0,229,255,0.4)]"
                     }`}
                     disabled={outOfStock}

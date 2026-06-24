@@ -124,15 +124,15 @@ function SectionHeading({ eyebrow, title, text }: { eyebrow?: string; title: str
           {eyebrow}
         </div>
       )}
-      <h2 className="text-3xl font-extrabold tracking-tight text-white md:text-4xl lg:text-5xl">{title}</h2>
-      {text && <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-slate-400 md:text-lg">{text}</p>}
+      <h2 className="text-3xl font-extrabold tracking-tight text-foreground md:text-4xl lg:text-5xl">{title}</h2>
+      {text && <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-slate-700 dark:text-slate-300 md:text-lg">{text}</p>}
     </div>
   );
 }
 
 export default function Waxjet51cPage() {
   return (
-    <div className="min-h-screen overflow-hidden bg-slate-950 text-slate-200 selection:bg-sky-500/30">
+    <div className="min-h-screen overflow-hidden bg-background text-foreground selection:bg-sky-500/30">
       <div className="fixed inset-0 pointer-events-none z-0">
         <div className="absolute left-[-10%] top-[-10%] h-[520px] w-[520px] rounded-full bg-sky-600/10 blur-[160px]" />
         <div className="absolute right-[-10%] top-[12%] h-[500px] w-[500px] rounded-full bg-blue-600/10 blur-[170px]" />
@@ -141,21 +141,21 @@ export default function Waxjet51cPage() {
       </div>
 
       <main className="relative z-10">
-        <section className="relative border-b border-white/5 px-6 pb-20 pt-36 md:pb-28 md:pt-44">
+        <section className="relative border-b border-border/50 px-6 pb-20 pt-8 md:pb-28 md:pt-16">
           <div className="container mx-auto grid max-w-7xl grid-cols-1 items-center gap-16 lg:grid-cols-2">
             <div className="space-y-8">
               <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/20 bg-cyan-500/10 px-4 py-2 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-300">
                 Wax 3D Printer
               </div>
               <div className="space-y-6">
-                <h1 className="max-w-3xl text-5xl font-extrabold tracking-tight text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.18)] md:text-6xl lg:text-7xl">
+                <h1 className="max-w-3xl text-5xl font-extrabold tracking-tight text-foreground drop-shadow-[0_0_15px_rgba(255,255,255,0.18)] md:text-6xl lg:text-7xl">
                   Flashforge WJ51C
                 </h1>
                 <h2 className="text-2xl font-semibold text-cyan-300">Desktop MJP Wax 3D Printer</h2>
-                <p className="max-w-2xl text-lg leading-relaxed text-slate-400 md:text-xl">
+                <p className="max-w-2xl text-lg leading-relaxed text-slate-700 dark:text-slate-300 md:text-xl">
                   High-Precision Wax Printing for Jewelry Manufacturing. Compact Design. Precision Performance.
                 </p>
-                <p className="max-w-2xl text-base leading-relaxed text-slate-400">
+                <p className="max-w-2xl text-base leading-relaxed text-slate-700 dark:text-slate-300">
                   The WaxJet WJ51C is a desktop wax 3D printer engineered for jewelry manufacturing and investment casting applications. Powered by advanced MultiJet Printing technology, it produces highly detailed wax patterns with exceptional accuracy and smooth surface finish.
                 </p>
               </div>
@@ -163,16 +163,16 @@ export default function Waxjet51cPage() {
               <div className="flex flex-wrap gap-4">
                 <Link
                   href="/get-quote"
-                  className="inline-flex h-14 items-center justify-center gap-2 rounded-xl border border-transparent bg-gradient-to-r from-sky-500 via-blue-500 to-cyan-500 px-8 text-base font-bold text-white shadow-[0_0_25px_rgba(14,165,233,0.2)] transition-all hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(14,165,233,0.3)]"
+                  className="inline-flex h-14 items-center justify-center gap-2 rounded-xl border border-transparent bg-gradient-to-r from-sky-500 via-blue-500 to-cyan-500 px-8 text-base font-bold text-foreground shadow-[0_0_25px_rgba(14,165,233,0.2)] transition-all hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(14,165,233,0.3)]"
                 >
                   Get Quote
                   <ArrowRight className="h-5 w-5" />
                 </Link>
               </div>
 
-              <div className="flex flex-wrap gap-3 text-sm text-slate-300">
+              <div className="flex flex-wrap gap-3 text-sm text-slate-700 dark:text-slate-300">
                 {quotePoints.map((point) => (
-                  <div key={point} className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2">
+                  <div key={point} className="flex items-center gap-2 rounded-full border border-border bg-slate-100 dark:bg-slate-900/50 px-4 py-2">
                     <CheckCircle2 className="h-4 w-4 text-sky-400" />
                     {point}
                   </div>
@@ -182,7 +182,7 @@ export default function Waxjet51cPage() {
 
             <div className="relative flex items-center justify-center">
               <div className="absolute inset-0 rounded-[32px] bg-gradient-to-tr from-sky-500/20 via-transparent to-blue-500/20 blur-[70px]" />
-              <div className="relative w-full max-w-2xl overflow-hidden rounded-[32px] border border-white/10 bg-white/5 shadow-[0_0_60px_rgba(0,229,255,0.14)] p-8">
+              <div className="relative w-full max-w-2xl overflow-hidden rounded-[32px] border border-border bg-slate-100 dark:bg-slate-900/50 shadow-[0_0_60px_rgba(0,229,255,0.14)] p-8">
                 <Image
                   src="/waxjet-51c/hero.jpeg"
                   alt="Flashforge WJ51C Wax 3D Printer"
@@ -196,7 +196,7 @@ export default function Waxjet51cPage() {
           </div>
         </section>
 
-        <section className="border-b border-white/5 px-6 py-24 bg-white/[0.02]">
+        <section className="border-b border-border/50 px-6 py-24 bg-white/[0.02]">
           <div className="container mx-auto max-w-7xl">
             <SectionHeading
               eyebrow="Applications"
@@ -205,7 +205,7 @@ export default function Waxjet51cPage() {
             />
             <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
               {applications.map((app) => (
-                <div key={app.title} className="group overflow-hidden rounded-[24px] border border-white/10 bg-slate-900/60 transition-all duration-500 hover:-translate-y-2 hover:border-sky-500/30 hover:shadow-[0_0_40px_-10px_rgba(14,165,233,0.22)]">
+                <div key={app.title} className="group overflow-hidden rounded-[24px] border border-border bg-card/60 transition-all duration-500 hover:-translate-y-2 hover:border-sky-500/30 hover:shadow-[0_0_40px_-10px_rgba(14,165,233,0.22)]">
                   <div className="relative aspect-square">
                     <Image
                       src={app.image}
@@ -215,7 +215,7 @@ export default function Waxjet51cPage() {
                     />
                   </div>
                   <div className="p-5 text-center">
-                    <h3 className="text-lg font-bold text-white">{app.title}</h3>
+                    <h3 className="text-lg font-bold text-foreground">{app.title}</h3>
                   </div>
                 </div>
               ))}
@@ -223,7 +223,7 @@ export default function Waxjet51cPage() {
           </div>
         </section>
 
-        <section className="border-b border-white/5 bg-slate-950 px-6 py-24">
+        <section className="border-b border-border/50 bg-background px-6 py-24">
           <div className="container mx-auto max-w-7xl">
             <SectionHeading
               eyebrow="Key Features"
@@ -233,29 +233,29 @@ export default function Waxjet51cPage() {
               {features.map((feature) => (
                 <article
                   key={feature.title}
-                  className="rounded-[24px] border border-white/10 bg-slate-900/60 p-6 shadow-xl transition-all duration-500 hover:-translate-y-1 hover:border-sky-500/30 hover:bg-slate-900"
+                  className="rounded-[24px] border border-border bg-card/60 p-6 shadow-xl transition-all duration-500 hover:-translate-y-1 hover:border-sky-500/30 hover:bg-card"
                 >
                   <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl border border-sky-500/20 bg-sky-500/10 text-sky-300">
                     <feature.icon className="h-6 w-6" />
                   </div>
-                  <h3 className="text-xl font-bold text-white">{feature.title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-slate-400">{feature.description}</p>
+                  <h3 className="text-xl font-bold text-foreground">{feature.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-slate-700 dark:text-slate-300">{feature.description}</p>
                 </article>
               ))}
             </div>
           </div>
         </section>
 
-        <section className="border-b border-white/5 px-6 py-24 bg-white/[0.02]">
+        <section className="border-b border-border/50 px-6 py-24 bg-white/[0.02]">
           <div className="container mx-auto max-w-7xl">
             <SectionHeading title="Explore Material Options" eyebrow="Materials" />
             <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 max-w-5xl mx-auto">
               {materials.map((material) => (
                 <article
                   key={material.name}
-                  className="group overflow-hidden rounded-[28px] border border-white/10 bg-white/[0.04] shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:border-sky-500/30 hover:shadow-[0_0_40px_-10px_rgba(14,165,233,0.22)] flex flex-col md:flex-row items-center"
+                  className="group overflow-hidden rounded-[28px] border border-border bg-white/[0.04] shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:border-sky-500/30 hover:shadow-[0_0_40px_-10px_rgba(14,165,233,0.22)] flex flex-col md:flex-row items-center"
                 >
-                  <div className="relative w-full md:w-2/5 aspect-square bg-slate-900/70 p-6 flex items-center justify-center">
+                  <div className="relative w-full md:w-2/5 aspect-square bg-card/70 p-6 flex items-center justify-center">
                     <Image
                       src={material.image}
                       width={400}
@@ -266,11 +266,11 @@ export default function Waxjet51cPage() {
                   </div>
                   <div className="space-y-4 p-7 w-full md:w-3/5">
                     <div>
-                      <h3 className="text-2xl font-bold tracking-tight text-white">{material.name}</h3>
+                      <h3 className="text-2xl font-bold tracking-tight text-foreground">{material.name}</h3>
                       <p className="mt-1 text-xs font-semibold uppercase tracking-[0.22em] text-cyan-300/90">{material.subtitle}</p>
                     </div>
 
-                    <ul className="space-y-2 text-sm text-slate-300">
+                    <ul className="space-y-2 text-sm text-slate-700 dark:text-slate-300">
                       {material.bullets.map((bullet) => (
                          <li key={bullet} className="flex items-start gap-3">
                            <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-sky-400" />
@@ -285,24 +285,24 @@ export default function Waxjet51cPage() {
           </div>
         </section>
 
-        <section className="border-b border-white/5 px-6 py-24">
+        <section className="border-b border-border/50 px-6 py-24">
           <div className="container mx-auto max-w-7xl">
             <SectionHeading
               eyebrow="Technical Specs"
               title="Compare Technical Specifications"
             />
-            <div className="mt-16 overflow-hidden rounded-[28px] border border-white/10 bg-white/[0.04] shadow-2xl">
+            <div className="mt-16 overflow-hidden rounded-[28px] border border-border bg-white/[0.04] shadow-2xl">
               <div className="grid grid-cols-1 md:grid-cols-2">
                 {specs.map(([label, value], index) => (
                   <div
                     key={label}
-                    className={`flex items-center justify-between gap-4 border-b border-white/10 px-6 py-5 ${index % 2 === 0 ? "md:border-r" : ""} ${index >= specs.length - 2 ? "border-b-0" : ""}`}
+                    className={`flex items-center justify-between gap-4 border-b border-border px-6 py-5 ${index % 2 === 0 ? "md:border-r" : ""} ${index >= specs.length - 2 ? "border-b-0" : ""}`}
                   >
                     <div className="flex items-center gap-3">
                       <ShieldCheck className="h-5 w-5 text-cyan-400" />
-                      <span className="font-semibold text-white">{label}</span>
+                      <span className="font-semibold text-foreground">{label}</span>
                     </div>
-                    <span className="max-w-[55%] text-right text-sm text-slate-400">{value}</span>
+                    <span className="max-w-[55%] text-right text-sm text-slate-700 dark:text-slate-300">{value}</span>
                   </div>
                 ))}
               </div>
@@ -312,24 +312,24 @@ export default function Waxjet51cPage() {
 
         <section className="px-6 py-24">
           <div className="container mx-auto max-w-5xl text-center">
-            <div className="rounded-[32px] border border-white/10 bg-gradient-to-br from-cyan-500/10 via-white/[0.04] to-fuchsia-500/10 px-6 py-14 shadow-2xl md:px-12 md:py-16">
-              <h2 className="text-3xl font-extrabold tracking-tight text-white md:text-4xl lg:text-5xl">
+            <div className="rounded-[32px] border border-border bg-gradient-to-br from-cyan-500/10 via-white/[0.04] to-fuchsia-500/10 px-6 py-14 shadow-2xl md:px-12 md:py-16">
+              <h2 className="text-3xl font-extrabold tracking-tight text-foreground md:text-4xl lg:text-5xl">
                 Ready to Elevate Your Jewelry Production?
               </h2>
-              <p className="mx-auto mt-5 max-w-3xl text-base leading-relaxed text-slate-400 md:text-lg">
+              <p className="mx-auto mt-5 max-w-3xl text-base leading-relaxed text-slate-700 dark:text-slate-300 md:text-lg">
                 Experience precision wax printing with the WaxJet WJ51C and bring exceptional accuracy to your casting workflow.
               </p>
 
               <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
                 <Link
                   href="/get-quote"
-                  className="inline-flex h-14 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-sky-500 via-blue-500 to-cyan-500 px-8 text-base font-bold text-white shadow-[0_0_25px_rgba(14,165,233,0.2)] transition-all hover:scale-[1.02]"
+                  className="inline-flex h-14 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-sky-500 via-blue-500 to-cyan-500 px-8 text-base font-bold text-foreground shadow-[0_0_25px_rgba(14,165,233,0.2)] transition-all hover:scale-[1.02]"
                 >
                   Request Quote
                 </Link>
                 <Link
                   href="/contact-us"
-                  className="inline-flex h-14 items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/5 px-8 text-base font-bold text-white transition-all hover:border-sky-500/30 hover:bg-white/10"
+                  className="inline-flex h-14 items-center justify-center gap-2 rounded-xl border border-border bg-slate-100 dark:bg-slate-900/50 px-8 text-base font-bold text-foreground transition-all hover:border-sky-500/30 hover:bg-slate-100 dark:bg-slate-900"
                 >
                   Contact Us
                 </Link>

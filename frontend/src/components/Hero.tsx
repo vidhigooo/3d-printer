@@ -8,7 +8,7 @@ import { ArrowRight } from "lucide-react";
 export default function Hero() {
   return (
     <section className="relative bg-background">
-      <div className="min-h-screen w-full flex items-center justify-center overflow-hidden py-24 md:py-0">
+      <div className="min-h-[60vh] md:min-h-[80vh] pt-12 md:pt-16 w-full flex items-center justify-center overflow-hidden pb-12 md:pb-0">
 
         {/* Dynamic Background */}
         <motion.div
@@ -47,7 +47,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.4 }}
-              className="text-base sm:text-lg md:text-xl text-muted-foreground mb-8 md:mb-10 text-balance font-light max-w-lg"
+              className="text-base sm:text-lg md:text-xl text-slate-800 dark:text-slate-300 mb-8 md:mb-10 text-balance font-light max-w-lg"
             >
              From prototype to production with fast turnaround and precision-built parts.
             </motion.p>
@@ -60,14 +60,14 @@ export default function Hero() {
             >
               <Link
                 href="#quote"
-                className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-gradient-to-r from-sky-500 via-blue-500 to-cyan-500 text-white font-semibold hover:scale-105 transition-all duration-300 shadow-[0_0_20px_rgba(14,165,233,0.35)] flex items-center justify-center gap-2"
+                className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-gradient-to-r from-sky-500 via-blue-500 to-cyan-500 text-foreground font-semibold hover:scale-105 transition-all duration-300 shadow-[0_0_20px_rgba(14,165,233,0.35)] flex items-center justify-center gap-2"
               >
                 Get Instant Quote
                 <ArrowRight className="w-5 h-5" />
               </Link>
               <Link
                 href="/blog"
-                className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-muted border border-border text-foreground font-medium hover:bg-accent transition-all duration-300 flex items-center justify-center backdrop-blur-md"
+                className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-slate-100 dark:bg-slate-900 border border-border text-foreground font-medium hover:bg-accent transition-all duration-300 flex items-center justify-center backdrop-blur-md"
               >
                 View Projects
               </Link>

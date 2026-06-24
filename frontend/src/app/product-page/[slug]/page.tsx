@@ -20,7 +20,7 @@ export default function ProductDetailsPage({ params }: { params: { slug: string 
   const product = allModels.find((m) => m.slug === params.slug) || allModels[0];
 
   return (
-    <div className="relative min-h-screen overflow-hidden pt-36 pb-24 selection:bg-primary/30">
+    <div className="relative min-h-screen overflow-hidden pt-8 pb-24 selection:bg-primary/30">
       {/* Background Ambience */}
       <div className="pointer-events-none absolute -top-[20%] -left-[10%] h-[70%] w-[50%] rounded-full bg-primary/10 blur-[120px]" />
       <div className="pointer-events-none absolute top-[40%] -right-[10%] h-[50%] w-[40%] rounded-full bg-secondary/10 blur-[150px]" />
@@ -28,7 +28,7 @@ export default function ProductDetailsPage({ params }: { params: { slug: string 
       <div className="container relative mx-auto px-6 max-w-7xl">
         <button
           onClick={() => router.back()}
-          className="group mb-8 inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+          className="group mb-8 inline-flex items-center gap-2 text-sm font-medium text-slate-700 dark:text-slate-300 transition-colors hover:text-primary"
         >
           <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
           Go Back
@@ -43,7 +43,7 @@ export default function ProductDetailsPage({ params }: { params: { slug: string 
             className="flex flex-col gap-6"
           >
             {/* Main Active Image */}
-            <div className="glass relative flex p-12 aspect-[4/3] w-full items-center justify-center overflow-hidden rounded-[32px] border border-white/10 bg-gradient-to-b from-white/5 to-transparent shadow-2xl">
+            <div className="glass relative flex p-12 aspect-[4/3] w-full items-center justify-center overflow-hidden rounded-[32px] border border-border bg-gradient-to-b from-white/5 to-transparent shadow-2xl">
               <div className="absolute inset-0 bg-black/20" />
               <div className="relative z-10 h-full w-full">
                 <Image src={product.image} alt={product.name} fill className="object-contain drop-shadow-2xl" />
@@ -75,16 +75,16 @@ export default function ProductDetailsPage({ params }: { params: { slug: string 
                 {formatPrice(product.price)}
               </span>
               {product.originalPrice && (
-                <span className="text-2xl font-medium text-muted-foreground line-through decoration-muted-foreground/50">
+                <span className="text-2xl font-medium text-slate-700 dark:text-slate-300 line-through decoration-muted-foreground/50">
                   {formatPrice(product.originalPrice)}
                 </span>
               )}
             </div>
 
-            <div className="mb-10 space-y-8 rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-md">
+            <div className="mb-10 space-y-8 rounded-3xl border border-border bg-slate-100 dark:bg-slate-900/50 p-8 backdrop-blur-md">
               {/* Variations / Attributes */}
               <div>
-                <h4 className="mb-3 text-sm font-semibold text-foreground">Color: <span className="font-normal text-muted-foreground">Black</span></h4>
+                <h4 className="mb-3 text-sm font-semibold text-foreground">Color: <span className="font-normal text-slate-700 dark:text-slate-300">Black</span></h4>
                 <div className="flex gap-4">
                   <button className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-primary bg-black ring-4 ring-primary/20 transition-all hover:scale-110">
                     <div className="h-full w-full rounded-full border-2 border-background" />
@@ -98,17 +98,17 @@ export default function ProductDetailsPage({ params }: { params: { slug: string 
               <div className="flex flex-col gap-6 sm:flex-row sm:items-end">
                 <div>
                   <h4 className="mb-3 text-sm font-semibold text-foreground">Quantity</h4>
-                  <div className="inline-flex h-14 items-center rounded-2xl border border-white/10 bg-white/5">
+                  <div className="inline-flex h-14 items-center rounded-2xl border border-border bg-slate-100 dark:bg-slate-900/50">
                     <button
                       onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                      className="flex h-full w-14 items-center justify-center text-muted-foreground transition-colors hover:text-white"
+                      className="flex h-full w-14 items-center justify-center text-slate-700 dark:text-slate-300 transition-colors hover:text-foreground"
                     >
                       <Minus className="h-5 w-5" />
                     </button>
                     <span className="w-12 text-center text-lg font-semibold">{quantity}</span>
                     <button
                       onClick={() => setQuantity(quantity + 1)}
-                      className="flex h-full w-14 items-center justify-center text-muted-foreground transition-colors hover:text-white"
+                      className="flex h-full w-14 items-center justify-center text-slate-700 dark:text-slate-300 transition-colors hover:text-foreground"
                     >
                       <Plus className="h-5 w-5" />
                     </button>
@@ -127,21 +127,21 @@ export default function ProductDetailsPage({ params }: { params: { slug: string 
 
             {/* Quick Benefits */}
             <div className="grid grid-cols-2 gap-4">
-              <div className="flex items-center gap-3 rounded-xl border border-white/5 bg-white/5 p-4 text-sm font-medium text-muted-foreground">
+              <div className="flex items-center gap-3 rounded-xl border border-border/50 bg-slate-100 dark:bg-slate-900/50 p-4 text-sm font-medium text-slate-700 dark:text-slate-300">
                 <ShieldCheck className="h-5 w-5 text-primary" />
                 1 Year Warranty
               </div>
-              <div className="flex items-center gap-3 rounded-xl border border-white/5 bg-white/5 p-4 text-sm font-medium text-muted-foreground">
+              <div className="flex items-center gap-3 rounded-xl border border-border/50 bg-slate-100 dark:bg-slate-900/50 p-4 text-sm font-medium text-slate-700 dark:text-slate-300">
                 <Zap className="h-5 w-5 text-primary" />
                 Fast Shipping
               </div>
             </div>
             {/* Product Details Section Moved Here */}
-            <div className="mt-12 rounded-[32px] border border-white/10 bg-white/5 p-8 backdrop-blur-md md:p-10">
+            <div className="mt-12 rounded-[32px] border border-border bg-slate-100 dark:bg-slate-900/50 p-8 backdrop-blur-md md:p-10">
               <h2 className="mb-6 text-xl font-bold tracking-tight text-foreground sm:text-2xl">
                 PRODUCT DETAILS
               </h2>
-              <div className="prose prose-invert max-w-none text-muted-foreground prose-h3:text-foreground prose-h4:text-foreground">
+              <div className="prose prose-invert max-w-none text-slate-700 dark:text-slate-300 prose-h3:text-foreground prose-h4:text-foreground">
                 <p className="mb-6 text-base leading-relaxed">
                   {product.description || "Experience hassle-free 3D printing with the Bambu Lab P1S 3D Printer. Setup is a breeze, taking just 15 minutes, and its well-polished hardware and software ensure smooth operation. The enclosed body supports high-temperature filament printing, while the AMS enables stunning 16-color prints. With up to 20,000 mm/s² acceleration, enjoy rapid printing without sacrificing quality. Plus, monitor your prints remotely with the built-in camera and enjoy seamless multi-color capability with the AMS combo."}
                 </p>

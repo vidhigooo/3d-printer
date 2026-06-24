@@ -67,7 +67,7 @@ export default function BlogsAndUpdates() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="group glass flex flex-col rounded-[20px] overflow-hidden border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_40px_-10px_rgba(0,229,255,0.15)] max-w-[380px] mx-auto w-full"
+              className="group glass flex flex-col rounded-[20px] overflow-hidden border border-border/50 bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_40px_-10px_rgba(0,229,255,0.15)] max-w-[380px] mx-auto w-full"
             >
               <Link href={`/blog/${post.slug}`} className="flex flex-col h-full">
                 <div className="relative aspect-[4/3] w-full overflow-hidden bg-black/20">
@@ -78,7 +78,7 @@ export default function BlogsAndUpdates() {
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute top-4 left-4 z-10">
-                    <span className="inline-block rounded-full bg-background/90 backdrop-blur-md px-3 py-1 text-xs font-semibold text-foreground border border-white/10 shadow-lg">
+                    <span className="inline-block rounded-full bg-background/90 backdrop-blur-md px-3 py-1 text-xs font-semibold text-foreground border border-border shadow-lg">
                       {post.date}
                     </span>
                   </div>
@@ -89,11 +89,11 @@ export default function BlogsAndUpdates() {
                     {post.title}
                   </h3>
                   
-                  <div className="mt-auto pt-6 flex items-center justify-between border-t border-white/5">
-                    <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors">
+                  <div className="mt-auto pt-6 flex items-center justify-between border-t border-border/50">
+                    <span className="text-sm font-medium text-slate-700 dark:text-slate-300 group-hover:text-foreground transition-colors">
                       Read Article
                     </span>
-                    <div className="h-8 w-8 rounded-full bg-white/5 flex items-center justify-center text-foreground group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                    <div className="h-8 w-8 rounded-full bg-slate-100 dark:bg-slate-900/50 flex items-center justify-center text-foreground group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
                       <ArrowRight className="w-4 h-4" />
                     </div>
                   </div>

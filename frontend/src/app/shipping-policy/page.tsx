@@ -9,14 +9,14 @@ export default function ShippingPolicy() {
   return (
     <main className="min-h-screen pt-32 pb-24 px-6 bg-white dark:bg-black transition-colors duration-300">
       <div className="container mx-auto max-w-4xl">
-        <h1 className="text-4xl md:text-5xl font-extrabold text-zinc-900 dark:text-white mb-8 tracking-tight">
+        <h1 className="text-4xl md:text-5xl font-extrabold text-zinc-900 dark:text-foreground mb-8 tracking-tight">
           Shipping <span className="text-blue-600 dark:text-blue-500">Policy</span>
         </h1>
         
         <div className="space-y-8 text-zinc-700 dark:text-zinc-300 leading-relaxed mt-12">
           
           <section>
-            <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mb-4">DOMESTIC SHIPPING POLICY</h2>
+            <h2 className="text-2xl font-bold text-zinc-900 dark:text-foreground mb-4">DOMESTIC SHIPPING POLICY</h2>
             <ul className="list-disc list-outside ml-6 mt-4 space-y-3">
               <li>All orders are processed within 2 – 3 business days. Orders are not shipped or delivered on weekends or holidays.</li>
               <li>If we are expecting a high volume of orders, shipments may be delayed by 7-10 business days. Please allow additional days for transit and delivery. If there is any significant delay in shipment of your order, we will contact you via email or telephone</li>
@@ -27,7 +27,7 @@ export default function ShippingPolicy() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mb-4">SHIPPING AND DELIVERY (RETURNS)</h2>
+            <h2 className="text-2xl font-bold text-zinc-900 dark:text-foreground mb-4">SHIPPING AND DELIVERY (RETURNS)</h2>
             <p>To return your product, you should file a return case with us first by sending us an email to infous@Vektor3D.com and include the following information in your email,</p>
             <ol className="list-decimal list-outside ml-6 mt-4 space-y-2">
               <li>Order/ Invoice No</li>

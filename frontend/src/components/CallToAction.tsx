@@ -39,7 +39,7 @@ export default function CallToAction() {
           <h2 className="text-4xl md:text-6xl font-bold text-foreground mb-6 tracking-tight">
             Ready to <span className="text-primary">Manufacture?</span>
           </h2>
-          <p className="text-xl text-muted-foreground mb-10 text-balance font-light">
+          <p className="text-xl text-slate-700 dark:text-slate-300 mb-10 text-balance font-light">
             Upload your CAD file today for an instant quote, automated DFM analysis, and rapid turnaround times.
           </p>
 
@@ -53,14 +53,14 @@ export default function CallToAction() {
             </Link>
             <Link 
               href="/contact-us"
-              className="w-full sm:w-auto px-8 py-4 rounded-full bg-muted border border-border text-foreground font-medium hover:bg-muted/80 transition-colors duration-300 backdrop-blur-md flex items-center justify-center gap-2 text-lg"
+              className="w-full sm:w-auto px-8 py-4 rounded-full bg-slate-100 dark:bg-slate-900 border border-border text-foreground font-medium hover:bg-slate-100 dark:bg-slate-900/80 transition-colors duration-300 backdrop-blur-md flex items-center justify-center gap-2 text-lg"
             >
               Contact Sales
               <ArrowRight className="w-5 h-5" />
             </Link>
           </div>
 
-          <p className="mt-8 text-sm text-muted-foreground">
+          <p className="mt-8 text-sm text-slate-700 dark:text-slate-300">
             Supports STL, STEP, IGES, and OBJ files up to 100MB.
           </p>
         </motion.div>
