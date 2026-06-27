@@ -121,6 +121,33 @@ export default function QuoteForm() {
         throw new Error(data.message || data.error || "Failed to submit quote request.");
       }
 
+      const shareText = `*New Quote Request: ${data.quoteId}*\n
+*Customer Information:*
+Name: ${formDataObj.fullName}
+Company: ${formDataObj.companyName || 'N/A'}
+Email: ${formDataObj.email}
+Phone: ${formDataObj.phone || 'N/A'}
+
+*Project Information:*
+Project Name: ${formDataObj.projectName}
+Process: ${formDataObj.process}
+Material: ${formDataObj.material || 'N/A'}
+Quantity: ${formDataObj.quantity}
+Expected Prod. Qty: ${formDataObj.expectedQuantity || 'N/A'}
+Deadline: ${formDataObj.deadline || 'N/A'}
+Budget Range: ${formDataObj.budgetRange || 'N/A'}
+Message: ${formDataObj.message || 'N/A'}
+
+*File Link:*
+${fileUrl || 'No file uploaded'}`;
+
+      const whatsappUrl = `https://wa.me/919082020416?text=${encodeURIComponent(shareText)}`;
+      const mailtoUrl = `mailto:vektor3dsocial@gmail.com?subject=${encodeURIComponent(`New Quote Request: ${data.quoteId}`)}&body=${encodeURIComponent(shareText)}`;
+
+      // Auto-open WhatsApp in a new tab and Mailto in the current tab
+      window.open(whatsappUrl, '_blank');
+      window.location.href = mailtoUrl;
+
       setSubmittedData({ formData: formDataObj, fileUrl });
       setSuccessQuoteId(data.quoteId);
     } catch (err: any) {
@@ -131,33 +158,7 @@ export default function QuoteForm() {
     }
   };
 
-  if (successQuoteId && submittedData) {
-    const { formData, fileUrl } = submittedData;
-    
-    // Generate Share Text
-    const shareText = `*New Quote Request: ${successQuoteId}*\n
-*Customer Information:*
-Name: ${formData.fullName}
-Company: ${formData.companyName || 'N/A'}
-Email: ${formData.email}
-Phone: ${formData.phone || 'N/A'}
-
-*Project Information:*
-Project Name: ${formData.projectName}
-Process: ${formData.process}
-Material: ${formData.material || 'N/A'}
-Quantity: ${formData.quantity}
-Expected Prod. Qty: ${formData.expectedQuantity || 'N/A'}
-Deadline: ${formData.deadline || 'N/A'}
-Budget Range: ${formData.budgetRange || 'N/A'}
-Message: ${formData.message || 'N/A'}
-
-*File Link:*
-${fileUrl || 'No file uploaded'}`;
-
-    const whatsappUrl = `https://wa.me/919082020416?text=${encodeURIComponent(shareText)}`;
-    const mailtoUrl = `mailto:vektor3dsocial@gmail.com?subject=${encodeURIComponent(`New Quote Request: ${successQuoteId}`)}&body=${encodeURIComponent(shareText)}`;
-
+  if (successQuoteId) {
     return (
       <div className="bg-card/60 backdrop-blur-xl border border-cyan-500/30 rounded-3xl p-10 text-center shadow-[0_0_50px_rgba(0,229,255,0.1)]">
         <div className="w-20 h-20 bg-cyan-500/10 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -167,17 +168,13 @@ ${fileUrl || 'No file uploaded'}`;
         <p className="text-slate-700 dark:text-slate-300 text-lg mb-6">
           Your quote reference ID is <span className="font-mono text-cyan-300 font-bold">{successQuoteId}</span>.
         </p>
-        
         <div className="bg-background/50 rounded-xl p-6 inline-block border border-border/50 max-w-lg mx-auto w-full space-y-4">
-          <p className="text-sm font-medium text-slate-300 mb-4">Please share your request details with us via WhatsApp or Email to proceed faster:</p>
-          
-          <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-full py-3 px-4 bg-green-500 hover:bg-green-600 text-white font-bold rounded-xl transition-colors">
-            <MessageCircle className="w-5 h-5 mr-2" /> Share via WhatsApp
-          </a>
-          
-          <a href={mailtoUrl} className="flex items-center justify-center w-full py-3 px-4 bg-slate-700 hover:bg-slate-600 text-white font-bold rounded-xl transition-colors">
-            <Mail className="w-5 h-5 mr-2" /> Share via Gmail
-          </a>
+          <p className="text-sm font-medium text-slate-300">
+            We are opening WhatsApp and your Email client automatically...
+          </p>
+          <p className="text-xs text-slate-500">
+            (If nothing happened, your browser may have blocked the popup. Please ensure popups are allowed.)
+          </p>
         </div>
       </div>
     );
