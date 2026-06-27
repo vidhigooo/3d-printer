@@ -4,6 +4,9 @@
 
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
+import { Resend } from "resend";
+
+const resend = new Resend(process.env.RESEND_API_KEY || "re_GnWvyzVf_HGBgVcfGkKQVVtPTXdHrNbYG");
 
 const getSupabase = () => {
   if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) {
@@ -67,6 +70,37 @@ export async function POST(request: NextRequest) {
     if (dbError) {
       console.error("Supabase error:", dbError);
       return NextResponse.json({ success: false, message: "Failed to save quote" }, { status: 500 });
+    }
+
+    try {
+      await resend.emails.send({
+        from: "Vektor3D Quotes <onboarding@resend.dev>",
+        to: "vektor3dsocial@gmail.com",
+        subject: `New Quote Request: ${quoteId}`,
+        html: `
+          <h2>New Quote Request: ${quoteId}</h2>
+          <h3>Customer Information:</h3>
+          <p><strong>Name:</strong> ${fullName}</p>
+          <p><strong>Company:</strong> ${companyName || 'N/A'}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Phone:</strong> ${phone || 'N/A'}</p>
+
+          <h3>Project Information:</h3>
+          <p><strong>Project Name:</strong> ${projectName}</p>
+          <p><strong>Process:</strong> ${processName}</p>
+          <p><strong>Material:</strong> ${material || 'N/A'}</p>
+          <p><strong>Quantity:</strong> ${quantity}</p>
+          <p><strong>Expected Prod. Qty:</strong> ${expectedQuantity || 'N/A'}</p>
+          <p><strong>Deadline:</strong> ${deadline || 'N/A'}</p>
+          <p><strong>Budget Range:</strong> ${budgetRange || 'N/A'}</p>
+          <p><strong>Message:</strong> ${message || 'N/A'}</p>
+
+          <h3>File Link:</h3>
+          <p>${uploadedFileUrl ? `<a href="${uploadedFileUrl}">${uploadedFileUrl}</a>` : 'No file uploaded'}</p>
+        `,
+      });
+    } catch (emailError) {
+      console.error("Failed to send email:", emailError);
     }
 
     return NextResponse.json({ success: true, quoteId });

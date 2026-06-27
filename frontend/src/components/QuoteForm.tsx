@@ -142,11 +142,9 @@ Message: ${formDataObj.message || 'N/A'}
 ${fileUrl || 'No file uploaded'}`;
 
       const whatsappUrl = `https://wa.me/919082020416?text=${encodeURIComponent(shareText)}`;
-      const mailtoUrl = `mailto:vektor3dsocial@gmail.com?subject=${encodeURIComponent(`New Quote Request: ${data.quoteId}`)}&body=${encodeURIComponent(shareText)}`;
 
-      // Auto-open WhatsApp in a new tab and Mailto in the current tab
+      // Auto-open WhatsApp in a new tab
       window.open(whatsappUrl, '_blank');
-      window.location.href = mailtoUrl;
 
       setSubmittedData({ formData: formDataObj, fileUrl });
       setSuccessQuoteId(data.quoteId);
@@ -170,10 +168,10 @@ ${fileUrl || 'No file uploaded'}`;
         </p>
         <div className="bg-background/50 rounded-xl p-6 inline-block border border-border/50 max-w-lg mx-auto w-full space-y-4">
           <p className="text-sm font-medium text-slate-300">
-            We are opening WhatsApp and your Email client automatically...
+            We've sent the details directly to our team via Email, and we are opening WhatsApp automatically to start your consultation!
           </p>
           <p className="text-xs text-slate-500">
-            (If nothing happened, your browser may have blocked the popup. Please ensure popups are allowed.)
+            (If WhatsApp didn't open, your browser may have blocked the popup. Please ensure popups are allowed.)
           </p>
         </div>
       </div>
