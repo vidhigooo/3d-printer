@@ -6,15 +6,15 @@ import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY || "re_GnWvyzVf_HGBgVcfGkKQVVtPTXdHrNbYG");
+const resend = new Resend((process.env.RESEND_API_KEY || "re_GnWvyzVf_HGBgVcfGkKQVVtPTXdHrNbYG").trim());
 
 const getSupabase = () => {
   if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) {
     throw new Error("Missing Supabase credentials in environment variables.");
   }
   return createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL,
-    process.env.SUPABASE_SERVICE_ROLE_KEY
+    process.env.NEXT_PUBLIC_SUPABASE_URL.trim(),
+    process.env.SUPABASE_SERVICE_ROLE_KEY.trim()
   );
 };
 

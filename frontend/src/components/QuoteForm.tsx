@@ -30,8 +30,8 @@ const MATERIALS = [
   "Polyurethane (Vacuum Casting)",
 ];
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "";
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "";
+const supabaseUrl = (process.env.NEXT_PUBLIC_SUPABASE_URL || "").trim();
+const supabaseAnonKey = (process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "").trim();
 
 let supabase: ReturnType<typeof createClient> | null = null;
 if (supabaseUrl && supabaseAnonKey) {
