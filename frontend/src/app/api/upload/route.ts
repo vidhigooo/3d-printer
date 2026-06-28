@@ -4,9 +4,15 @@
 
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
-import { Resend } from "resend";
+import nodemailer from "nodemailer";
 
-const resend = new Resend((process.env.RESEND_API_KEY || "re_GnWvyzVf_HGBgVcfGkKQVVtPTXdHrNbYG").trim());
+const transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: process.env.GMAIL_USER || "vidhigond87@gmail.com",
+    pass: process.env.GMAIL_APP_PASSWORD || "vryazqcjdzsmowuo",
+  },
+});
 
 const getSupabase = () => {
   if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) {
@@ -73,8 +79,8 @@ export async function POST(request: NextRequest) {
     }
 
     try {
-      await resend.emails.send({
-        from: "Vektor3D Quotes <onboarding@resend.dev>",
+      const mailOptions: any = {
+        from: '"Vektor3D Quotes" <vidhigond87@gmail.com>',
         to: "vektor3dsocial@gmail.com",
         subject: `New Quote Request: ${quoteId}`,
         html: `
@@ -98,9 +104,21 @@ export async function POST(request: NextRequest) {
           <h3>File Link:</h3>
           <p>${uploadedFileUrl ? `<a href="${uploadedFileUrl}">${uploadedFileUrl}</a>` : 'No file uploaded'}</p>
         `,
-      });
+      };
+
+      if (uploadedFileUrl) {
+        mailOptions.attachments = [
+          {
+            filename: uploadedFileName || "uploaded_cad_file",
+            path: uploadedFileUrl
+          }
+        ];
+      }
+
+      const info = await transporter.sendMail(mailOptions);
+      console.log("Email sent successfully:", info.messageId);
     } catch (emailError) {
-      console.error("Failed to send email:", emailError);
+      console.error("Failed to execute email send:", emailError);
     }
 
     return NextResponse.json({ success: true, quoteId });
